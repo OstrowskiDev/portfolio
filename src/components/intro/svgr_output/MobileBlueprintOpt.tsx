@@ -1,5 +1,4 @@
 // @ts-nocheck
-import * as React from 'react'
 import type { SVGProps } from 'react'
 
 // Rozszerzenie typów dla niestandardowych właściwości SVG z Inkscape
