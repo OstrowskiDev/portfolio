@@ -34,4 +34,7 @@ yarn-error.log*
 next-env.d.ts
 
 # Personal notes directory
-__notes__/
+__notes__
+
+# SVG files optimization folder
+__svg_prep__

@@ -1,9 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import SvgDesktopBlueprint from '@/components/intro/svgr_output/DesktopBlueprint'
 import SvgMobileBlueprintOpt from '@/components/intro/svgr_output/MobileBlueprintOpt'
-import SvgDesktopWebFlatSmallSvgo from '@/components/intro/svgr_output/DesktopWebFlatSmall'
 import SvgDesktopWebFlatSvgo from '@/components/intro/svgr_output/DesktopWebFlat'
 
 export default function Intro() {
