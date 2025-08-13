@@ -9,8 +9,16 @@
         "name": "preset-default",
         "params": {
           "overrides": {
-            "removeViewBox": false
+            "collapseGroups": false
           }
+        }
+      },
+      {
+        "name": "removeAttrs",
+        "params": {
+          "attrs": [
+            "aria-label"
+          ]
         }
       }
     ]
