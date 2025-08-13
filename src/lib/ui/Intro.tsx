@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import SvgMobileBlueprintOpt from '@/components/intro/svgr_output/MobileBlueprintOpt'
 import SvgDesktopWebFlatSvgo from '@/components/intro/svgr_output/DesktopWebFlat'
+import SvgArchBlueprintWebReady from '@/components/intro/svgr_output/ArchBlueprintWebReady'
 
 export default function Intro() {
   const [phase, setPhase] = useState(-1)
@@ -20,11 +21,18 @@ export default function Intro() {
 
   return (
     <>
-      <div className="intro-section h-[100vh] w-full bg-primary-500">
+      <div className="intro-section h-[100vh] w-full bg-primary-700 overflow-hidden">
+        <SvgArchBlueprintWebReady
+          axesColor="#fff"
+          structureColor="#fff"
+          viewLinesColor="#fff"
+        />
+      </div>
+      <div className="intro-section h-[100vh] w-full bg-primary-700">
         <SvgDesktopWebFlatSvgo />
       </div>
 
-      <div className="intro-section h-[100vh] w-full bg-primary-500">
+      <div className="intro-section h-[100vh] w-full bg-primary-700">
         <SvgMobileBlueprintOpt />
       </div>
     </>
