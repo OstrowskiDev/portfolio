@@ -21,6 +21,73 @@ export default function SvgArchitectureColor({
       {...props}
     >
       <defs>
+        {/* 2) Trzy maski = trzy fazy (0–2s, 2–4s, 4–6s) */}
+        <mask
+          id="mask-axes"
+          maskUnits="objectBoundingBox"
+          maskContentUnits="objectBoundingBox"
+        >
+          <rect
+            x="0"
+            y="0"
+            width="1"
+            height="1"
+            fill="black"
+          />
+          <rect
+            x="-1"
+            y="0"
+            width="1"
+            height="1"
+            fill="white"
+            className="origin-left [transform-box:fill-box] animate-mask-move motion-reduce:animate-none"
+          />
+        </mask>
+
+        <mask
+          id="mask-structure"
+          maskUnits="objectBoundingBox"
+          maskContentUnits="objectBoundingBox"
+        >
+          <rect
+            x="0"
+            y="0"
+            width="1"
+            height="1"
+            fill="black"
+          />
+          <rect
+            x="-1"
+            y="0"
+            width="1"
+            height="1"
+            fill="white"
+            className="origin-left [transform-box:fill-box] animate-mask-move [animation-delay:2s] motion-reduce:animate-none"
+          />
+        </mask>
+
+        <mask
+          id="mask-views"
+          maskUnits="objectBoundingBox"
+          maskContentUnits="objectBoundingBox"
+        >
+          <rect
+            x="0"
+            y="0"
+            width="1"
+            height="1"
+            fill="black"
+          />
+          <rect
+            x="-1"
+            y="0"
+            width="1"
+            height="1"
+            fill="white"
+            className="origin-left [transform-box:fill-box] animate-mask-move [animation-delay:4s] motion-reduce:animate-none"
+          />
+        </mask>
+
         <clipPath id="a" clipPathUnits="userSpaceOnUse">
           <path
             d="M-.353-.353h460.728v381H-.353z"
@@ -2260,7 +2327,7 @@ export default function SvgArchitectureColor({
           />
         </clipPath>
       </defs>
-      <g>
+      <g mask="url(#mask-structure)">
         <path
           d="M162.795 201.498h-40.5v-1.5h40.5z"
           style={{
@@ -4624,7 +4691,7 @@ export default function SvgArchitectureColor({
           transform="scale(3.77953)"
         />
       </g>
-      <g>
+      <g mask="url(#mask-views)">
         <path
           d="M187.845 237.498h.4v18h-.4z"
           style={{
@@ -6621,7 +6688,7 @@ export default function SvgArchitectureColor({
           transform="translate(550.395 988.994)scale(1.33334)"
         />
       </g>
-      <g>
+      <g mask="url(#mask-axes)">
         <path
           d="M421.488 53.578a7.416 7.416 0 1 0-14.832 0 7.416 7.416 0 0 0 14.832 0"
           clipPath="url(#fp)"
