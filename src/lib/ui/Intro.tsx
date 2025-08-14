@@ -10,12 +10,15 @@ import gsap from 'gsap'
 import SvgMobileBlueprintOpt from '@/components/intro/svgr_output/MobileBlueprintOpt'
 import SvgDesktopWebFlatSvgo from '@/components/intro/svgr_output/DesktopWebFlat'
 import SvgArchBlueprintWebReady from '@/components/intro/svgr_output/ArchBlueprintWebReady'
+import PlusSign from '@/components/icons/PlusSign'
 
 export default function Intro() {
   const textRef = useRef<HTMLHeadingElement | null>(null)
   const axesRef = useRef<SVGGElement | null>(null)
   const structRef = useRef<SVGGElement | null>(null)
   const viewsRef = useRef<SVGGElement | null>(null)
+
+  const svgRef = useRef<SVGGElement | null>(null)
 
   useEffect(() => {
     if (
@@ -26,13 +29,57 @@ export default function Intro() {
     )
       return
 
+    if (!svgRef.current) return
+
+    const axesPaths =
+      axesRef.current.querySelectorAll<SVGPathElement>(
+        'path',
+      )
+    const structPaths =
+      structRef.current.querySelectorAll<SVGPathElement>(
+        'path',
+      )
+    const viewPaths =
+      viewsRef.current.querySelectorAll<SVGPathElement>(
+        'path',
+      )
+
+    // animacja testowa krzyża
+
+    // Pobieramy oba pathy
+    const paths =
+      svgRef.current.querySelectorAll<SVGPathElement>(
+        'path',
+      )
+
+    // Najpierw ustawiamy ich stan początkowy
+    paths.forEach((path) => {
+      const length = path.getTotalLength()
+      gsap.set(path, {
+        strokeDasharray: length, // "długość" kreski
+        strokeDashoffset: length, // cały przesunięty => niewidoczny
+        opacity: 1,
+      })
+    })
+
+    const tlCross = gsap.timeline()
+
+    // Tworzymy animację rysowania
+    tlCross.to(paths, {
+      strokeDashoffset: 0, // przesuwamy do 0 => cała kreska widoczna
+      duration: 1,
+      stagger: 0.3, // opóźnienie między kreskami
+      ease: 'power1.inOut',
+    })
+
+    // end of PlusSVG test
+
     // opacity stanu początkowego jest ustawiane na elementach w .tsx
     gsap.set(textRef.current, {
       y: 200,
     })
 
     const tlStory = gsap.timeline()
-    const tlSvg = gsap.timeline()
 
     tlStory.to(textRef.current, {
       opacity: 1,
@@ -49,36 +96,52 @@ export default function Intro() {
       ease: 'power3.in',
     })
 
-    tlSvg.to(axesRef.current, {
-      opacity: 1,
-      duration: 1,
-      delay: 0.5,
+    const tlSvg = gsap.timeline()
+
+    structPaths.forEach((path) => {
+      const length = path.getTotalLength() // długość konkretnej ścieżki
+      console.log(
+        '🚀 ~ structPaths.forEach ~ length:',
+        length,
+      )
+      gsap.from(path, {
+        strokeDasharray: length,
+        strokeDashoffset: length,
+        duration: 1,
+        ease: 'power1.inOut',
+      })
     })
 
-    tlSvg.to(structRef.current, {
-      opacity: 1,
-      duration: 1,
-      delay: 1,
-    })
+    // tlSvg.to(axesRef.current, {
+    //   opacity: 1,
+    //   duration: 1,
+    //   delay: 0.5,
+    // })
 
-    tlSvg.to(viewsRef.current, {
-      opacity: 1,
-      duration: 1,
-      delay: 1,
-    })
+    // tlSvg.to(structRef.current, {
+    //   opacity: 1,
+    //   duration: 1,
+    //   delay: 1,
+    // })
 
-    tlSvg.to(
-      [
-        axesRef.current,
-        structRef.current,
-        viewsRef.current,
-      ],
-      {
-        opacity: 0,
-        duration: 2,
-        delay: 1,
-      },
-    )
+    // tlSvg.to(viewsRef.current, {
+    //   opacity: 1,
+    //   duration: 1,
+    //   delay: 1,
+    // })
+
+    // tlSvg.to(
+    //   [
+    //     axesRef.current,
+    //     structRef.current,
+    //     viewsRef.current,
+    //   ],
+    //   {
+    //     opacity: 0,
+    //     duration: 2,
+    //     delay: 1,
+    //   },
+    // )
   }, [])
 
   return (
@@ -91,6 +154,7 @@ export default function Intro() {
           I spent over a decade shaping physical spaces - as
           an architect.
         </h2>
+        <PlusSign svgRef={svgRef} />
         <SvgArchBlueprintWebReady
           axesRef={axesRef}
           structRef={structRef}
