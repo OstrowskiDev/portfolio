@@ -1,11 +1,6 @@
 'use client'
 
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import SvgMobileBlueprintOpt from '@/components/intro/svgr_output/MobileBlueprintOpt'
 import SvgDesktopWebFlatSvgo from '@/components/intro/svgr_output/DesktopWebFlat'
@@ -35,10 +30,7 @@ export default function Intro() {
       axesRef.current.querySelectorAll<SVGPathElement>(
         'path',
       )
-    const structPaths =
-      structRef.current.querySelectorAll<SVGPathElement>(
-        'path',
-      )
+
     const viewPaths =
       viewsRef.current.querySelectorAll<SVGPathElement>(
         'path',
@@ -46,7 +38,6 @@ export default function Intro() {
 
     // animacja testowa krzyża
 
-    // Pobieramy oba pathy
     const paths =
       svgRef.current.querySelectorAll<SVGPathElement>(
         'path',
@@ -68,7 +59,6 @@ export default function Intro() {
     tlCross.to(paths, {
       strokeDashoffset: 0, // przesuwamy do 0 => cała kreska widoczna
       duration: 1,
-      stagger: 0.3, // opóźnienie między kreskami
       ease: 'power1.inOut',
     })
 
@@ -98,18 +88,32 @@ export default function Intro() {
 
     const tlSvg = gsap.timeline()
 
-    structPaths.forEach((path) => {
-      const length = path.getTotalLength() // długość konkretnej ścieżki
-      console.log(
-        '🚀 ~ structPaths.forEach ~ length:',
-        length,
+    //construction drawing lines animation:
+
+    const structPaths =
+      structRef.current.querySelectorAll<SVGPathElement>(
+        'path',
       )
-      gsap.from(path, {
-        strokeDasharray: length,
-        strokeDashoffset: length,
-        duration: 1,
-        ease: 'power1.inOut',
+
+    console.log(structPaths)
+
+    structPaths.forEach((path) => {
+      const length = path.getTotalLength()
+      gsap.set(path, {
+        strokeDasharray: length, // "długość" kreski
+        strokeDashoffset: length, // cały przesunięty => niewidoczny
       })
+    })
+
+    gsap.set(structPaths, { fillOpacity: 0 })
+
+    const tlConstruction = gsap.timeline()
+
+    // Tworzymy animację rysowania
+    tlConstruction.to(structPaths, {
+      strokeDashoffset: 0, // przesuwamy do 0 => cała kreska widoczna
+      duration: 52,
+      ease: 'power1.inOut',
     })
 
     // tlSvg.to(axesRef.current, {

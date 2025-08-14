@@ -2333,7 +2333,7 @@ export default function SvgArchitectureColor({
           />
         </clipPath>
       </defs>
-      <g ref={structRef} className="struct opacity-0">
+      <g ref={structRef} className="struct opacity-1">
         <path
           d="M162.795 201.498h-40.5v-1.5h40.5z"
           style={{
