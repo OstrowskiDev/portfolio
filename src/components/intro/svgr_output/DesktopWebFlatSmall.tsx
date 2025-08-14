@@ -1,15 +1,6 @@
 // @ts-nocheck
 import type { SVGProps } from 'react'
 
-// Rozszerzenie typów dla niestandardowych właściwości SVG z Inkscape
-declare module 'react' {
-  interface CSSProperties {
-    InkscapeStroke?: string
-    InkscapeFontSpecification?: string
-    shapeInside?: string
-  }
-}
-
 const SvgDesktopWebFlatSmallSvgo = (
   props: SVGProps<SVGSVGElement>,
 ) => (

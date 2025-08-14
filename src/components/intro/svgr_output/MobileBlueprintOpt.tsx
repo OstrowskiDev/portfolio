@@ -1,14 +1,6 @@
 // @ts-nocheck
 import type { SVGProps } from 'react'
 
-// Rozszerzenie typów dla niestandardowych właściwości SVG z Inkscape
-declare module 'react' {
-  interface CSSProperties {
-    InkscapeFontSpecification?: string
-    shapePadding?: number
-  }
-}
-
 const SvgMobileBlueprintOpt = (
   props: SVGProps<SVGSVGElement>,
 ) => (

@@ -24,7 +24,7 @@ const config: Config = {
       },
       animation: {
         // 2s, liniowo, zatrzymaj na końcu (forwards)
-        'mask-move': 'mask-move-x 2s linear forwards',
+        'mask-move': 'mask-move-x 1s linear forwards',
       },
     },
   },

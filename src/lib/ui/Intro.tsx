@@ -21,7 +21,11 @@ export default function Intro() {
 
   return (
     <>
-      <div className="intro-section h-[100vh] w-full bg-primary-700 overflow-hidden">
+      <div className="intro-section relative h-[100vh] w-full bg-primary-700 overflow-hidden">
+        <h2 className="intro-line-one absolute top-28 left-12 w-[875px] font-bold italic text-[40px] text-primary-100">
+          I spent over a decade shaping physical spaces - as
+          an architect.
+        </h2>
         <SvgArchBlueprintWebReady
           axesColor="#fff"
           structureColor="#fff"
