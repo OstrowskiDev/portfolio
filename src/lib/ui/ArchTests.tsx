@@ -65,9 +65,32 @@ export default function ArchTests() {
       })
     })
 
-    tlStruct.to(struct, {
+    console.log('nodes check!')
+    console.log('shortNodes:', shortNodes)
+
+    gsap.to(extraLongNodes, {
       strokeDashoffset: 0,
-      duration: 4,
+      duration: 100,
+      ease: 'power1.inOut',
+    })
+
+    gsap.to(longNodes, {
+      strokeDashoffset: 0,
+      duration: 6,
+      ease: 'power1.inOut',
+    })
+
+    gsap.to(mediumNodes, {
+      strokeDashoffset: 0,
+      duration: 2,
+      delay: 1,
+      ease: 'power1.inOut',
+    })
+
+    gsap.to(shortNodes, {
+      strokeDashoffset: 0,
+      duration: 1,
+      delay: 2,
       ease: 'power1.inOut',
     })
 
@@ -76,15 +99,15 @@ export default function ArchTests() {
 
   function findOut(struct: NodeListOf<SVGPathElement>) {
     // Reset tablic
-    shortLengths = []
-    mediumLengths = []
-    longLengths = []
-    extraLongLengths = []
+    // shortLengths = []
+    // mediumLengths = []
+    // longLengths = []
+    // extraLongLengths = []
 
-    shortNodes = []
-    mediumNodes = []
-    longNodes = []
-    extraLongNodes = []
+    // shortNodes = []
+    // mediumNodes = []
+    // longNodes = []
+    // extraLongNodes = []
 
     struct.forEach((path) => {
       const length = path.getTotalLength()
