@@ -12,44 +12,95 @@ export default function GradientTests() {
   const descriptRef = useRef<SVGGElement | null>(null)
   const descriptFillRef = useRef<SVGGElement | null>(null)
 
+  const svgRef = useRef<SVGGElement | null>(null)
+
   const gradientRef = useRef<SVGLinearGradientElement | null>(null)
 
   useEffect(() => {
-    gsap.set(
-      [
-        axesRef.current,
-        structRef.current,
-        structFillRef.current,
-        descriptRef.current,
-        descriptFillRef.current,
-      ],
-      {
-        opacity: 1,
-      },
-    )
+    if (!svgRef.current) {
+      return
+    }
 
-    // Animacja skośnego gradientu - dostosowana do viewBox="50 150 1738 1436"
+    const svgGroups = svgRef.current.querySelectorAll('g')
+    gsap.set([svgGroups], { opacity: 1 })
+    const structFillGroup = svgRef.current.querySelectorAll('.struct-fill')
+    gsap.set([structFillGroup], { opacity: 0 })
+    const descriptFillGroup = svgRef.current.querySelectorAll('.descript-fill')
+    gsap.set([descriptFillGroup], { opacity: 0 })
+
     gsap.fromTo(
-      gradientRef.current,
+      axesRef.current,
       {
         attr: {
-          x1: 200, // Zaczynamy tuż przed viewBox (50 - 150 = -100)
-          y1: 300, // Zaczynamy tuż przed viewBox (150 - 150 = 0)
-          x2: 400, // Gradient ma szerokość 200px
-          y2: 500, // Gradient ma wysokość 200px (kąt 45°)
+          x1: 200,
+          y1: 300,
+          x2: 400,
+          y2: 500,
         },
       },
       {
         attr: {
-          x1: 1900, // Kończymy tuż za viewBox (50 + 1738 + 100 = 1888)
-          y1: 1700, // Kończymy tuż za viewBox (150 + 1436 + 100 = 1686)
-          x2: 2100, // Gradient dalej ma szerokość 200px
-          y2: 1900, // Gradient dalej ma wysokość 200px
+          x1: 1900,
+          y1: 1700,
+          x2: 2100,
+          y2: 1900,
         },
         duration: 3,
         ease: 'power2.inOut',
       },
     )
+
+    gsap.to(structFillGroup, { opacity: 1, duration: 1, delay: 2.5 })
+
+    gsap.fromTo(
+      structRef.current,
+      {
+        attr: {
+          x1: -100,
+          y1: 200, // constant Y for vertical line
+          x2: 100,
+          y2: 200, // constant Y for vertical line
+        },
+      },
+      {
+        attr: {
+          x1: 1900,
+          y1: 200, // constant Y for vertical line
+          x2: 2100,
+          y2: 200, // constant Y for vertical line
+        },
+        duration: 3,
+        delay: 0.7,
+        ease: 'power2.inOut',
+      },
+    )
+
+    gsap.fromTo(
+      descriptRef.current,
+      {
+        attr: {
+          x1: 200, // stały X
+          y1: 1400, // start przy dole
+          x2: 200, // stały X
+          y2: 1600, // odcinek w pionie
+        },
+      },
+      {
+        attr: {
+          x1: 200, // X bez zmian
+          y1: 0, // przesunięcie w górę
+          x2: 200,
+          y2: 200,
+        },
+        duration: 5,
+        delay: 0.7,
+        ease: 'power2.inOut',
+      },
+    )
+
+    gsap.to(descriptFillGroup, { opacity: 1, duration: 1, delay: 4.5 })
+
+    // end of longest useEffect in my coding history
   }, [])
 
   return (
@@ -62,6 +113,7 @@ export default function GradientTests() {
           I spent over a decade shaping physical spaces - as an architect.
         </h2>
         <ArchitectureBlueprint
+          svgRef={svgRef}
           gradientRef={gradientRef}
           axesRef={axesRef}
           structRef={structRef}

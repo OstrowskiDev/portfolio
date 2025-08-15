@@ -1,16 +1,21 @@
 // @ts-nocheck
 
 export default function ArchitectureBlueprint({
-  gradientRef,
+  svgRef,
   axesRef,
   structRef,
-  descriptFillRef,
-  descriptRef,
   structFillRef,
+  descriptRef,
+  descriptFillRef,
   ...props
 }) {
+  const a = '#fff' //axes color
+  const s = '#fff' //structure color
+  const d = '#fff' // description color
+
   return (
     <svg
+      ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
       width="2000px"
       viewBox="50 150 1738 1436"
@@ -18,8 +23,8 @@ export default function ArchitectureBlueprint({
     >
       <defs>
         <linearGradient
-          ref={gradientRef}
-          id="draw-gradient"
+          ref={axesRef}
+          id="axes-gradient"
           x1="0"
           y1="0"
           x2="200"
@@ -30,13 +35,59 @@ export default function ArchitectureBlueprint({
           <stop offset="50%" stopColor="white" stopOpacity="0" />
         </linearGradient>
 
-        <mask id="draw-mask">
+        <linearGradient
+          ref={structRef}
+          id="struct-gradient"
+          x1="0"
+          y1="0"
+          x2="200"
+          y2="200"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="49.9%" stopColor="white" stopOpacity="1" />
+          <stop offset="50%" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+
+        <linearGradient
+          ref={descriptRef}
+          id="descript-gradient"
+          x1="0"
+          y1="0"
+          x2="200"
+          y2="200"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="49.9%" stopColor="white" stopOpacity="0" />
+          <stop offset="50%" stopColor="white" stopOpacity="1" />
+        </linearGradient>
+
+        <mask id="draw-axes-mask">
           <rect
             x="0"
             y="0"
             width="2000"
             height="2000"
-            fill="url(#draw-gradient)"
+            fill="url(#axes-gradient)"
+          />
+        </mask>
+
+        <mask id="draw-struct-mask">
+          <rect
+            x="0"
+            y="0"
+            width="2000"
+            height="2000"
+            fill="url(#struct-gradient)"
+          />
+        </mask>
+
+        <mask id="draw-descript-mask">
+          <rect
+            x="0"
+            y="0"
+            width="2000"
+            height="2000"
+            fill="url(#descript-gradient)"
           />
         </mask>
 
@@ -1457,15 +1508,11 @@ export default function ArchitectureBlueprint({
           />
         </clipPath>
       </defs>
-      <g
-        ref={structFillRef}
-        mask="url(#draw-mask)"
-        className="struct-fill opacity-0"
-      >
+      <g className="struct-fill opacity-0">
         <path
           d="M162.795 201.498h-40.5v-1.5h40.5z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1476,7 +1523,7 @@ export default function ArchitectureBlueprint({
           d="M141.443 216.498h19.852v1.5h-19.852z"
           clipPath="url(#a)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1487,7 +1534,7 @@ export default function ArchitectureBlueprint({
           d="M133.795 201.498v16.5h-.5v-16.5z"
           clipPath="url(#b)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1498,7 +1545,7 @@ export default function ArchitectureBlueprint({
           d="M162.795 217.991h-1.5v-16.493h1.5z"
           clipPath="url(#c)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1509,7 +1556,7 @@ export default function ArchitectureBlueprint({
           d="M133.995 216.498v1.5h-1.91v-1.5z"
           clipPath="url(#d)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1520,7 +1567,7 @@ export default function ArchitectureBlueprint({
           d="M124.085 216.498v1.5h-1.79v-1.5z"
           clipPath="url(#e)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1531,7 +1578,7 @@ export default function ArchitectureBlueprint({
           d="M123.795 199.998v66.018h-1.5v-66.018z"
           clipPath="url(#f)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1542,7 +1589,7 @@ export default function ArchitectureBlueprint({
           d="M129.517 192.498v-1h2.591v1z"
           clipPath="url(#g)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1553,7 +1600,7 @@ export default function ArchitectureBlueprint({
           d="M125.017 191.498v1h-1.472v-1z"
           clipPath="url(#h)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1564,7 +1611,7 @@ export default function ArchitectureBlueprint({
           d="M34.545 177.498h1v40.25h-1z"
           clipPath="url(#i)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1575,7 +1622,7 @@ export default function ArchitectureBlueprint({
           d="M16.286 217.248h4.9v.5h-4.9z"
           clipPath="url(#j)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1586,7 +1633,7 @@ export default function ArchitectureBlueprint({
           d="M7.559 217.248h4.227v.5H7.559z"
           clipPath="url(#k)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1597,7 +1644,7 @@ export default function ArchitectureBlueprint({
           d="M162.795 217.998v3.505h-1.5v-3.505z"
           clipPath="url(#l)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1608,7 +1655,7 @@ export default function ArchitectureBlueprint({
           d="M162.795 230.503v27.245h-1.5v-27.245z"
           clipPath="url(#m)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1619,7 +1666,7 @@ export default function ArchitectureBlueprint({
           d="M6.795 201.498h-1.5v-1.5h1.5z"
           clipPath="url(#n)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1630,7 +1677,7 @@ export default function ArchitectureBlueprint({
           d="M6.045 216.498H7.56v1.5H6.045z"
           clipPath="url(#o)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1641,7 +1688,7 @@ export default function ArchitectureBlueprint({
           d="M6.795 229.748h-1.5v-50.75h1.5z"
           clipPath="url(#p)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1652,7 +1699,7 @@ export default function ArchitectureBlueprint({
           d="M5.295 265.986v-31.738h1.5v31.738z"
           clipPath="url(#q)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1663,7 +1710,7 @@ export default function ArchitectureBlueprint({
           d="M162.795 199.998h-1.5v-22.5h1.5z"
           clipPath="url(#r)"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1673,7 +1720,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M152.233 177.498v15h-1v-15zm-9.563 0v15h-1v-15zm-9.562 0v15h-1v-15zm-9.563 0v15h-1v-15zm-9.625 0v15h-1v-15zm-9.625 0v15h-1v-15zm15.597 15v-1h2.653v1zm-4.5-1v1h-1.472v-1zm-5.125 1v-1h2.653v1zm-4.5-1v1h-1.472v-1zm-5.125 1v-1h2.653v1zm-4.5-1v1h-1.597v-1z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1683,7 +1730,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M139.079 192.498v-1h2.591v1zm-4.5-1v1h-1.471v-1zm14.063 1v-1h2.591v1zm-4.5-1v1h-1.472v-1zm14.062 1v-1h3.091v1zm-4.5-1v1h-1.471v-1zm-147.159-14v1.5h-1v-1.5zm18.625 0h.25v1.5h-.25zm9.625 0h.25v1.5h-.25zm-19.25 0h.25v1.5h-.25zm10.543 39.75v.5h-4.901v-.5zm8.457 0v.5h-3.957v-.5zm50-39.75v2.5h-1v-2.5zm1.527 39.25v1H69.045v-1zm4.5 0h2.973v1h-2.973zm-46.027-39.25h1v2.5h-1zm50 0v40.25h-1v-40.25zm-51.526 39.25h17.026v1H43.02zm-4.5 0v1h-2.974v-1zm-32.474 1.25h-.75v-1.5h.75zm128.174-.95v.4h-.224v-.4zm7.224 0v.4h-.224v-.4zm60.602-.8v2h-2v-2zm0-39v2h-2v-2zm39 0v2h-2v-2zm0 39v2h-2v-2zm39 0v2h-2v-2zm0-39v2h-2v-2zm11.8 77.099h.4v1.151h-.4z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1693,7 +1740,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M202.045 177.498h117.573v1.5H202.045zm-2 38.75h2v2h-2zm47.14-139.61-.749 2.385-2.862-.9.749-2.385zm4.692-39.63 2.986.281-.235 2.49-2.986-.283zM6.795 266.486h-1.5v-.5h1.5zm259.5-10.988v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm-169 0v10.488h-.5v-10.488zm299 0v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm-13 0v2.25h-.5v-2.25zm39 0v1h-.5v-1zm1.25-51h-2.25v-.5h2.25zm0-13h-2.25v-.5h2.25z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1703,7 +1750,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M319.545 178.498h-2.25v-.5h2.25zm0 39h-2.25v-.5h2.25zm0 26h-2.25v-.5h2.25zm0-13h-2.25v-.5h2.25zm-1.25 26h-1v-.5h1zm-.927-79v-28.002h2.25v28.002zm-64.877-27.252v1.5h-51.475l1.408-1.5z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1713,7 +1760,7 @@ export default function ArchitectureBlueprint({
         <path
           d="m294.087 151.746 1.262-2.25h24.269v2.25zM165.98 177.498h-4.685l4.232-1.432 4.134-1.692 4.021-1.946 3.892-2.193 3.749-2.43 3.59-2.658 5.793-5.083 5.581-5.314 5.362-5.535 1.099 1.031-5.412 5.58-5.632 5.357-5.843 5.127-3.681 2.726-3.843 2.491-3.992 2.247-4.125 1.993zm100.662-27.252h-.892l5.151-8.488 4.899-8.637.657.363-4.789 8.451zm1.051 11.131v16.121h-.75v-16.121zM254.288 38.114l31.036 2.93-.071.747-31.036-2.93zm-7.838 39.21 28.31 8.893-.225.716-28.31-8.894zm6.831-58.847 32.978-.282.007.75-32.978.282z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1723,7 +1770,7 @@ export default function ArchitectureBlueprint({
         <path
           d="m284.936 44.862-1.491-.164.637-6.72 1.496.119zm1.33-22.859-1.5-.01-.059-6.75 1.499-.036zm-11.26 68.344-1.423-.472 2.026-6.439 1.437.429zm-35.336 71.53h15.281v.75H239.67zm19.781 0h7.492v.75h-7.492zm7.569-50.937-1.369-.612 2.656-6.205 1.388.57zm-10.077 19.841-1.302-.746 3.265-5.907 1.324.705zm-12.544 19.465h-1.852l3.296-4.649 1.234.852zm16.492 0h34.788v1.5h-34.788zm6.052 2.131v-.5h.75v.5zm-26.523 10.25v14.871h-.75v-14.871zm-32.221 0v-.75h3.1v.75zm-5.5 0h-1.432v-.75h1.432zm15.677-.75v.75h-6.327v-.75zm7.398 0v.75h-2.898v-.75zm0 0h.5v15.621h-.5zm7.898 0h5.998v.75h-5.998zm-7.398 0h2.898v.75h-2.898z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1733,7 +1780,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M226.274 161.877v15.621h-.5v-15.621zm-14.225-2v17.621h-.75v-17.621zm-10.782-8.059v25.43h-.75v-24.647zm10.032 5.928h.75v2.131h-.75zm0-5.5v-.5h.75v.5zm-48.504 26.355v-1.103h3.185zM327.741 45.226l.996.094-.038.398-.995-.094zm-2.364 18.338.985.171-.068.394-.985-.17zm-3.664 18.217.973.232-.093.39-.973-.233zM328.635 8.9l.999-.043.017.4-.999.043zm.177 18.222.999.025-.01.4-1-.026zM316.809 99.61l.954.3-.12.381-.954-.3zm-8.76 23.882.92.389-.156.369-.921-.39zm-11.014 22.93.879.477-.191.351-.879-.476zm19.833 30.529-.54-4.609-9.99-.541h10.53z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1743,7 +1790,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M317.368 171.301v6.15h-11.53v-6.15zm-.5.5h-10.53v5.15h10.53zm7.474-126.554.149-.65.416-.522.601-.29h.668l.601.29.417.522.148.65-.148.651-.417.522-.601.29h-.668l-.601-.29-.416-.522zm-10.901 53.986.149-.651.416-.522.601-.29h.668l.601.29.417.522.148.65-.148.651-.417.522-.601.29h-.668l-.601-.29-.416-.522zm-83.511 10.845 2.629 1.445-1.21 2.188-2.623-1.442zm63.106 36.947.148-.651.416-.522.602-.29h.667l.602.29.416.522.149.651-.149.651-.416.522-.602.289h-.667l-.602-.289-.416-.522zM64.795 265.385v1.75h-.5v-1.75zm97.4-8.85h-.25v-.3h.25zm-39.275 10.606v-1.12h.25v1.12z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1753,7 +1800,7 @@ export default function ArchitectureBlueprint({
         <path
           d="m162.795 255.635-.003 2.113h-1.5l.003-2.113zM6.17 267.135h-.25v-1.348h.25zm146.125-.12h-.25v-.5h.25zm-19.5 0v-.5h.25v.5zm29-.25h-.25v-.497h.25z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1763,7 +1810,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M162.037 266.765h-.25v-.497h.25zm-.003-9.017v.25h-.5v-.25zm-67.989 7.637v1.75h-.5v-1.75zm-59 0h.5v1.75h-.5z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1773,7 +1820,7 @@ export default function ArchitectureBlueprint({
         <path
           d="m161.795 266.517-38.625-.007v-.494l38.625.001z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1783,7 +1830,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M161.295 266.017v-8.269h.489v8.269zm187.534-152.658.134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zm61.575 0 .134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zM348.82 310.895l.134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zm0 62.861.134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zm-63.379-56.481.134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zm0 49.842.134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zm-126.796-49.842.134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zm0 49.842.134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zm251.827-56.222.134-.5.366-.366.5-.134.5.134.366.366.134.5-.134.5-.366.366-.5.134-.5-.134-.366-.366zM349.117 267V149.496h2.29V267z"
           style={{
-            fill: '#fff',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1791,15 +1838,11 @@ export default function ArchitectureBlueprint({
           transform="scale(3.77953)"
         />
       </g>
-      <g
-        ref={descriptFillRef}
-        mask="url(#draw-mask)"
-        className="descript-fill opacity-0"
-      >
+      <g className="descript-fill opacity-0">
         <path
           d="M64.345 248.499h.4v18h-.4z"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1810,7 +1853,7 @@ export default function ArchitectureBlueprint({
           d="M61.994 248.499v.4h-.055v-.4z"
           clipPath="url(#s)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1821,7 +1864,7 @@ export default function ArchitectureBlueprint({
           d="M61.939 248.499h2.606v.4H61.94z"
           clipPath="url(#t)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1832,7 +1875,7 @@ export default function ArchitectureBlueprint({
           d="M44.585 248.499h9.823v.4h-9.823z"
           clipPath="url(#u)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1843,7 +1886,7 @@ export default function ArchitectureBlueprint({
           d="M58.915 248.499h3.079v.4h-3.08z"
           clipPath="url(#v)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1854,7 +1897,7 @@ export default function ArchitectureBlueprint({
           d="M49.72 248.499h.4v18h-.4z"
           clipPath="url(#w)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1865,7 +1908,7 @@ export default function ArchitectureBlueprint({
           d="M6.795 248.499h5.02v.4h-5.02z"
           clipPath="url(#x)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1876,7 +1919,7 @@ export default function ArchitectureBlueprint({
           d="M16.322 248.499h23.763v.4H16.322z"
           clipPath="url(#y)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1887,7 +1930,7 @@ export default function ArchitectureBlueprint({
           d="M78.97 248.499h.4v18h-.4z"
           clipPath="url(#z)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1898,7 +1941,7 @@ export default function ArchitectureBlueprint({
           d="M64.545 248.499h4.914v.4h-4.914z"
           clipPath="url(#A)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1909,7 +1952,7 @@ export default function ArchitectureBlueprint({
           d="M73.965 248.499h5.358v.4h-5.358z"
           clipPath="url(#B)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1920,7 +1963,7 @@ export default function ArchitectureBlueprint({
           d="M79.323 248.499h4.239v.4h-4.24z"
           clipPath="url(#C)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1931,7 +1974,7 @@ export default function ArchitectureBlueprint({
           d="m88.068 248.499 5.749.005v.4l-5.749-.005z"
           clipPath="url(#D)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1942,7 +1985,7 @@ export default function ArchitectureBlueprint({
           d="M144.332 253.053v12.964h-.5v-12.964z"
           clipPath="url(#E)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1953,7 +1996,7 @@ export default function ArchitectureBlueprint({
           d="M141.505 253.553v-.5h3.327v.5z"
           clipPath="url(#F)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1964,7 +2007,7 @@ export default function ArchitectureBlueprint({
           d="M151.682 253.053h1.491v.5h-1.491z"
           clipPath="url(#G)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1975,7 +2018,7 @@ export default function ArchitectureBlueprint({
           d="M144.332 253.303v12.714h-.5v-12.714z"
           clipPath="url(#H)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1986,7 +2029,7 @@ export default function ArchitectureBlueprint({
           d="M187.845 237.498h.4v18h-.4z"
           clipPath="url(#I)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -1997,7 +2040,7 @@ export default function ArchitectureBlueprint({
           d="M200.845 237.498h.4v18h-.4z"
           clipPath="url(#J)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2008,7 +2051,7 @@ export default function ArchitectureBlueprint({
           d="M226.845 237.498h.4v18h-.4z"
           clipPath="url(#K)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2019,7 +2062,7 @@ export default function ArchitectureBlueprint({
           d="M291.845 237.498h.4v1.151h-.4z"
           clipPath="url(#L)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2030,7 +2073,7 @@ export default function ArchitectureBlueprint({
           d="M239.845 237.498h.4v18h-.4z"
           clipPath="url(#M)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2041,7 +2084,7 @@ export default function ArchitectureBlueprint({
           d="M93.617 248.504h.4v18h-.4z"
           clipPath="url(#N)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2052,7 +2095,7 @@ export default function ArchitectureBlueprint({
           d="m94.017 248.504 4.382-.005v.4l-4.382.005z"
           clipPath="url(#O)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2063,7 +2106,7 @@ export default function ArchitectureBlueprint({
           d="M102.905 248.499h4.815v.4h-4.815z"
           clipPath="url(#P)"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2073,7 +2116,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M174.845 237.498h.4v18h-.4zm39 0h.4v18h-.4zm-36.226-40.9h23.226v.4h-23.226zm-14.824 0h10.324v.4h-10.324zm129.45 41.3h-1.151v-.4h1.151zm-39.4-.4h.4v18h-.4zm13 0h.4v18h-.4zm-38.6 0v18h-.4v-18z"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2083,7 +2126,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M200.716 179.248h.5v17.75h-.5zm2.96 17.75h-2.381v-.5h2.381zm21.738 0v-.5h2.131v.5zm4.262 0h-2.131v-.5h2.131zm21.838 0v-.5h2.131v.5z"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2093,7 +2136,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M255.476 196.998h-2.131v-.5h2.131zm-4.262 0v-.5h2.131v.5zm66.081 20.5h-25.65v-.5h25.65zm-38.5-38.25h.5v17.668h-.5zm.05 58.25h.4v.4h-.4z"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2103,7 +2146,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M278.845 237.498h.4v18h-.4zm-61.718-74.871h.25v6.514h-.75v-.25h.5zm.25 14.371v.5h-.25v-.5z"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2113,7 +2156,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M217.127 172.998v-5.857h.25v5.857zm-5.078-4.107h.578v.25h-.578zm23.121 0v.25h-.5v-7.064h.25v6.814zm-.5 8.107h.25v.5h-.25zm.25-4h-.25v-3.857h.25zm4.75-4.107v.25h-.5v-.25zm-40.264 5.935v-.5h1.111v.5zm-4.5-.5v.5h-22.657l1.016-.5zm-87.186 74.173h.4v18h-.4zm.4 0h4.81v.4h-4.81zm9.316 0h4.859v.4h-4.859zm43.859 13.018h-3.982v-.251h3.982zm-7.732-8.464v.5h-4.231v-.5zm7.732 0v.5h-3.232v-.5zm-8.232 8.464v-.25h.25v.25zm-19.655-8.464v.5h-1.491v-.5z"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2123,7 +2166,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M129.787 253.053h6.218v.5h-6.218zm-5.992 0h1.492v.5h-1.492zm28.768 8.464h-3.981v-.251h3.981zm-8.231 0v-.25h.25v.25zM35.095 248.499h.4v18h-.4z"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2133,7 +2176,7 @@ export default function ArchitectureBlueprint({
         <path
           d="M132.527 253.303v12.714h-.5v-12.714zm20.536 0v12.714h-.5v-12.714z"
           style={{
-            fill: '#ff0',
+            fill: d,
             fillOpacity: 1,
             fillRule: 'evenodd',
             stroke: 'none',
@@ -2141,16 +2184,12 @@ export default function ArchitectureBlueprint({
           transform="scale(3.77953)"
         />
       </g>
-      <g
-        ref={descriptRef}
-        mask="url(#draw-mask)"
-        className="descript opacity-0"
-      >
+      <g mask="url(#draw-descript-mask)" className="descript opacity-0">
         <path
           d="M64.545 38.117h-.002m.002-17.543h-.002"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2165,7 +2204,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#Q)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2180,7 +2219,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#R)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2195,7 +2234,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#S)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2210,7 +2249,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#T)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2225,7 +2264,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#U)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2240,7 +2279,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#V)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2255,7 +2294,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#W)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2270,7 +2309,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#X)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2285,7 +2324,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#Y)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2300,7 +2339,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#Z)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2315,7 +2354,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aa)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2330,7 +2369,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ab)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2345,7 +2384,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ac)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2360,7 +2399,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ad)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2375,7 +2414,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ae)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2390,7 +2429,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#af)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2405,7 +2444,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ag)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2420,7 +2459,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ah)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2435,7 +2474,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ai)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2450,7 +2489,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aj)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2465,7 +2504,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ak)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2480,7 +2519,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#al)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2495,7 +2534,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#am)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2510,7 +2549,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#an)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2525,7 +2564,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ao)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2540,7 +2579,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ap)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2555,7 +2594,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aq)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2570,7 +2609,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ar)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2585,7 +2624,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#as)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2600,7 +2639,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#at)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2615,7 +2654,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#au)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2630,7 +2669,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#av)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2645,7 +2684,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aw)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2660,7 +2699,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ax)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2675,7 +2714,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ay)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2690,7 +2729,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#az)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2705,7 +2744,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aA)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2720,7 +2759,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aB)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2735,7 +2774,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aC)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2750,7 +2789,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aD)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2765,7 +2804,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aE)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2780,7 +2819,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aF)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2795,7 +2834,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aG)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2810,7 +2849,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aH)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2825,7 +2864,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aI)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2840,7 +2879,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aJ)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2855,7 +2894,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aK)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2870,7 +2909,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aL)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2885,7 +2924,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aM)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2900,7 +2939,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aN)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2915,7 +2954,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aO)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2930,7 +2969,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aP)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2945,7 +2984,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aQ)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2960,7 +2999,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aR)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2975,7 +3014,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aS)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -2990,7 +3029,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aT)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3005,7 +3044,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aU)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3020,7 +3059,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aV)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3035,7 +3074,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aW)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3050,7 +3089,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aX)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3065,7 +3104,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aY)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3080,7 +3119,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#aZ)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3095,7 +3134,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ba)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3110,7 +3149,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bb)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3125,7 +3164,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bc)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3140,7 +3179,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bd)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3155,7 +3194,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#be)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3170,7 +3209,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bf)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3185,7 +3224,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bg)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3200,7 +3239,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bh)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3215,7 +3254,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bi)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3230,7 +3269,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bj)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3245,7 +3284,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#bk)"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3259,7 +3298,7 @@ export default function ArchitectureBlueprint({
           d="M64.345 248.899v17.6m0 0h.4m0 0v-17.6m-15.025 0h-5.135m0 0v-.4m0 0h9.823m0 0v.4m0 0H50.12m4.288-.2v4.5m9.937-4.3h-5.43m0 0v-.4m0 0h5.43m-14.625.4v17.6m0 0h.4m0 0v-17.6m-43.325-.4h5.02m0 0v.4m0 0h-5.02m0 0v-.4m5.02.2v4.5m23.28-4.3H16.322m0 0v-.4m0 0h23.763m0 0v.4m0 0h-4.59m43.475 0v17.6m0 0h.4m0 0v-17.6m-15.025-.4h5.114m0 0v.4m0 0h-4.714m4.714-.2v4.5m9.511-4.3h-5.005m0 0v-.4m0 0h5.358m0 0h4.239m0 0v.4m0 0h-4.24m4.24-.2v4.5m10.055-4.295-5.549-.005m0 0v-.4m0 0 5.749.005m-70.599-63.076h-5.523m0 0v23.92m0 0h5.523m0 0v-23.92m2.9 10.035h-2.15m0 0v-2.15m0 0h2.15m0 0v2.15m0 3h-2.15m0 0v-2.15m0 0h2.15m0 0v2.15m0 3h-2.15m0 0v-2.15m0 0h2.15m0 0v2.15m0 3h-2.15m0 0v-2.15m0 0h2.15m0 0v2.15m0 3h-2.15m0 0v-2.15m0 0h2.15m0 0v2.15m-11.323-12h2.15m0 0v-2.15m0 0h-2.15m0 0v2.15m0 3h2.15m0 0v-2.15m0 0h-2.15m0 0v2.15m0 3h2.15m0 0v-2.15m0 0h-2.15m0 0v2.15m0 3h2.15m0 0v-2.15m0 0h-2.15m0 0v2.15m0 3h2.15m0 0v-2.15m0 0h-2.15m0 0v2.15m11.323-18h-2.15m0 0v-2.15m0 0h2.15m0 0v2.15m0 3h-2.15m0 0v-2.15m0 0h2.15m0 0v2.15m-11.323-3h2.15m0 0v-2.15m0 0h-2.15m0 0v2.15m0 3h2.15m0 0v-2.15m0 0h-2.15m0 0v2.15m122.28 70.287v3.266m0 0h1.96m0 0v-3.266m0 0h-1.96m0 2.61h1.96m-6.508-7.835v2.504m0 0h1.621m0 0v-2.504m0 0h-1.621m11.305-3.972v12.463m0 0h.5m0 0v-12.463m-2.827 0h3.327m0 0v-.5m0 0h-3.327m0 0v.5m-5.5-.25v-5.5m7.827 5.75v12.463m0 0h.5m0 0v-12.463m43.513-16.055v18m0 0h.4m0 0v-18m0 0h-.4m13 0v18m0 0h.4m0 0v-18m0 0h-.4m26 0v18m0 0h.4m0 0v-18m0 0h-.4m65 .4v.751m0 0h.4m0 0v-1.151m-52.4 0v18m0 0h.4m0 0v-18m0 0h-.4M94.017 248.504h-.4m.4 0 4.382-.005m0 0v.4m0 0-4.382.005m4.382-.205v4.5m9.321-4.3h-4.815m0 0v-.4m0 0h4.815m67.125-11.001v18m0 0h.4m0 0v-18m0 0h-.4m39 0v18m0 0h.4m0 0v-18m0 0h-.4m18.113.2v-4.5m0 4.5h-4.713m9.213 0h3.387m-39.129-41.1h-23.097m0 0v.4m0 0h23.226m-38.05-.4v.4m0 0h10.324m0 0v-.4m0 0h-10.324m10.324.2v4.5m118.726 36.6h-.751m0 0v-.4m0 0h1.151m0 0v.4m-39.4-.4v18m0 0h.4m0 0v-18m0 0h-.4m13 0v18m0 0h.4m0 0v-18m0 0h-.4m-38.6 0v18m0 0h-.4m0 0v-18m0 0h.4m6.556 5.343h-2.05m0 0v-2.05m0 0h2.05m0 0v2.05m-6.306 2.69v-7.43m0 0h3.919m0 0v7.43m0 0h-3.919m0 0h4.801m0 0v1.788m0 0h-4.801m0 0v-1.788m0 1.788v7.429m0 0h3.919m0 0v-7.429m0 0h-3.919m6.306 2.689h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-6.298h-.327m0 0v-3.448m0 0h.327m0 0v3.448m0 5.429h-.327m0 0v3.448m0 0h.327m0 0v-3.448m11.484-4.488h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m-20.637-14.046v-4.5m0 4.5h-4.713m9.213 0h3.387m-20.887 0v-4.5m0 4.5h-4.713m9.213 0h3.387m-20.887 0v-4.5m0 4.5h-4.713m9.213 0h3.387m-20.887 0v-4.5m0 4.5h-4.713m9.213 0h3.387m-20.887 0v-4.5m0 4.5h-4.713m9.213 0h3.387m-.25 6.953h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m-11.55-13.643v16.647m0 0h3.919m0 0v-16.647m0 0h-3.919m6.306 7.469h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-.87h-.327m0 0v3.449m0 0h.327m0 0V244.7m23.934-.049h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m-11.55-13.643v16.647m0 0h3.919m0 0v-16.647m0 0h-3.919m6.306 7.469h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-.87h-.327m0 0v3.449m0 0h.327m0 0V244.7m23.934-.049h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m-11.55-13.643v16.647m0 0h3.919m0 0v-16.647m0 0h-3.919m6.306 7.469h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-.87h-.327m0 0v3.449m0 0h.327m0 0V244.7m31.14-1.859h-2.05m0 0v-2.05m0 0h2.05m0 0v2.05m-6.306 2.69v-7.43m0 0h3.919m0 0v7.43m0 0h-3.919m0 0h4.801m0 0v1.788m0 0h-4.801m0 0v-1.788m0 1.788v7.429m0 0h3.919m0 0v-7.429m0 0h-3.919m6.306 2.689h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-6.298h-.327m0 0v-3.448m0 0h.327m0 0v3.448m0 5.429h-.327m0 0v3.448m0 0h.327m0 0v-3.448m11.484-4.488h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m-18.794-8.903h-2.05m0 0v-2.05m0 0h2.05m0 0v2.05m-6.306 2.69v-7.43m0 0h3.919m0 0v7.43m0 0h-3.919m0 0h4.801m0 0v1.788m0 0h-4.801m0 0v-1.788m0 1.788v7.429m0 0h3.919m0 0v-7.429m0 0h-3.919m6.306 2.689h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-6.298h-.327m0 0v-3.448m0 0h.327m0 0v3.448m0 5.429h-.327m0 0v3.448m0 0h.327m0 0v-3.448m11.484-4.488h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m-36.08-63.402h16.626m0 0v-4.618m0 0h-16.626m0 0v4.618m13.877 2.538v-2.05m0 0h2.05m0 0v2.05m0 0h-2.05m-6.5 0v-2.05m0 0h2.05m0 0v2.05m0 0h-2.05m-3.25 0v-2.05m0 0h2.05m0 0v2.05m0 0h-2.05m-3.25 0v-2.05m0 0h2.05m0 0v2.05m0 0h-2.05m13-9.693v2.05m0 0h2.05m0 0v-2.05m0 0h-2.05m-6.5 0v2.05m0 0h2.05m0 0v-2.05m0 0h-2.05m-3.25 0v2.05m0 0h2.05m0 0v-2.05m0 0h-2.05m-3.25 0v2.05m0 0h2.05m0 0v-2.05m0 0h-2.05m9.75 9.693v-2.05m0 0h2.05m0 0v2.05m0 0h-2.05m0-9.693v2.05m0 0h2.05m0 0v-2.05m0 0h-2.05m29.947 4.967h1.823m0 0v3.428m0 0h-1.823m0 0v-3.428m0-3.578h1.823m0 0v3.428m0 0h-1.823m0 0v-3.428m0-3.578h1.823m0 0v3.428m0 0h-1.823m0 0v-3.428m8.355 7.156h1.823m0 0v3.428m0 0h-1.823m0 0v-3.428m0-3.578h1.823m0 0v3.428m0 0h-1.823m0 0v-3.428m0-3.578h1.823m0 0v3.428m0 0h-1.823m0 0v-3.428m-33.415 42.844h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m0-11.803h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-3.177 14.718h4.556m0 0v1.652m0 0h-6.207m-1.653 1.652h8.258m0 0v-1.652m0 0h-.398m-4.556-1.652v-16.704m-1.651-1.652v19.241m-1.653 2.419v-23.313m0 0h1.653m0 1.653v20.008m46.313-47.026v3.092m0 0h10.822m0 0v-3.092m0 0h-10.822m0 1.176h10.822m-7.23-1.176v1.176m3.623-1.176v1.176m-7.08 8.95h10.792m0 0v1.653m0 0h-10.792m0 0v-1.653m.398-1.651v1.651m9.996-1.651v1.651m0-1.651h-9.996m6.023-2.916h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-72.54 33.701h3.079m0 0v-8.655m0 0h-3.079m0 0v8.655m41.162-29.061h-1.824m0 0v-3.428m0 0h1.824m0 3.428v-3.428m0-.15h-1.824m0 0v-3.428m0 0h1.824m0 3.428v-3.428m0-.15h-1.824m0 0v-3.428m0 0h1.824m0 3.428v-3.428M167.69 209.2h-2.894m0 0v10.231m0 0h2.894m0 0v.538m0 0h-3.553m0 0v-11.267m0 0h3.553m0 0v.498m-.15 0v10.231m0-6.821h-2.744m2.744 3.411h-2.744m82.005 26.82h-2.05m0 0v-2.05m0 0h2.05m0 0v2.05m-6.306 2.69v-7.43m0 0h3.919m0 0v7.43m0 0h-3.919m0 0h4.801m0 0v1.788m0 0h-4.801m0 0v-1.788m0 1.788v7.429m0 0h3.919m0 0v-7.429m0 0h-3.919m6.306 2.689h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-6.298h-.327m0 0v-3.448m0 0h.327m0 0v3.448m0 5.429h-.327m0 0v3.448m0 0h.327m0 0v-3.448m11.484-4.488h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m7.206-8.903h-2.05m0 0v-2.05m0 0h2.05m0 0v2.05m-6.306 2.69v-7.43m0 0h3.919m0 0v7.43m0 0h-3.919m0 0h4.801m0 0v1.788m0 0h-4.801m0 0v-1.788m0 1.788v7.429m0 0h3.919m0 0v-7.429m0 0h-3.919m6.306 2.689h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-6.298h-.327m0 0v-3.448m0 0h.327m0 0v3.448m0 5.429h-.327m0 0v3.448m0 0h.327m0 0v-3.448m11.484-4.488h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m.9-13.643v16.647m0 0h3.919m0 0v-16.647m0 0h-3.919m6.306 7.469h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-.87h-.327m0 0v3.449m0 0h.327m0 0V244.7m-22.153-7.002v-4.5m0 4.5h-4.713m9.213 0h3.387m5.113 0v-4.5m0 4.5h-4.713m9.213 0h3.387m5.113 0v-4.5m0 4.5h-4.713m9.213 0h3.387m-78.129-41.1v-17.35m0 0h.5m0 0v17.75m0 0h-.5m.579-.5h2.381m0 0v.5m0 0h-2.381m26.25-.5h-2.131m0 0v.5m0 0h2.131m0-.5h2.131m0 0v.5m0 0h-2.131m23.969 0h2.131m-.3-.5h2.131m0 0v.5m0 0h-2.131m0-.5h-2.131m0 0v.5m0 0h2.131m58.091-17.293v-.326m0 0h3.448m0 0v.326m0 0h-3.448m-5.429 0v-.326m0 0h-3.448m0 0v.326m0 0h3.448m6.298 5.691v-2.05m0 0h2.05m0 0v2.05m0 0h-2.05m-2.689-6.306h7.429m0 0v3.919m0 0h-7.429m0 0v-3.919m0 0v4.8m0 0h-1.789m0 0v-4.8m0 0h1.789m-1.789 0h-7.429m0 0v3.919m0 0h7.429m0 0v-3.919m-2.689 6.306v-2.05m0 0h-2.05m0 0v2.05m0 0h2.05m6.298 13.514v-.327m0 0h3.448m0 0v.327m0 0h-3.448m-5.429 0v-.327m0 0h-3.448m0 0v.327m0 0h3.448m6.298 5.69v-2.05m0 0h2.05m0 0v2.05m0 0h-2.05m-2.689-6.306h7.429m0 0v3.919m0 0h-7.429m0 0v-3.919m0 0v4.801m0 0h-1.789m0 0v-4.801m0 0h1.789m-1.789 0h-7.429m0 0v3.919m0 0h7.429m0 0v-3.919m-2.689 6.306v-2.05m0 0h-2.05m0 0v2.05m0 0h2.05m6.298-7.422v.327m0 0h3.448m0 0v-.327m0 0h-3.448m-5.429 0v.327m0 0h-3.448m0 0v-.327m0 0h3.448m6.298-5.69v2.05m0 0h2.05m0 0v-2.05m0 0h-2.05m-2.689 6.306h7.429m0 0v-3.919m0 0h-7.429m0 0v3.919m0 0v-4.801m0 0h-1.789m0 0v4.801m0 0h1.789m-1.789 0h-7.429m0 0v-3.919m0 0h7.429m0 0v3.919m-2.689-6.306v2.05m0 0h-2.05m0 0v-2.05m0 0h2.05m-21.029 1.811v1.823m0 0h-3.428m0 0v-1.823m0 0h3.428m3.578 0v1.823m0 0h-3.428m0 0v-1.823m0 0h3.428m3.578 0v1.823m0 0h-3.428m0 0v-1.823m0 0h3.428m6.395 2.881h1.823m0 0v-3.428m0 0h-1.823m0 0v3.428m0 3.578h1.823m0 0v-3.428m0 0h-1.823m0 0v3.428m0 3.578h1.823m0 0v-3.428m0 0h-1.823m0 0v3.428m-5.815-4.9h-4.5m-8.3 17.812v-3.69m38.25 4.94h-25.65m0 0v-.5m0 0h25.65m0 0v.5m-113.619-20.75h21.738m30.062 0h36.369m-12.55-17.5v17.668m0 0h-.5m0 0v-17.668m-77.5 3.178h1.823m0 0v-3.428m0 0h-1.073m-.75.25v3.178m0 3.578h1.823m0 0v-3.428m0 0h-1.823m0 0v3.428m0 3.578h1.823m0 0v-3.428m0 0h-1.823m0 0v3.428m62.53-3.428h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.823 3.428v-3.428m1.823-3.578h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.823 3.428v-3.428m1.823-3.578h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.823 3.428v-3.428m-6.532 7.156h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.824 3.428v-3.428m1.824-3.578h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.824 3.428v-3.428m1.824-3.578h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.824 3.428v-3.428m18.576 7.156h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.824 3.428v-3.428m1.824-3.578h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.824 3.428v-3.428m1.824-3.578h-3.647m0 0v3.428m0 0h3.647m0 0v-3.428m-1.824 3.428v-3.428m8.397 3.428h-1.823m0 0v-3.428m1.823.25v3.178m0 3.578h-1.823m0 0v-3.428m0 0h1.823m0 0v3.428m0 3.578h-1.823m0 0v-3.428m0 0h1.823m0 0v3.428m-88.943 18.471h4.556m0 0v-1.652m0 0h-6.207m-1.653-1.653h8.258m0 0v1.653m0 0h-.398m8.46 5.503h-3.646m0 0v3.428m0 0h3.646m0 0v-3.428m-1.823 3.428v-3.428m1.823-3.578h-3.646m0 0v3.428m0 0h3.646m0 0v-3.428m-1.823 3.428v-3.428m1.823 14.266h-3.646m0 0v-3.428m0 0h3.646m0 0v3.428m-1.823-3.428v3.428m1.823 3.578h-3.646m0 0v-3.428m0 0h3.646m0 0v3.428m-1.823-3.428v3.428m115.246 1.118-12.298-5.709m0 0-.098.211m0 0 12.298 5.709m0 0 .098-.211m-94.057-22.54v1.772m0 0h-5.459m0 0v-1.772m0 0h5.459m-5.459 0v1.772m0 0h-5.46m0 0v-1.772m0 0h5.46m-5.46 0v1.772m0 0h-5.459m0 0v-1.772m0 0h5.459m5.674 16.037h-6.118m0 0v-2.948m0 0h6.118m0 0v2.948m0-2.948h-6.118m0 0v-2.949m0 0h6.118m0 0v2.949m0-2.949h-6.118m0 0v-2.949m0 0h6.118m0 0v2.949m-.484 6.515h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.15 0h2.05m0 0v2.05m0 0h-2.05m0 0v-2.05m5.15-10.082h-2.05m0 0v-2.05m0 0h2.05m0 0v2.05m-5.15 0h2.05m0 0v-2.05m0 0h-2.05m0 0v2.05m8.172 6.965h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m0-2.949h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m0-2.949h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-11.194 5.898h2.05m0 0v2.05m0 0h-2.05m0 0v-2.05m0-2.949h2.05m0 0v2.05m0 0h-2.05m0 0v-2.05m0-2.949h2.05m0 0v2.05m0 0h-2.05m0 0v-2.05m15.328 2.212h-1.723m0 0v-3.428m0 0h1.723m0 0v3.428m0 3.578h-1.723m0 0v-3.428m0 0h1.723m0 0v3.428m0 3.578h-1.723m0 0v-3.428m0 0h1.723m0 0v3.428m-1.427 6.425v-1.772m0 0h-5.459m0 0v1.772m0 0h5.459m-5.459 0v-1.772m0 0h-5.46m0 0v1.772m0 0h5.46m-5.46 0v-1.772m0 0h-5.459m0 0v1.772m0 0h5.459m28.73-23.433v1.772m0 0h-5.46m0 0v-1.772m0 0h5.46m-5.46 0v1.772m0 0h-5.459m0 0v-1.772m0 0h5.459m.623 15.127h2.893m0 0v-6.821m0 0h-2.893m0 0v-.538m0 0h3.552m0 0v7.856m0 0h-3.552m0 0v-.497m.15 0v-6.821m0 3.41h2.743m-7.295-6.085h2.15m0 0v2.15m0 0h-2.15m0 0v-2.15m-.545-.895h3.241m0 0v3.045m0 0h-3.241m0 0v-3.045m.545 12.454h2.15m0 0v-2.15m0 0h-2.15m0 0v2.15m-.545.895h3.241m0 0v-3.045m0 0h-3.241m0 0v3.045m5.306-13.947h2.709m0 0v2.709m0 0h-2.709m0 0v-2.709m0 15.156h2.709m0 0v-2.708m0 0h-2.709m0 0v2.708m4.478 2.367v1.772m0 0h-5.46m0 0v-1.772m0 0h5.46m-5.46 0v1.772m0 0h-5.459m0 0v-1.772m0 0h5.459m15.921-17.371h-2.103m0 0v14.853m0 0h2.103m0 0v-14.853m0 0h1.216m0 0v14.853m0 0h-1.216m31.717-19.143h-10.77m0 0v23.433m0 0h10.77m0 0v-23.433m-1.25 1.25h-8.27m0 0v20.933m0 0h8.27m0 0v-20.933m-36.559-1.25h-3.369m0 0v23.433m0 0h3.369m0 0v-23.433m-1 23.433v-23.433m35.431 32.75v.4m0 0h.4m0 0v-.4m0 0h-.4m14.156-57.793v-.326m0 0h3.448m0 0v.326m0 0h-3.448m-5.429 0v-.326m0 0h-3.448m0 0v.326m0 0h3.448m6.298 5.691v-2.05m0 0h2.05m0 0v2.05m0 0h-2.05m-2.69-6.306h7.43m0 0v3.919m0 0h-7.43m0 0v-3.919m0 0v4.8m0 0h-1.788m0 0v-4.8m0 0h1.788m-1.788 0h-7.429m0 0v3.919m0 0h7.429m0 0v-3.919m-2.689 6.306v-2.05m0 0h-2.05m0 0v2.05m0 0h2.05m-17.163 22.389-2.05-.001m0 0 .001-2.05m0 0 2.05.001m0 0-.001 2.05m-.002 5.236-2.05-.001m0 0v2.05m0 0 2.05.001m0 0v-2.05m.735-4.618-3.517-.002m0 0-.001 4m0 0 3.517.002m0 0 .001-4m-6.296-.62-2.05-.001m0 0 .001-2.05m0 0 2.05.001m0 0-.001 2.05m-5.15-.002 2.05.001m0 0v-2.05m0 0-2.05-.001m0 0v2.05m5.148 5.238-2.05-.001m0 0v2.05m0 0 2.05.001m0 0v-2.05m-5.15-.002 2.05.001m0 0-.001 2.05m0 0-2.05-.001m0 0 .001-2.05m5.886-4.616-6.618-.002m0 0-.002 4m0 0 6.618.002m0 0 .002-4m4.829 16.743h-2.05m0 0 .001 2.05m0 0h2.05m0 0-.001-2.05m-.002-5.236h-2.05m0 0v-2.05m0 0h2.05m0 0v2.05m.735 4.618-3.517.002m0 0-.001-4m0 0 3.517-.002m0 0 .001 4m-6.296.62-2.05.001m0 0 .001 2.05m0 0 2.05-.001m0 0-.001-2.05m-5.15.002 2.05-.001m0 0v2.05m0 0-2.05.001m0 0v-2.05m5.148-5.238-2.05.001m0 0v-2.05m0 0 2.05-.001m0 0v2.05m-5.15.002 2.05-.001m0 0-.001-2.05m0 0-2.05.001m0 0 .001 2.05m5.886 4.616-6.618.002m0 0-.002-4m0 0 6.618-.002m0 0 .002 4m27.334 12.97v-20m-.2-.5v-20.25m7.226 51.531 16.448-21.349m-16.448 21.349 5.582-26.394m-12.608 32.462v-15.698m-13.2-1.151v18m0 0h.4m0 0v-18m0 0h-.4m-.25 7.153h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m22.805-34.129v1.044m0 0h3.546m0 0v-1.044m-10.639 0v1.891m0 0h10.639m0 0v-1.891m-7.093 0v1.044m0 0h3.547m0 0v-1.044m-7.093 0v1.044m0 0h3.546m0 0v-1.044m7.093 0h-10.639m14.906 0v1.044m0 0h-3.546m0 0v-1.044m10.639 0v1.891m0 0h-10.639m0 0v-1.891m7.092 0v1.044m0 0h-3.546m0 0v-1.044m7.093 0v1.044m0 0h-3.547m0 0v-1.044m-7.092 0h10.639m-36.811 20.486v16.647m0 0h3.919m0 0v-16.647m0 0h-3.919m6.306 7.469h-2.05m0 0v2.05m0 0h2.05m0 0v-2.05m-5.69-.87h-.327m0 0v3.449m0 0h.327m0 0V244.7m3.847-7.002v-4.5m0 4.5h-4.713m9.213 0h2.636m.501 6.953h-1.044m0 0v-3.546m0 0h1.044m0 10.639h-1.891m0 0v-10.639m0 0h1.891m0 7.093h-1.044m0 0v-3.547m0 0h1.044m0 7.093h-1.044m0 0v-3.546m0 0h1.044m0-7.093v10.639m.45-30.69h-4.5m14.251 30.493-6.985-3.245m3.768 3.403.584-1.381m-2.398.539.68-1.337m1.743-1.031-.362-.168m0 0-.387.833m0 0 .362.168m0 0 .387-.833m-.181-.084.043.02m0 0 .132-.113m0 0-.108-.051m-.067.144-.043-.02m0 0 .001-.174m0 0 .109.05m4.53.698-7.986-3.71m15.298-35.566v2.05m0 0h2.05m0 0v-2.05m0 0h-2.05m-3.59 6.306h9.23m0 0v-3.92m0 0h-9.23m0 0v3.92m-.171 0v-4.801m0 0h-1.788m0 0v4.801m0 0h1.788m2.891-.616v.327m0 0h3.449m0 0v-.327m0 0h-3.449m-8.44-5.69v2.05m0 0h-2.05m0 0v-2.05m0 0h2.05m3.59 6.306h-9.23m0 0v-3.92m0 0h9.23m0 0v3.92m-2.721-.616v.327m0 0h-3.448m0 0v-.327m0 0h3.448m-6.68.616v-4.801m0 0h-1.788m0 0v4.801m0 0h1.788M258.192 72.29l5.413 1.093m0 0 4.733-23.447m0 0-5.413-1.093m0 0-4.733 23.447m-.857-10.41 2.107.425m0 0-.425 2.108m0 0-2.108-.426m0 0 .426-2.107m.593-2.941 2.108.425m0 0-.426 2.108m0 0-2.107-.426m0 .001.425-2.108m.594-2.941 2.107.426m0 0-.425 2.107m0 0-2.108-.425m0 0 .426-2.108m.594-2.94 2.107.425m0 0-.425 2.108m0-.001-2.108-.425m0 0 .426-2.107m.593-2.941 2.108.425m0 0-.426 2.108m0 0-2.107-.426m0 0 .425-2.107m8.724 14.003-2.107-.425m0 0-.426 2.107m0 0 2.108.426m0 0 .425-2.108m.594-2.94-2.108-.426m0 0-.425 2.107m0 0 2.107.426m0 0 .426-2.108m.594-2.94-2.108-.426m0 0-.425 2.108m0-.001 2.107.426m0 0 .426-2.107m.593-2.941-2.107-.425m0 0-.426 2.107m0 0 2.108.426m0 0 .425-2.108m.594-2.941-2.108-.425m0 0-.425 2.107m0 .001 2.107.425m0 0 .426-2.108m-14.661 15.404 2.108.426m0 0-.425 2.107m0 0-2.108-.425m0 0 .425-2.108m.594-2.941 2.108.426m0 0-.426 2.107m0 0-2.107-.425m0 0 .425-2.108m10.505 5.181-2.107-.425m0 0-.426 2.108m0 0 2.108.425m0 0 .425-2.108m.594-2.941-2.108-.425m0 0-.425 2.108m0 0 2.107.425m0 0 .426-2.107m3.991-49.214-16.308.14m0 0-.034-3.92m0 .001 12.389-.106m3.953 3.885 3.919-.033m0 0-.104-12.151m0 0-3.919.034m0 0 .07 8.231m-5.885 3.97-.034-3.92m3.027-1.94 2.05-.018m0 0-.018-2.05m0 0-2.05.018m0 0 .018 2.05m-9.254 1.129 2.05-.018m0 .001-.017-2.05m0 0-2.05.017m0 0 .017 2.05m8.227.795 3.919-.034m4.988-4.143 2.05-.018m0 0-.017-2.05m0 .001-2.05.017m0 0 .017 2.05m.041 4.758 2.05-.017m0 0-.018-2.05m0 0-2.049.017m0 0 .017 2.05m-17.874 3.023 3.449-.03m0 .001-.003-.327m0 0-3.449.03m0 0 .003.326m16.694-11.903.104 12.15m-1.354-12.139.104 12.15m-6.294-.304 3.448-.03m0 0-.003-.326m0 0-3.448.03m0 0 .003.326m16.558 4.23-29.673.263m.002 0-.001-2.75m19.819 20.321-20.084-1.907m0 0 .37-3.901m0 0 16.182 1.536m-6.263 3.342.371-3.902m3.21-1.619 2.041.194m0 0 .194-2.04m0-.001-2.041-.193m0 0-.194 2.04m-9.32.17 2.04.194m0 0 .194-2.04m0-.001-2.041-.194m0 .001-.193 2.04m17.391-1.599 2.041.194m0 0 .193-2.04m0-.001-2.04-.193m0 0-.194 2.04m-.45 4.738 2.041.193m0 0 .194-2.04m0-.001-2.041-.193m0-.001-.194 2.041m-18.09 1.166 3.433.326m0 0 .031-.325m0 0-3.433-.326m0 0-.031.325m17.831-10.12-1.148 12.097m-.096-12.215-1.149 12.097m-6.229-.951 3.433.326m0-.001.031-.325m0 0-3.433-.325m0 0-.031.325m-62.506 135.717v3.266m0 0h1.961m0 0v-3.266m0 0h-1.961m4.746-6.065v2.504m0 0h1.622m0 0v-2.504m0 0h-1.622m2.95.849v4m.876-7.123v-3.266m0 0h1.961m0 0v3.266m0 0h-1.961m0-2.61h1.961m10.31 1.936v2.504m0 0h-1.622m0 0v-2.504m0 0h1.622m-8.547 11.779h4m-4.1-7.857v3.857m0 0h.25m0 0v-10.371m0 14.371h-.25m0 0v.5m0 0h.25m0 0v-.5m-5.328-8.107v.25m0 0h.578m0 0v-.25m0 0h-.578m27.121.125v4m-4.25-10.389v6.264m0 0h.25m0 0v.25m0 0h-.5m0 0v-.25m0 0v-6.264m3.733 3.266v-3.266m0 0h-1.961m0 0v3.266m0 0h1.961m0-2.61h-1.961m-10.168 1.936v2.504m0 0h1.621m0 0v-2.504m0 0h-1.621m8.546 11.779h-4m4.1-7.857v3.857m0 0h-.25m0 0v-3.857m0 7.857h.25m0 0v.5m0 0h-.25m0 0v-.5m5-8.107v.25m0 0h-.5m0 0v-.25m0 0h.5m-13.896 2.011v2.504m0 0h-1.622m0 0v-2.504m0 0h1.622m.5 0v2.504m0 0h1.621m0 0v-2.504m0 0h-1.621m1.871-8.275v14.871m-4.243-14.871v14.871m-23.385-2.672h-1.111m0 0h1.111m0 0v-.5m0 0h-1.111m0 0v.5m-27.157 0h22.657m0 0v-.5m0 0h-21.641m26.141.25v-4.5m43.199-52.747 1.799.982m0 0-.982 1.8m0 0-1.799-.982m0 0 .982-1.8m-1.317-4.794 5.341 2.735m-4.201-4.96 5.34 2.734m-12.177 9.705 5.171 3.043m-3.903-5.197 5.171 3.043m6.269-17.52 1.842.9m0 0-.899 1.842m0 0-1.842-.899m0 0 .899-1.843m-13.022 23.866 1.753 1.062m0 0 1.062-1.753m0 0-1.753-1.063m0 0-1.062 1.754m11.591-29.085 5.491 2.417m1.12-5.189-4.626-1.897m8.648-8.735-4.747-1.574m21.088 3.152-27.836-8.744m0 0 .693-2.14m.488 12.629.761-2.011m0 0 2.011.761m0 0-.761 2.01m0 .001-2.011-.761m-1.031.192 1.148-3.03m0 0 2.848 1.078m0 0-1.147 3.03m0 .001-2.849-1.078m-20.979 52.021 2.062-3.008m0 0 2.827 1.938m0 0-2.062 3.008m0 0-2.827-1.938m3.858.434-2.827-1.938m-3.982-.519 2.062-3.008m0 0 2.827 1.938m0 0-2.062 3.008m0 0-2.827-1.938m3.858.434-2.827-1.938m-3.982-.519 2.062-3.008m0 0 2.827 1.938m0 0-2.062 3.008m0 0-2.827-1.938m3.858.434-2.827-1.938m9.595-1.341 2.062-3.008m0 0 2.828 1.938m0 0-2.062 3.008m0 0-2.828-1.938m3.859.434-2.828-1.938m-3.982-.519 2.062-3.008m0 0 2.828 1.938m0 0-2.062 3.008m0 0-2.828-1.938m3.859.434-2.828-1.938m-3.982-.519 2.062-3.008m0 0 2.827 1.938m0 0-2.062 3.008m0 0-2.827-1.938m3.858.434-2.827-1.938m-6.497 15.805 1.031-1.503m0 0 2.827 1.938m0 0-1.031 1.504m0 0-2.827-1.939m-2.951-2.023 1.031-1.504m0 0 2.827 1.939m0 0-1.031 1.504m0 0-2.827-1.939m40.883-45.559 2.012-.76m0 .001-.76-2.012m0 0-2.011.76m0 0 .759 2.011m-.194 1.03 3.032-1.144m0 0-1.075-2.85m0 0-3.032 1.145m0 0 1.075 2.849m3.868-10.952 1.032 1.885m0 .001-1.886 1.032m0 0-1.032-1.886m0 0 1.886-1.033m.523-.908 1.556 2.843m0 0-2.671 1.462m0 0-1.556-2.843m0 0 2.671-1.462m14.714-3.743-27.788-8.9m.001-.002-.668 2.149m59.667 91.814v-15.55m0 0h10.03m0 0v15.55m0 0h-10.03m0-16.3v-.75m0 0h10.03m0 0v.75m0 0h-10.03m0 17.05v.75m0 0h10.03m0 0v-.75m0 0h-10.03m0-16.3 10.03 15.55m-10.03 0 10.03-15.55M108.12 248.499h-.4m.4 0h4.81m0 0v.4m0 0h-4.81m4.81-.2v4.5m4.506-4.7h4.859m0 0v.4m0 0h-4.859m0 0v-.4m43.859 12.767v.25m0 0h-3.482m0 0h-.5m0 0v-.25m0 0h.5m0 0h3.482m-3.266 3.481h3.266m0 0v-1.961m0 0h-3.266m0 0v1.961m2.609 0v-1.961m.657-5.78v2.504m0 0h-1.621m0 0v-2.504m0 0h1.621m-7.732-3.753v-4.5m0 4.3h-4.231m0 0v.5m0 0h4.231m0 0v-.5m7.732 0h-3.232m0 0v.5m0 0h3.232m0 0v-.5m-7.982 8.338v-4m-.25 4.125h.25m0 0v-.25m0 0h-.25m0 0v.25m-27.776-8.263v-4.5m4.5 4.3h6.218m0 0v.5m0 0h-6.218m0 0v-.5m-5.992 0h1.492m0 0v.5m0 0h-1.492m0 0v-.5m21.037.2v-4.5m7.731 12.513v.25m0 0h-3.481m0 0h-.5m0 0v-.25m0 0h.5m0 0h3.481m-3.266 3.481h3.266m0 0v-1.961m0 0h-3.266m0 0v1.961m2.61 0v-1.961m.656-5.78v2.504m0 0h-1.621m0 0v-2.504m0 0h1.621m-7.981 4.385v-4m-.25 4.125h.25m0 0v-.25m0 0h-.25m0 0v.25M40.085 248.699v4.5m-4.99-4.3v17.6m0 0h.4m0 0v-17.6m126.3 17.618v-.5m0 0-38.625-.001m0 0v.494m0 0 38.625.007m-32.545-45.09.176-.42m-2.868 2.832-.437.129m2.873-4.139v2.782m0 0h-2.412m0 0-.919 2.115m0 0-1.147-.462m4.081-4.36v2.309m0 0h-2.276m0 0-.869 2m0 0-.787-.318m-.149.369.149-.369m2.383-2.387h1.549m0 0h-.641m.641-.397h-1.549m0 .397v-.397m4.979 32.442v12.463m0 0h.5m0 0v-12.463m20.036 0v12.463m0 0h.5m0 0v-12.463m64.064-90.926v6.264m0 0h-.5m0 0v.25m0 0h.5m57.784-129.557 1.148-12.097m0 0-3.902-.37m0 0-.778 8.195m-53.29 154.27h-1.824m0 0v-3.428m0 0h1.824m0-.15h-1.824m0 0v-3.428m0 0h1.824m0-.15h-1.824m0 0v-3.428m0 0h1.824m-8.397 7.156h1.823m0 0v3.428m0 0h-1.823m0-7.006h1.823m0 0v3.428m0 0h-1.823m0-7.006h1.823m0 0v3.428m0 0h-1.823m16.752 7.156h-1.824m0 0v-3.428m0 0h1.824m0-.15h-1.824m0 0v-3.428m0 0h1.824m0-.15h-1.824m0 0v-3.428m0 0h1.824M93.617 248.904v17.6m0 0h.4m0 0v-17.6m13.703-.005v17.6m0 0h.4m0 0v-17.6m145.525-52.401h-2.131"
           style={{
             fill: 'none',
-            stroke: '#ff0',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -3275,7 +3314,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(246.786 987.671)scale(1.33334)"
         />
@@ -3285,7 +3324,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(258.258 987.671)scale(1.33334)"
         />
@@ -3295,7 +3334,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(264.063 987.671)scale(1.33334)"
         />
@@ -3305,7 +3344,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(275.535 987.671)scale(1.33334)"
         />
@@ -3315,7 +3354,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(281.34 987.671)scale(1.33334)"
         />
@@ -3325,7 +3364,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(57.83 984.283)scale(1.33334)"
         />
@@ -3335,7 +3374,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(69.302 984.283)scale(1.33334)"
         />
@@ -3345,7 +3384,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(75.107 984.283)scale(1.33334)"
         />
@@ -3355,7 +3394,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(86.58 984.283)scale(1.33334)"
         />
@@ -3365,7 +3404,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(92.385 984.283)scale(1.33334)"
         />
@@ -3375,7 +3414,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(220.902 746.182)scale(1.33334)"
         />
@@ -3385,7 +3424,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(232.374 746.182)scale(1.33334)"
         />
@@ -3395,7 +3434,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(238.18 746.182)scale(1.33334)"
         />
@@ -3405,7 +3444,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(249.653 746.182)scale(1.33334)"
         />
@@ -3415,7 +3454,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(255.458 746.182)scale(1.33334)"
         />
@@ -3425,7 +3464,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(54.69 752.886)scale(1.33334)"
         />
@@ -3435,7 +3474,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(66.162 752.886)scale(1.33334)"
         />
@@ -3445,7 +3484,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(71.968 752.886)scale(1.33334)"
         />
@@ -3455,7 +3494,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(83.44 752.886)scale(1.33334)"
         />
@@ -3465,7 +3504,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(89.245 752.886)scale(1.33334)"
         />
@@ -3475,7 +3514,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(57.031 884.326)scale(1.33334)"
         />
@@ -3485,7 +3524,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(68.504 884.326)scale(1.33334)"
         />
@@ -3495,7 +3534,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(74.31 884.326)scale(1.33334)"
         />
@@ -3505,7 +3544,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(85.782 884.326)scale(1.33334)"
         />
@@ -3515,7 +3554,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(91.587 884.326)scale(1.33334)"
         />
@@ -3525,7 +3564,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(451.536 704.778)scale(1.33334)"
         />
@@ -3535,7 +3574,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(463.008 704.778)scale(1.33334)"
         />
@@ -3545,7 +3584,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(468.813 704.778)scale(1.33334)"
         />
@@ -3555,7 +3594,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(480.285 704.778)scale(1.33334)"
         />
@@ -3565,7 +3604,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(486.09 704.778)scale(1.33334)"
         />
@@ -3575,7 +3614,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(220.902 887.037)scale(1.33334)"
         />
@@ -3585,7 +3624,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(232.374 887.037)scale(1.33334)"
         />
@@ -3595,7 +3634,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(238.18 887.037)scale(1.33334)"
         />
@@ -3605,7 +3644,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(249.653 887.037)scale(1.33334)"
         />
@@ -3615,7 +3654,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(255.458 887.037)scale(1.33334)"
         />
@@ -3625,7 +3664,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1063.282 463.714)scale(1.33334)"
         />
@@ -3635,7 +3674,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1074.754 463.714)scale(1.33334)"
         />
@@ -3645,7 +3684,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1080.56 463.714)scale(1.33334)"
         />
@@ -3655,7 +3694,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1092.032 463.714)scale(1.33334)"
         />
@@ -3665,7 +3704,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1097.837 463.714)scale(1.33334)"
         />
@@ -3675,7 +3714,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(938.991 358.15)scale(1.33334)"
         />
@@ -3685,7 +3724,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(950.463 358.15)scale(1.33334)"
         />
@@ -3695,7 +3734,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(956.269 358.15)scale(1.33334)"
         />
@@ -3705,7 +3744,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(967.742 358.15)scale(1.33334)"
         />
@@ -3715,7 +3754,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(973.547 358.15)scale(1.33334)"
         />
@@ -3725,7 +3764,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(884.577 480.292)scale(1.33334)"
         />
@@ -3735,7 +3774,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(896.05 480.292)scale(1.33334)"
         />
@@ -3745,7 +3784,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(901.855 480.292)scale(1.33334)"
         />
@@ -3755,7 +3794,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(913.327 480.292)scale(1.33334)"
         />
@@ -3765,7 +3804,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(919.133 480.292)scale(1.33334)"
         />
@@ -3775,7 +3814,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(971.278 237.383)scale(1.33334)"
         />
@@ -3785,7 +3824,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(982.75 237.383)scale(1.33334)"
         />
@@ -3795,7 +3834,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(988.555 237.383)scale(1.33334)"
         />
@@ -3805,7 +3844,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1000.028 237.383)scale(1.33334)"
         />
@@ -3815,7 +3854,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1005.833 237.383)scale(1.33334)"
         />
@@ -3825,7 +3864,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(990.377 41.185)scale(1.33334)"
         />
@@ -3835,7 +3874,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1001.85 41.185)scale(1.33334)"
         />
@@ -3845,7 +3884,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1007.655 41.185)scale(1.33334)"
         />
@@ -3855,7 +3894,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1019.128 41.185)scale(1.33334)"
         />
@@ -3865,7 +3904,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1024.933 41.185)scale(1.33334)"
         />
@@ -3875,7 +3914,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1063.282 646.481)scale(1.33334)"
         />
@@ -3885,7 +3924,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1074.754 646.481)scale(1.33334)"
         />
@@ -3895,7 +3934,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1080.56 646.481)scale(1.33334)"
         />
@@ -3905,7 +3944,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1092.032 646.481)scale(1.33334)"
         />
@@ -3915,7 +3954,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1097.837 646.481)scale(1.33334)"
         />
@@ -3925,7 +3964,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(934.585 646.541)scale(1.33334)"
         />
@@ -3935,7 +3974,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(946.057 646.541)scale(1.33334)"
         />
@@ -3945,7 +3984,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(951.862 646.541)scale(1.33334)"
         />
@@ -3955,7 +3994,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(963.335 646.541)scale(1.33334)"
         />
@@ -3965,7 +4004,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(969.14 646.541)scale(1.33334)"
         />
@@ -3975,7 +4014,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(806.362 646.541)scale(1.33334)"
         />
@@ -3985,7 +4024,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(817.835 646.541)scale(1.33334)"
         />
@@ -3995,7 +4034,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(823.64 646.541)scale(1.33334)"
         />
@@ -4005,7 +4044,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(835.112 646.541)scale(1.33334)"
         />
@@ -4015,7 +4054,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(840.918 646.541)scale(1.33334)"
         />
@@ -4025,7 +4064,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1068.16 250.791)scale(1.33334)"
         />
@@ -4035,7 +4074,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1079.632 250.791)scale(1.33334)"
         />
@@ -4045,7 +4084,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1085.437 250.791)scale(1.33334)"
         />
@@ -4055,7 +4094,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1096.909 250.791)scale(1.33334)"
         />
@@ -4065,7 +4104,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(1102.714 250.791)scale(1.33334)"
         />
@@ -4075,7 +4114,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(890.314 600.393)scale(1.33334)"
         />
@@ -4085,7 +4124,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(901.786 600.393)scale(1.33334)"
         />
@@ -4095,7 +4134,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(907.591 600.393)scale(1.33334)"
         />
@@ -4105,7 +4144,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(919.063 600.393)scale(1.33334)"
         />
@@ -4115,7 +4154,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(924.869 600.393)scale(1.33334)"
         />
@@ -4125,7 +4164,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(883.26 866.967)scale(1.33334)"
         />
@@ -4135,7 +4174,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(894.733 866.967)scale(1.33334)"
         />
@@ -4145,7 +4184,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(900.538 866.967)scale(1.33334)"
         />
@@ -4155,7 +4194,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(912.011 866.967)scale(1.33334)"
         />
@@ -4165,7 +4204,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(917.817 866.967)scale(1.33334)"
         />
@@ -4175,7 +4214,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(515.838 885.827)scale(1.33334)"
         />
@@ -4185,7 +4224,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(527.31 885.827)scale(1.33334)"
         />
@@ -4195,7 +4234,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(533.116 885.827)scale(1.33334)"
         />
@@ -4205,7 +4244,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(544.59 885.827)scale(1.33334)"
         />
@@ -4215,7 +4254,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(550.395 885.827)scale(1.33334)"
         />
@@ -4225,7 +4264,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(515.838 988.994)scale(1.33334)"
         />
@@ -4235,7 +4274,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(527.31 988.994)scale(1.33334)"
         />
@@ -4245,7 +4284,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(533.116 988.994)scale(1.33334)"
         />
@@ -4255,7 +4294,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(544.59 988.994)scale(1.33334)"
         />
@@ -4265,17 +4304,17 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
-            fill: '#ff0',
+            fill: d,
           }}
           transform="translate(550.395 988.994)scale(1.33334)"
         />
       </g>
-      <g ref={structRef} mask="url(#draw-mask)" className="struct opacity-0">
+      <g mask="url(#draw-struct-mask)" className="struct opacity-0">
         <path
           d="M147.824 208.848h5.971m.25 0v.3m-.25 0h-12m0-.3h6.055"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4290,7 +4329,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dh)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4305,7 +4344,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#di)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4320,7 +4359,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dj)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4335,7 +4374,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dk)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4350,7 +4389,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dl)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4365,7 +4404,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dm)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4380,7 +4419,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dn)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4395,7 +4434,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#do)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4410,7 +4449,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dp)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4425,7 +4464,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dq)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4440,7 +4479,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dr)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4455,7 +4494,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ds)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4470,7 +4509,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dt)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4485,7 +4524,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#du)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4500,7 +4539,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dv)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4515,7 +4554,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dw)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4530,7 +4569,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dx)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4545,7 +4584,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dy)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4560,7 +4599,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dz)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4575,7 +4614,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dA)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4590,7 +4629,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dB)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4605,7 +4644,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dC)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4620,7 +4659,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dD)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4635,7 +4674,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dE)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4650,7 +4689,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dF)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4665,7 +4704,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dG)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4680,7 +4719,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dH)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4695,7 +4734,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dI)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4710,7 +4749,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dJ)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4725,7 +4764,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dK)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4740,7 +4779,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dL)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4755,7 +4794,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dM)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4770,7 +4809,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dN)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4785,7 +4824,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dO)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4800,7 +4839,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dP)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4815,7 +4854,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dQ)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4830,7 +4869,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dR)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4845,7 +4884,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dS)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4860,7 +4899,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dT)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4875,7 +4914,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dU)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4890,7 +4929,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dV)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4905,7 +4944,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dW)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4920,7 +4959,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dX)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4935,7 +4974,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dY)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4950,7 +4989,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#dZ)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4965,7 +5004,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ea)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4980,7 +5019,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eb)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -4995,7 +5034,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ec)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5010,7 +5049,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ed)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5025,7 +5064,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ee)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5040,7 +5079,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ef)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5055,7 +5094,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eg)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5070,7 +5109,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eh)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5085,7 +5124,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ei)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5100,7 +5139,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ej)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5115,7 +5154,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ek)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5130,7 +5169,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#el)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5145,7 +5184,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#em)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5160,7 +5199,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#en)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5175,7 +5214,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eo)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5190,7 +5229,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ep)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5205,7 +5244,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eq)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5220,7 +5259,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#er)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5235,7 +5274,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#es)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5250,7 +5289,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#et)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5265,7 +5304,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eu)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5280,7 +5319,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ev)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5295,7 +5334,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ew)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5310,7 +5349,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ex)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5325,7 +5364,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ey)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5340,7 +5379,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#ez)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5355,7 +5394,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eA)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5370,7 +5409,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eB)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5385,7 +5424,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eC)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5400,7 +5439,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eD)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5415,7 +5454,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eE)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5430,7 +5469,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eF)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5445,7 +5484,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eG)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5460,7 +5499,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eH)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5475,7 +5514,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eI)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5490,7 +5529,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eJ)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5505,7 +5544,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eK)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5520,7 +5559,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eL)"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5534,7 +5573,7 @@ export default function ArchitectureBlueprint({
           d="M122.295 199.998h39m-28.71 16.5h-8m0 0v-11.5m0 0h8m0 0v11.5m-8.5.788h8m.5-12.288-8 11.5m8 0-8-11.5m36.71 13h-19.852m0 0v-1.5m0 0h19.852m-28 0v-15m7.924 15.75v-4.5m21.576-12.75v16.5m156.75-37.5v78.75m-185.55-41.25h-1.91m0 0v1.5m0 0h1.91m0 0v-1.5m183.3-37.5v76.5m0 0h-154.5m-40.5-39v1.5m1.5-16.5v15m195.75 41.25H161.292m-154.497 0h-1.5m148.5-41.25v-.1m-1.5.1v-.1m-1.5.1v-.1m-1.5.1v-.1m-1.5.1v-.1m-1.5.1v-.1m-1.5.1v-.1m-1.5.1v-.1m-1.5.1v-.1m12 .1h-12m12-3.75h-12m0-7.5h7.625m-6.125-3.75-1.5 3.75m0 0 1.34 3.35m9.32.8 1.34 3.35m0 0-1.5 3.75m1.75-7.1h-12.25m12.25-.8h-6.13m5.88 7.55v-6.75m-1.5 6.75v-6.75m-1.5 6.75v-6.75m-1.5 6.75v-6.75m-1.5 6.75v-6.75m-1.5 6.75v-6.75m-1.5 6.75v-6.75m-1.5 6.75v-6.75m-1.5 6.75v-7.3m12.75 7.3h-12.75m0 0v.25m0 0h12.75m0 0v-.25m-.75-14.65h-12m12 .35v6.75m-1.5-6.75v6.75m-1.5-6.75v6.75m-1.5-6.75v3.059m-1.5-3.059v6.75m-1.5-6.75v6.75m-1.5-6.75v6.75m-1.5-6.75v6.75m-1.5-6.75v6.75m12.75-6.75h-13.5m0 0v-.25m0 0h13.5m-5.25 3.309v3.691m.125-3.35h4.375m-5.853 3.35h-6.397m12.5.8v-.8m.5-7v.25m-13 14.639v-7.889m12.25.25v.3m7.5-9.15v-22.5m-31.778 15h2.591m0 0v-1m0 0h-2.591m0 0v1m-4.5-1h-1.472m0 0v1m0 0h1.472m0 0v-1m0 .5v-4.5m-90.472-10v40.25m0 0h1m0 0v-40.25m0 0h-1m-26.986 39.75v.5m0 0h4.227m0 0v-.5m0 0H7.559m8.727 0v.5m0 0h4.9m.001 0v-.5m0 0h-4.901m146.509-.75v5.005m0 0h-1.5m0 0v-3.505m1.5 12.505v27.245m0 0h-1.5m0 0v-27.245m0 0h1.5m-1.5 17.913v17.6m-154.5-49.518h.764m0 0v1.5m0 0h-.764m0 0v11.75m0 0h-1.5m1.5 4.5v31.738m0 0h-1.5m0-31.738h1.5m-.75 0h-.75m146.938-56.75v15m0 0h-1m0 0v-15m0 0h1m-9.563 0v15m0 0h-1m0 0v-15m0 0h1m-9.562 0v15m0 0h-1m0 0v-15m0 0h1m-9.563 0v15m0 0h-1m0 0v-15m0 0h1m-9.625 0v15m0 0h-1m0 0v-15m0 0h1m-9.625 0v15m0 0h-1m0 0v-15m0 0h1m15.597 15h2.653m0 0v-1m0 0h-2.653m0 0v1m-4.5-1h-1.472m0 0v1m0 0h1.472m0 0v-1m0 .5v-4.5m-5.125 5h2.653m0 0v-1m0 0h-2.653m0 0v1m-4.5-1h-1.472m0 0v1m0 0h1.472m0 0v-1m0 .5v-4.5m-5.125 5h2.653m0 0v-1m0 0h-2.653m0 0v1m-4.5-1h-1.597m0 0v1m0 0h1.597m0 0v-1m0 .5v-4.5m42.937 5h2.591m0 0v-1m0 0h-2.591m0 0v1m-4.5-1h-1.471m0 0v1m0 0h1.471m0 0v-1m0 .5v-4.5m14.063 5h2.591m0 0v-1m0 0h-2.591m0 0v1m-4.5-1h-1.472m0 0v1m0 0h1.472m0 0v-1m0 .5v-4.5m14.062 5h3.091m0 0v-1m0 0h-3.091m0 0v1m-4.5-1h-1.471m0 0v1m0 0h1.471m0 0v-1m0 .5v-4.5m7.591-9.25h-9.062m-145.688.75v-1.5m0 0h-1m0 0v1.5m19.625-1.5v1.5m0 0h.25m0 0v-1.5m0 0h-.25m-9.625 0v1.5m0 0h.25m0 0v-1.5m0 0h-.25m19 39.75v.5m0 0h-3.957m0 0v-.5m0 0h3.957m-8.457 0v.5m0 0h-4.901m0 0v-.5m0 0h4.901m-14.302.25v4.5m18.802-4.5v4.5m53.957-44.5h-1m0 0v2.5m0 0h1m0 0v-2.5m6.027 39.75v-4.5m-4.5 4H69.045m0 0v1m0 0h17.027m0 0v-1m4.5 0h2.973m0 0v1m0 0h-2.973m0 0v-1m-46.027-39.25h1m0 0v2.5m0 0h-1m0 0v-2.5m50 0v40.25m0 0h-1m0 0v-40.25m0 0h1m-56.026 39.75v-4.5m4.5 4h17.026m0 0v1m0 0H43.02m-.001 0v-1m-4.5 0h-2.974m0 0v1m0 0h2.973m.001 0v-1m21.526.5v-4.5m9 4.5v-4.5m65.174 2v2.5m0-.2h-.224m0 0v.4m0 0h.224m0 0v-.4m7.224 0h-.224m0 0v.4m0 0h.224m0 0v-.4m60.602-39.8h-2m0 0v2m0 0h2m0 0v-2m39 0h-2m0 0v2m0 0h2m0 0v-2m0 39h-2m0 0v2m0 0h2m0 0v-2m39 0h-2m0 0v2m0 0h2m0 0v-2m0-39h-2m0 0v2m0 0h2m0 0v-2m-118 53.255h-4.5m4.5-9h-4.5m122.5-42.505h39.573m0 0v-1.5m0 0h-39.573m-80 38.75h2m0 0v2m0 0h-2m0 0v-2m51.597-176.752 2.986.282m-2.751-2.77 2.986.281m-11.289 40.835 2.862.899m-2.113-3.284 2.862.899M6.795 265.986h-1.5m0 .5h1.5m0 0v-.5m259.5-10.488h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-169 0h-.5m0 0v10.488m0 0h.5m0 0v-10.488m299 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m-13 0h-.5m0 0v2.25m0 0h.5m0 0v-2.25m38.5 1h.5m0 0v-1m0 0h-.5m0 0v.5m1.75-51.5v-.5m0 0h-2.25m0 0v.5m0 0h2.25m0-13v-.5m0 0h-2.25m0 0v.5m0 0h2.25m0 26v-.5m0 0h-2.25m0 0v.5m0 0h2.25m0 26v-.5m0 0h-2.25m0 0v.5m0 0h2.25m0-13v-.5m0 0h-2.25m0 0v.5m0 0h2.25m-1.75 25.5h-.5m0 0v.5m0 0h1m0 0v-.5m-.927-104.252v25.752m0 0h2.25m0 0v-28.002m0 0h-2.25m0 2.25h-23.281m0 0 1.262-2.25m0 0h24.269m0 0v2.25m-28.103-56.765 21.667 7.75m-21.041-8.057 11.628 4.16m7.768 2.777 2.273.813m-112.474 49.322-4.979 5.043m0 0-5.161 4.856m0 0-5.335 4.665m0 0-3.681 2.726m0 0-3.843 2.491m0 0-3.992 2.247m0 0-4.125 1.993m0 0-4.24 1.731m100.662-27.252 5.026-8.311m0 0 4.789-8.451m0 0-.657-.363m0 0-4.899 8.637m0 0-5.151 8.488m0 0h.892m1.051 11.131v16.121m0 0h-.75m0 0v-16.121m0 0h.75M254.785 38.161l29.046 2.743m-36.905 36.569 27.834 8.744m0 0-.225.716m0 0-27.836-8.745m6.582-59.711 32.978-.282m0 0 .007.75m0 0-32.978.282m0 0-.007-.75m30.55 22.427.251-2.926m0 0 1.496.119m0 0-.642 6.765m0 0-1.491-.164m0 0 .315-3.048m2.506-19.647-1.5-.01m0 0-.059-6.75m0 .001 1.499-.037m0 0 .06 6.796m-11.26 68.344-1.423-.472m0 0 2.026-6.439m0 0 1.437.429m0 0-2.04 6.482m-41.334 71.53h21.279m0 0v.75m0 0h-21.279m0 0v-.75m25.779 0h7.492m0 0v.75m0 0h-7.492m0 0v-.75m7.569-50.937-1.369-.612m0 0 2.656-6.205m0 0 1.388.57m0 0-2.675 6.247m-10.077 19.841-1.302-.746m0 0 3.265-5.907m0 0 1.324.705m0 0-3.287 5.948m-12.544 19.465h-1.852m0 0 3.296-4.649m0 0 1.234.852m0 0-2.678 3.797M285.05 6.17l4.495-.225m-4.186 23.067 4.495.219m-17.587 66.747 4.208 1.595m7.188-48.411 4.456.626m-10.052 27.711 4.364 1.099m11.656 73.148h-33.196m0 0v-1.5m0 0h34.038m-19.168-17.011 20.148 11.066m-28.966 8.076h.75m0 0v-.5m0 0h-.75m0 0v.5m.375 0h4.5m-4.5 9h4.5m-16.867.875v4.5m12.052-59.516-2.377-1.017m-4.137-1.771-15.814-6.77m-4.137-1.77-2.474-1.059m-26.765 67.028h-3.1m0 0v.75m0 0h3.1m-10.032-.75h1.432m0 0v.75m0 0h-1.432m1.432-.375v-5.5m23.325 20.746h-13.975m6.327-15.421v-4.5m-6.327 5.05h6.327m0 0v-.75m0 0h-6.327m17.123 0h-6.296m0 0v.75m0 0h2.898m-13.725 0v14.871m14.225-14.871v14.871m0 0h-.5m0 0v-14.871m.25 14.871h13.021m-5.373-15.421v-4.5m-4.5 4.3v.75m0 0h-2.898m13.396 0v14.621m-27.621-15.371v-4.131m0 0h-.75m0 0v4.131m-10.032 0v-10.059m0 0-.75.783m0 0v24.647m0 0h.75m0 0v-14.621m10.032-10.381v-.5m0 0h.75m0 0v.5m0 0h-.75m.375 0h5.5m-51.194 25.252-3.185 1.103m155.25 76.897v-76.5m-53.419-72.779-1.771 4.137m-22.317-14.448-1.771 4.137m25.433 15.249 4.039 1.985m59.502-72.053-.037.398m0 0 .995.094m0 0 .038-.398m0 0-.996-.094m-2.364 18.338-.068.394m0 0 .985.171m0 .001.068-.395m0 0-.985-.17m-3.664 18.216-.093.39m0-.001.973.232m0 .001.093-.39m0 .001-.973-.233M328.635 8.9l.017.4m0 0 .999-.043m0 0-.017-.4m0 0-.999.044m.177 18.221-.011.4m0-.001 1 .026m0 0 .01-.4m0 0-.999-.026M316.809 99.61l-.12.381m0 0 .954.3m0 0 .12-.382m0 .001-.954-.3m-8.76 23.882-.157.368m0 0 .921.39m0 0 .156-.369m0 0-.92-.389m-11.014 22.93-.191.352m0 0 .879.476m0 0 .191-.351m0 0-.879-.477m20.333 24.879h-11.53m0 6.15h11.53m-11.53-6.15v6.15m0 0h11.53m0 0v-6.15m0 0h-11.53m.5.5v5.15m0 0h10.53m0 0v-5.15m0 0h-10.53m10.53 5.15-.54-4.609m0 0-9.99-.541m0 0h10.53m0 0v5.15m-11.03-5.65v-19.55m0 0h11.53m0 0v19.55m0 0h-11.53m-182.043 66.597v17.6M314.847 45.14l8.975.673m-9.093.829 8.97.74m-9.099.762 8.964.805m-9.104.696 8.957.87m-9.109.63 8.952.936m-9.114.564 8.944 1m-9.117.498 8.936 1.066m-9.12.431 8.928 1.132m-9.124.366 8.92 1.196m-9.126.3 8.911 1.262m-9.128.234 8.901 1.326m-9.13.168 8.892 1.392m-9.131.101 8.881 1.457m-9.132.036 8.871 1.522m-9.132-.03 8.859 1.587m-10.665 7.347 8.781 1.977m-9.11-.536 8.765 2.04m-9.106-.601 8.751 2.103m-9.101-.666 8.735 2.165m-9.096-.731 8.72 2.227m-9.091-.795 8.703 2.29m-9.085-.86L316.937 86m-9.079-.924 8.67 2.414m-9.072-.99 8.652 2.477m-9.065-1.053 8.635 2.538m-9.058-1.118 8.616 2.6m-9.049-1.182 8.597 2.662m-9.041-1.247 8.578 2.724m-9.033-1.311 8.558 2.786m-9.023-1.375 8.538 2.847m-9.013-1.438 8.517 2.908m-9.003-1.502 8.496 2.97m-8.01-4.376 3.255 4.325m0 0 5.262-1.417m2.09-55.682 8.979.608m-91.375 67.279-1.21 2.188m0 0-2.623-1.442m0 0 1.204-2.191m0 0 2.629 1.445m-70.772 154.995-10.292-.003m-4.45 0-141.75-.029m59.5-1.101h-.5m0 0v1.75m0 0h.5m0 0v-1.75m86.95 1.13h-4.7m0 .25h4.7m-28.825.376v-1.12m0 0h.25m0 0v1.12m0 0h-.25m39.117-.373-14.992-.004m0 .001-141.75-.029m156.739-8.988.003 9.02m-.253-9.02.003 8.77m-14.742.997h14.992m0 0h.75m0 0v-10.007M6.17 267.135v-1.348m0 0h-.25m0 0v1.348m0 0h.25m146.125-.12v-.5m0 0h-.25m0 0v.5m0 0h.25m-19.5 0v-.5m0 0h.25m0 0v.5m0 0h-.25m29-.25v-.497m0 0h-.25m0 0v.497m0 0h.25m-.25-.497h.5m-.008.497v-.497m0 0h-.25m0 0v.497m0 0h.25m-14.992.721-141.75-.003m88.75-2.098h-.5m0 0v1.75m0 0h.5m0 0v-1.75m-59 0h.5m0 0v1.75m0 0h-.5m0 0v-1.75m126.25.631h.489m0 0v-8.268m0 0h-.489m0 0v8.268m187.822 44.408V2.512m63.019 0v371.957M410.714 2.512V373.02m-60.174-62.596V2.512m-1.423 47.526h61.597m-61.597.949h61.597m-61.597 61.898h61.597m-61.597.948h61.597M64.545 310.424h346.169m-346.169.948h346.169M64.545 373.02h346.169m-346.169 1.449h347.591m-125.229-63.097v61.648m-.949 0v-61.648m-62.448 0v61.648m-.948 0v-61.648m-62.448 0v61.648m-.949 0v-61.648m-62.447 0v61.648m-.949 0v-61.648m254.771 0v61.648m-1.423 0v-61.648m-284.572-.948H5.295m59.25.948H5.295m59.25 61.648H5.295m59.25 1.449H5.295m27.078-63.097v61.648m.948 0v-61.648m127.974-133.374h-9.062m9.062 1h-9.062M349.117 267h2.29m0 0V149.496m0 0h-2.29m0 0V267m0 0h-186.33m156.758-117.504h29.572m-147.781 2.25h51.155m0 0v-1.5m0 0h-51.808m77.362 27.252h-37m-1.375-.25v-14.621m0 0h.75m0 0v14.621m-1.375.25h-37m0 0v1.5m0 0h37m2 0h37m39.25 77.5h-154.5m0-56.5v1.5m-1.5 0h-37.5m37.5 15v-15m0 15v-.75m-37.5 2.25v48.018m0 0h-1.5m0 0v-66.018m1.5 18h.29m0 0v-1.5m0 0h-.29m37.5-39 4.232-1.432m0 0 4.134-1.692m0 0 4.021-1.946m0 0 3.892-2.193m0 0 3.749-2.43m0 0 3.59-2.658m0 0 5.445-4.765m0 0 5.259-4.97m0 0 5.066-5.166m10.616 12.381v14.871m0 0h.75m0 0v-14.871M283.76 41.65l-29.046-2.742m-120.919 162.59v15m29-37.897v22.147m-11.562-22.5h-8.563m8.563-.25h-8.563m8.563 1h-8.563m-1-.75h-8.562m8.562-.25h-8.562m8.562 1h-8.562m-1 0h-8.563m8.563-.75h-8.563m8.563-.25h-8.563m-1 0h-8.625m8.625.25h-8.625m8.625.75h-8.625m-1-1h-8.625m8.625.25h-8.625m8.625.75h-8.625m-1 0h-8.75m8.75-.75h-8.75m8.75-.25h-8.75m-1 0h-9m9 .25h-9m9 .75h-9m-1-1h-38m38 .25h-38m38 .75h-38m-1-1h-9m9 .25h-9m9 .75h-9m-1-1h-28m28 .25h-28m28 .75h-28m-1.25 0h1.5m-1.25-.75h-.25m.25-.25h-.25m1.5 1v37.5m-1.25-37.5h-.25M162.045 267H5.295"
           style={{
             fill: 'none',
-            stroke: '#fff',
+            stroke: d,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5545,13 +5584,13 @@ export default function ArchitectureBlueprint({
           transform="scale(3.77953)"
         />
       </g>
-      <g ref={axesRef} mask="url(#draw-mask)" className="axes opacity-0">
+      <g mask="url(#draw-axes-mask)" className="axes opacity-0">
         <path
           d="M421.488 53.578a7.416 7.416 0 1 0-14.832 0 7.416 7.416 0 0 0 14.832 0"
           clipPath="url(#eM)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5566,7 +5605,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eN)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5581,7 +5620,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eO)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5596,7 +5635,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eP)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5611,7 +5650,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eQ)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5626,7 +5665,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eR)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5641,7 +5680,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eS)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5656,7 +5695,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eT)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5671,7 +5710,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eU)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5686,7 +5725,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eV)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5701,7 +5740,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eW)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5716,7 +5755,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eX)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5731,7 +5770,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eY)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5746,7 +5785,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#eZ)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5761,7 +5800,7 @@ export default function ArchitectureBlueprint({
           clipPath="url(#fa)"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5775,7 +5814,7 @@ export default function ArchitectureBlueprint({
           d="M318.045 325.763V151.747m-39 174.016V151.747m-39 174.016V151.747m-39 174.016V161.221m-39 164.542V178.248m-39 147.515V176.28m-39 149.483V176.28m-39 149.483V176.28m-39 149.483V176.28m381.957 40.968H5.295m382.707 39H5.295m382.707-78H5.295m196.75 38h-2m0 0v2m0 0h2m0 0v-2m239.28-195.674h-33.377M237.966 36.95 406.69 52.88m-175.958 19.9 161.683 50.79M217.191 104.5l148.482 81.637"
           style={{
             fill: 'none',
-            stroke: 'red',
+            stroke: a,
             strokeWidth: 0.1,
             strokeLinecap: 'round',
             strokeLinejoin: 'round',
@@ -5791,7 +5830,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '58.3127px',
             fontFamily: 'Verdana',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1610.123 70.375)scale(1.33334)"
         />
@@ -5801,7 +5840,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1549.617 208.65)scale(1.33334)"
         />
@@ -5811,7 +5850,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1566.897 208.65)scale(1.33334)"
         />
@@ -5821,7 +5860,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1494.523 481.589)scale(1.33334)"
         />
@@ -5831,7 +5870,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1511.803 481.589)scale(1.33334)"
         />
@@ -5841,7 +5880,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1385.71 723.239)scale(1.33334)"
         />
@@ -5851,7 +5890,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1402.99 723.239)scale(1.33334)"
         />
@@ -5861,7 +5900,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1185.617 1267.532)scale(1.33334)"
         />
@@ -5871,7 +5910,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1204.277 1267.532)scale(1.33334)"
         />
@@ -5881,7 +5920,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1038.216 1267.532)scale(1.33334)"
         />
@@ -5891,7 +5930,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1056.876 1267.532)scale(1.33334)"
         />
@@ -5901,7 +5940,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(890.814 1267.115)scale(1.33334)"
         />
@@ -5911,7 +5950,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(909.474 1267.115)scale(1.33334)"
         />
@@ -5921,7 +5960,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(743.41 1267.532)scale(1.33334)"
         />
@@ -5931,7 +5970,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(762.071 1267.532)scale(1.33334)"
         />
@@ -5941,7 +5980,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(596.01 1267.115)scale(1.33334)"
         />
@@ -5951,7 +5990,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(614.67 1267.115)scale(1.33334)"
         />
@@ -5961,7 +6000,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(448.608 1267.115)scale(1.33334)"
         />
@@ -5971,7 +6010,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(467.268 1267.115)scale(1.33334)"
         />
@@ -5981,7 +6020,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(301.206 1267.532)scale(1.33334)"
         />
@@ -5991,7 +6030,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(319.866 1267.532)scale(1.33334)"
         />
@@ -6001,7 +6040,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(153.804 1267.115)scale(1.33334)"
         />
@@ -6011,7 +6050,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(172.464 1267.115)scale(1.33334)"
         />
@@ -6021,7 +6060,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(6.402 1267.115)scale(1.33334)"
         />
@@ -6031,7 +6070,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(25.062 1267.115)scale(1.33334)"
         />
@@ -6041,7 +6080,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1470.83 682.58)scale(1.33334)"
         />
@@ -6051,7 +6090,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1489.483 682.58)scale(1.33334)"
         />
@@ -6061,7 +6100,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1472.163 830.892)scale(1.33334)"
         />
@@ -6071,7 +6110,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1490.817 830.892)scale(1.33334)"
         />
@@ -6081,7 +6120,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1470.83 977.385)scale(1.33334)"
         />
@@ -6091,7 +6130,7 @@ export default function ArchitectureBlueprint({
           style={{
             fontSize: '19.4376px',
             fontFamily: 'Arial',
-            fill: 'red',
+            fill: a,
           }}
           transform="translate(1489.483 977.385)scale(1.33334)"
         />
