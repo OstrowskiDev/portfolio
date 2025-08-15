@@ -2,9 +2,10 @@
 
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import ArchitectureBlueprint from '@/components/intro/svgr_output/Architecture'
+import ArchitectureBlueprint from '@/components/intro/svgr_output/ArchitectureBlueprint'
+import GridBackground from './GridBackground'
 
-export default function GradientTests() {
+export default function ArchBlueprintAnim() {
   const textRef = useRef<HTMLHeadingElement | null>(null)
   const axesRef = useRef<SVGGElement | null>(null)
   const structRef = useRef<SVGGElement | null>(null)
@@ -13,8 +14,6 @@ export default function GradientTests() {
   const descriptFillRef = useRef<SVGGElement | null>(null)
 
   const svgRef = useRef<SVGGElement | null>(null)
-
-  const gradientRef = useRef<SVGLinearGradientElement | null>(null)
 
   useEffect(() => {
     if (!svgRef.current) {
@@ -105,7 +104,7 @@ export default function GradientTests() {
 
   return (
     <>
-      <div className="intro-section relative h-[100vh] w-full bg-primary-700 overflow-hidden">
+      <div className="intro-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
           className="intro-line-one absolute top-28 left-12 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-0"
@@ -114,7 +113,6 @@ export default function GradientTests() {
         </h2>
         <ArchitectureBlueprint
           svgRef={svgRef}
-          gradientRef={gradientRef}
           axesRef={axesRef}
           structRef={structRef}
           structFillRef={structFillRef}

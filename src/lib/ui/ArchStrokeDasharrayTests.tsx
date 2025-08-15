@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import ArchitectureBlueprint from '@/components/intro/svgr_output/Architecture'
+import ArchitectureBlueprint from '@/components/intro/svgr_output/ArchitectureBlueprint'
 
 export default function ArchTests() {
   const textRef = useRef<HTMLHeadingElement | null>(null)
