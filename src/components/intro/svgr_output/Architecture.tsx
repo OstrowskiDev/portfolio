@@ -1,6 +1,7 @@
 // @ts-nocheck
 
 export default function ArchitectureBlueprint({
+  gradientRef,
   axesRef,
   structRef,
   descriptFillRef,
@@ -16,6 +17,29 @@ export default function ArchitectureBlueprint({
       {...props}
     >
       <defs>
+        <linearGradient
+          ref={gradientRef}
+          id="draw-gradient"
+          x1="0"
+          y1="0"
+          x2="200"
+          y2="200"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="49.9%" stopColor="white" stopOpacity="1" />
+          <stop offset="50%" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+
+        <mask id="draw-mask">
+          <rect
+            x="0"
+            y="0"
+            width="2000"
+            height="2000"
+            fill="url(#draw-gradient)"
+          />
+        </mask>
+
         <clipPath id="a" clipPathUnits="userSpaceOnUse">
           <path d="M-.353-.353h460.728v381H-.353z" clipRule="evenodd" />
         </clipPath>
@@ -1433,7 +1457,11 @@ export default function ArchitectureBlueprint({
           />
         </clipPath>
       </defs>
-      <g ref={structFillRef} className="struct-fill opacity-0">
+      <g
+        ref={structFillRef}
+        mask="url(#draw-mask)"
+        className="struct-fill opacity-0"
+      >
         <path
           d="M162.795 201.498h-40.5v-1.5h40.5z"
           style={{
@@ -1763,7 +1791,11 @@ export default function ArchitectureBlueprint({
           transform="scale(3.77953)"
         />
       </g>
-      <g ref={descriptFillRef} className="descript-fill opacity-0">
+      <g
+        ref={descriptFillRef}
+        mask="url(#draw-mask)"
+        className="descript-fill opacity-0"
+      >
         <path
           d="M64.345 248.499h.4v18h-.4z"
           style={{
@@ -2109,7 +2141,11 @@ export default function ArchitectureBlueprint({
           transform="scale(3.77953)"
         />
       </g>
-      <g ref={descriptRef} className="descript opacity-0">
+      <g
+        ref={descriptRef}
+        mask="url(#draw-mask)"
+        className="descript opacity-0"
+      >
         <path
           d="M64.545 38.117h-.002m.002-17.543h-.002"
           style={{
@@ -4234,7 +4270,7 @@ export default function ArchitectureBlueprint({
           transform="translate(550.395 988.994)scale(1.33334)"
         />
       </g>
-      <g ref={structRef} className="struct opacity-0">
+      <g ref={structRef} mask="url(#draw-mask)" className="struct opacity-0">
         <path
           d="M147.824 208.848h5.971m.25 0v.3m-.25 0h-12m0-.3h6.055"
           style={{
@@ -5509,7 +5545,7 @@ export default function ArchitectureBlueprint({
           transform="scale(3.77953)"
         />
       </g>
-      <g ref={axesRef} className="axes opacity-0">
+      <g ref={axesRef} mask="url(#draw-mask)" className="axes opacity-0">
         <path
           d="M421.488 53.578a7.416 7.416 0 1 0-14.832 0 7.416 7.416 0 0 0 14.832 0"
           clipPath="url(#eM)"
