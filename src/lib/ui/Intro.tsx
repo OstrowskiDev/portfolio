@@ -4,8 +4,17 @@ import SvgMobileBlueprintOpt from '@/components/intro/svgr_output/MobileBlueprin
 import SvgDesktopWebFlatSvgo from '@/components/intro/svgr_output/DesktopWebFlat'
 import ArchBlueprintAnim from './ArchBlueprintAnim'
 import GridBackground from './GridBackground'
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
 
 export default function Intro() {
+  const gridRef = useRef(null)
+
+  useEffect(() => {
+    if (!gridRef.current) return
+    gsap.to(gridRef.current, { opacity: 1, duration: 2 })
+  })
+
   return (
     <>
       <div
@@ -14,7 +23,7 @@ export default function Intro() {
           background: 'radial-gradient(circle, hsl(0,0%,35%), hsl(0,0%,45%))',
         }}
       >
-        <GridBackground />
+        <GridBackground gridRef={gridRef} />
         <ArchBlueprintAnim />
       </div>
       <div className="intro-section h-[100vh] w-full bg-primary-700">

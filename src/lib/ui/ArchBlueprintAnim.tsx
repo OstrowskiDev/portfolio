@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { useEffect, useRef } from 'react'
 import ArchitectureBlueprint from '@/components/intro/svgr_output/ArchitectureBlueprint'
-import GridBackground from './GridBackground'
 
 export default function ArchBlueprintAnim() {
   const textRef = useRef<HTMLHeadingElement | null>(null)
@@ -56,17 +55,17 @@ export default function ArchBlueprintAnim() {
       {
         attr: {
           x1: -100,
-          y1: 200, // constant Y for vertical line
+          y1: 200,
           x2: 100,
-          y2: 200, // constant Y for vertical line
+          y2: 200,
         },
       },
       {
         attr: {
           x1: 1900,
-          y1: 200, // constant Y for vertical line
+          y1: 200,
           x2: 2100,
-          y2: 200, // constant Y for vertical line
+          y2: 200,
         },
         duration: 3,
         delay: 0.7,
@@ -78,16 +77,16 @@ export default function ArchBlueprintAnim() {
       descriptRef.current,
       {
         attr: {
-          x1: 200, // stały X
-          y1: 1400, // start przy dole
-          x2: 200, // stały X
-          y2: 1600, // odcinek w pionie
+          x1: 200,
+          y1: 1400,
+          x2: 200,
+          y2: 1600,
         },
       },
       {
         attr: {
-          x1: 200, // X bez zmian
-          y1: 0, // przesunięcie w górę
+          x1: 200,
+          y1: 0,
           x2: 200,
           y2: 200,
         },
@@ -98,8 +97,6 @@ export default function ArchBlueprintAnim() {
     )
 
     gsap.to(descriptFillGroup, { opacity: 1, duration: 1, delay: 4.5 })
-
-    // end of longest useEffect in my coding history
   }, [])
 
   return (

@@ -1,10 +1,16 @@
-export default function GridBackground({ ...props }) {
+import type { SVGProps } from 'react'
+
+interface GridProps extends SVGProps<SVGSVGElement> {
+  gridRef?: React.Ref<SVGGElement>
+}
+
+export default function GridBackground({ gridRef, ...props }: GridProps) {
   const mainColor = 'hsl(0, 0%, 55%)'
   const secondaryColor = 'hsl(0, 0%, 45%)'
 
   return (
     <svg
-      className="absolute inset-0 z-[10]"
+      className="absolute inset-0 z-[10] "
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
       height="100%"
@@ -19,7 +25,7 @@ export default function GridBackground({ ...props }) {
           height="26.458"
           patternUnits="userSpaceOnUse"
         >
-          <g>
+          <g className="opacity-0" ref={gridRef}>
             <path
               d="M.13 0h26.2"
               style={{
