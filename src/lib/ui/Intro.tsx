@@ -12,7 +12,7 @@ export default function Intro() {
 
   useEffect(() => {
     if (!gridRef.current) return
-    gsap.to(gridRef.current, { opacity: 1, duration: 2 })
+    gsap.to(gridRef.current, { opacity: 1, duration: 4 })
   })
 
   return (
