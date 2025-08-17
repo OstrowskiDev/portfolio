@@ -6,13 +6,35 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
       ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
       xmlSpace="preserve"
-      width={1200}
-      height={600}
-      viewBox="0 0 317.5 158.75"
+      width={1600}
+      viewBox="-10 0 317.5 158.75"
       {...props}
     >
       <defs>
         <path id="a" d="M-12.305-117.584H6.666v7.007h-18.971z" />
+
+        <linearGradient
+          className="layout-gradient"
+          id="layout-gradient"
+          x1="-200"
+          y1="-200"
+          x2="0"
+          y2="0"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="49.9%" stopColor="white" stopOpacity="1" />
+          <stop offset="50%" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+
+        <mask id="draw-layout-mask">
+          <rect
+            x="0"
+            y="0"
+            width="1600"
+            height="1600"
+            fill="url(#layout-gradient)"
+          />
+        </mask>
       </defs>
       <g
         className="frame opacity-0"
@@ -92,6 +114,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
         />
       </g>
       <g
+        mask="url(#draw-layout-mask)"
         className="layout opacity-0"
         style={{
           display: 'inline',

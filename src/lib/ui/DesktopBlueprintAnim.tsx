@@ -14,12 +14,22 @@ export default function DesktopBlueprintAnim() {
     const frame = getNodes(svgRef, '.frame')
     const framePaths = getNodes(svgRef, '.frame path')
     const layout = getNodes(svgRef, '.layout')
+    const layoutGradient = getNodes(svgRef, '.layout-gradient')
 
     if (!frame || !framePaths || !layout) return
 
     const tl = gsap.timeline()
 
     tl.set(frame, { opacity: 1 })
+    tl.set(layout, { opacity: 1 })
+    tl.set(textRef.current, { y: 200 })
+
+    tl.addLabel('text').to(textRef.current, {
+      opacity: 1,
+      duration: 1,
+      y: 0,
+      ease: 'power3.out',
+    })
 
     framePaths.forEach((path) => {
       const length = path.getTotalLength()
@@ -29,13 +39,17 @@ export default function DesktopBlueprintAnim() {
       })
     })
 
-    gsap.to(framePaths, {
+    tl.addLabel('frame').to(framePaths, {
       strokeDashoffset: 0,
       duration: 4,
       ease: 'power1.inOut',
     })
 
-    gsap.to(layout, { opacity: 1, delay: 4, duration: 3 })
+    const layoutFrom = { attr: { x1: -100, y1: 0, x2: 100, y2: 200 } }
+    const layoutToCoords = { attr: { x1: 200, y1: 0, x2: 400, y2: 200 } }
+    const layoutTo = { ...layoutToCoords, duration: 3 }
+
+    tl.addLabel('layout').fromTo(layoutGradient, layoutFrom, layoutTo)
   }, [])
 
   function getNodes(
@@ -52,9 +66,11 @@ export default function DesktopBlueprintAnim() {
       <div className="intro-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
-          className="intro-line-one absolute top-28 left-12 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-0 z-50"
+          className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-0 z-50"
         >
-          I spent over a decade shaping physical spaces - as an architect.
+          I’m Marcin Ostrowski,
+          <br /> and I bring ideas to life,
+          <br /> through engineering.
         </h2>
         <DesktopBlueprintSm svgRef={svgRef} />
       </div>
