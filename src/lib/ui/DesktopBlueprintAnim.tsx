@@ -39,11 +39,20 @@ export default function DesktopBlueprintAnim() {
       })
     })
 
-    tl.addLabel('frame').to(framePaths, {
-      strokeDashoffset: 0,
-      duration: 4,
-      ease: 'power1.inOut',
-    })
+    const frameOuter = getNodes(svgRef, '.frame-outer')
+    const frameInner = getNodes(svgRef, '.frame-inner')
+    const frameHoriz = getNodes(svgRef, '.frame-horizontal')
+    const frameSupport = getNodes(svgRef, '.frame-support')
+    const frameDesk = getNodes(svgRef, '.frame-desk')
+
+    const framesLong = [frameOuter, frameInner, frameDesk]
+    const framesMedium = frameHoriz
+    const framesShort = frameSupport
+
+    tl.addLabel('frame')
+      .to(framesLong, { strokeDashoffset: 0, duration: 4 }, 'frame+=0')
+      .to(framesMedium, { strokeDashoffset: 0, duration: 3 }, 'frame+=1')
+      .to(framesShort, { strokeDashoffset: 0, duration: 1 }, 'frame+=3.5')
 
     const layoutFrom = { attr: { x1: -100, y1: 0, x2: 100, y2: 200 } }
     const layoutToCoords = { attr: { x1: 200, y1: 0, x2: 400, y2: 200 } }

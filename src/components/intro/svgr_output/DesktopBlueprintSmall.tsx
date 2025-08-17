@@ -43,6 +43,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
         }}
       >
         <path
+          className="frame-outer"
           d="M114.546 108.796V12.724a5.28 5.28 0 0 1 5.292-5.292H258.13a5.28 5.28 0 0 1 5.292 5.292v96.072a5.28 5.28 0 0 1-5.292 5.292H119.838a5.28 5.28 0 0 1-5.292-5.292"
           style={{
             opacity: 1,
@@ -56,6 +57,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
           }}
         />
         <path
+          className="frame-inner"
           d="M121.556 91.005v-75.44c0-.803.59-1.45 1.322-1.45h133c.733 0 1.323.647 1.323 1.45v75.44c0 .803-.59 1.45-1.323 1.45h-133c-.732 0-1.322-.647-1.322-1.45"
           style={{
             opacity: 1,
@@ -69,6 +71,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
           }}
         />
         <path
+          className="frame-horizontal"
           d="M114.586 97.945h148.861"
           style={{
             opacity: 1,
@@ -83,6 +86,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
           }}
         />
         <path
+          className="frame-support"
           d="m86.635 127.039 3.617-12.868m23.25 12.841-3.617-12.868"
           style={{
             display: 'inline',
@@ -99,6 +103,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
           transform="translate(89.31)"
         />
         <path
+          className="frame-desk"
           d="m145.425 127.157 84.47-.181c6.99-.075 6.806 9.987 0 10.038H22.307c-6.954 0-6.656 9.587 0 9.587h25.201"
           style={{
             opacity: 1,
