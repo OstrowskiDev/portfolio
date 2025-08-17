@@ -58,7 +58,12 @@ export default function DesktopBlueprintAnim() {
     const layoutToCoords = { attr: { x1: 200, y1: 0, x2: 400, y2: 200 } }
     const layoutTo = { ...layoutToCoords, duration: 3 }
 
-    tl.addLabel('layout').fromTo(layoutGradient, layoutFrom, layoutTo)
+    tl.addLabel('layout').fromTo(
+      layoutGradient,
+      layoutFrom,
+      layoutTo,
+      'frame+=3.2',
+    )
   }, [])
 
   function getNodes(
