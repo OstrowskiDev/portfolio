@@ -1,8 +1,9 @@
 // @ts-nocheck
 
-export default function MobileLayout01({ props }) {
+export default function MobileLayout01({ svgRef01, ...props }) {
   return (
     <svg
+      ref={svgRef01}
       xmlns="http://www.w3.org/2000/svg"
       width={240}
       height={460}
