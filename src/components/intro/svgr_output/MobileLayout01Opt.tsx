@@ -11,6 +11,7 @@ export default function MobileLayout01({ svgRef01, ...props }) {
       {...props}
     >
       <g
+        className="layout opacity-0"
         style={{
           display: 'inline',
         }}
@@ -292,6 +293,7 @@ export default function MobileLayout01({ svgRef01, ...props }) {
         </g>
       </g>
       <g
+        className="frame opacity-0"
         style={{
           display: 'inline',
         }}
@@ -358,6 +360,7 @@ export default function MobileLayout01({ svgRef01, ...props }) {
         />
       </g>
       <g
+        className="fill opacity-0"
         style={{
           display: 'inline',
         }}

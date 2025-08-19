@@ -7,6 +7,7 @@ import GridBackground from './GridBackground'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import DesktopBlueprintAnim from './DesktopBlueprintAnim'
+import MobileBlueprintAnim from './MobileBlueprintAnim'
 
 export default function Intro() {
   const gridRef = useRef(null)
@@ -26,7 +27,8 @@ export default function Intro() {
       >
         <GridBackground gridRef={gridRef} />
         {/* <ArchBlueprintAnim /> */}
-        <DesktopBlueprintAnim />
+        {/* <DesktopBlueprintAnim /> */}
+        <MobileBlueprintAnim />
       </div>
       <div className="intro-section h-[100vh] w-full bg-primary-700">
         <SvgDesktopWebFlatSvgo />
