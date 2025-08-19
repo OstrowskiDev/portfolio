@@ -1,6 +1,5 @@
 'use client'
 
-import DesktopBlueprintSm from '@/components/intro/svgr_output/DesktopBlueprintSmall'
 import MobileLayout01 from '@/components/intro/svgr_output/MobileLayout01Opt'
 import MobileLayout02 from '@/components/intro/svgr_output/MobileLayout02Opt'
 import MobileLayout03 from '@/components/intro/svgr_output/MobileLayout03Opt'
@@ -21,7 +20,9 @@ export default function MobileBlueprintAnim() {
 
     gsap.set(textRef.current, { y: 200 })
 
-    gsap.to(textRef.current, {
+    const mainTl = gsap.timeline()
+
+    mainTl.to(textRef.current, {
       opacity: 1,
       duration: 1,
       y: 0,
@@ -29,6 +30,11 @@ export default function MobileBlueprintAnim() {
     })
 
     animateMobileLayout(svgRef01, 0)
+    animateMobileLayout(svgRef02, 0.3)
+    animateMobileLayout(svgRef03, 0.6)
+    animateMobileLayout(svgRef04, 0.9)
+
+    mainTl.to(textRef.current, { y: -400, opacity: 0, duration: 1 }, 6.5)
   }, [])
 
   function animateMobileLayout(
@@ -37,16 +43,16 @@ export default function MobileBlueprintAnim() {
   ) {
     if (!ref.current) return
 
-    const frame01 = getNodes(svgRef01, '.frame')
-    const framePaths01 = getNodes(svgRef01, '.frame path')
-    const layout01 = getNodes(svgRef01, '.layout')
-    const fill01 = getNodes(svgRef01, '.fill')
+    const frame = getNodes(ref, '.frame')
+    const framePaths = getNodes(ref, '.frame path')
+    const layout = getNodes(ref, '.layout')
+    const fill = getNodes(ref, '.fill')
 
     const tl = gsap.timeline()
 
-    if (!framePaths01) return
+    if (!framePaths) return
 
-    framePaths01.forEach((path) => {
+    framePaths.forEach((path) => {
       const length = path.getTotalLength()
       gsap.set(path, {
         strokeDasharray: length,
@@ -54,12 +60,21 @@ export default function MobileBlueprintAnim() {
       })
     })
 
-    tl.set(frame01, { opacity: 1 })
+    tl.set(frame, { opacity: 1 })
 
     tl.addLabel('blueprint')
-      .to(framePaths01, { strokeDashoffset: 0, duration: 2 }, 'blueprint+=0')
-      .to(fill01, { opacity: 1, duration: 3 }, 'blueprint+=2')
-      .to(layout01, { opacity: 1, duration: 2 }, 'blueprint+=3')
+      .to(
+        framePaths,
+        { strokeDashoffset: 0, duration: 2, delay: 1 },
+        `blueprint+=${delay + 0}`,
+      )
+      .to(fill, { opacity: 1, duration: 3 }, `blueprint+=${delay + 2}`)
+      .to(layout, { opacity: 1, duration: 2 }, `blueprint+=${delay + 3}`)
+
+    tl.addLabel('bye-bye')
+      .to(fill, { opacity: 0, duration: 1 }, `<${2.5 - delay}`)
+      .to(layout, { opacity: 0, duration: 1 }, '<')
+      .to(framePaths, { opacity: 0, duration: 1 }, '<')
   }
 
   function getNodes(
@@ -76,7 +91,7 @@ export default function MobileBlueprintAnim() {
       <div className="intro-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
-          className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-1 z-50"
+          className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-0 z-50"
         >
           Now I'm building,
           <br /> digital systems and experiences

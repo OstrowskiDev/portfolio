@@ -10,7 +10,7 @@ export default function MobileLayout03({ svgRef03, ...props }) {
       viewBox="0 0 63.5 121.708"
       {...props}
     >
-      <g>
+      <g className="layout opacity-0">
         <g
           style={{
             display: 'inline',
@@ -1152,6 +1152,7 @@ export default function MobileLayout03({ svgRef03, ...props }) {
         </g>
       </g>
       <g
+        className="frame opacity-0"
         style={{
           display: 'inline',
         }}
@@ -1235,6 +1236,7 @@ export default function MobileLayout03({ svgRef03, ...props }) {
         />
       </g>
       <g
+        className="fill opacity-0"
         style={{
           display: 'inline',
         }}
