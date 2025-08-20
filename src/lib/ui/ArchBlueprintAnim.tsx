@@ -4,7 +4,11 @@ import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 import ArchitectureBlueprint from '@/components/intro/svgr_output/ArchitectureBlueprint'
 
-export default function ArchBlueprintAnim() {
+export default function ArchBlueprintAnim({
+  setAnimPhase,
+}: {
+  setAnimPhase: (value: string) => void
+}) {
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
   const axesRef = useRef<SVGGElement | null>(null)
@@ -52,7 +56,15 @@ export default function ArchBlueprintAnim() {
       .to([svgGroups], { opacity: 0, duration: 1 }, 'bye_bye+=0')
       .to(
         textRef.current,
-        { y: -200, opacity: 0, duration: 0.7, ease: 'power3.in' },
+        {
+          y: -200,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'power3.in',
+          onComplete: () => {
+            setAnimPhase('mobile')
+          },
+        },
         'bye_bye+=1.2',
       )
   }, [])

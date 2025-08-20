@@ -1,15 +1,14 @@
 'use client'
 
-import SvgMobileBlueprintOpt from '@/components/intro/svgr_output/MobileBlueprintOpt'
-import SvgDesktopWebFlatSvgo from '@/components/intro/svgr_output/DesktopWebFlat'
 import ArchBlueprintAnim from './ArchBlueprintAnim'
 import GridBackground from './GridBackground'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import DesktopBlueprintAnim from './DesktopBlueprintAnim'
 import MobileBlueprintAnim from './MobileBlueprintAnim'
 
 export default function Intro() {
+  const [animPhase, setAnimPhase] = useState('architecture')
   const gridRef = useRef(null)
 
   useEffect(() => {
@@ -26,16 +25,13 @@ export default function Intro() {
         }}
       >
         <GridBackground gridRef={gridRef} />
-        {/* <ArchBlueprintAnim /> */}
-        {/* <DesktopBlueprintAnim /> */}
-        <MobileBlueprintAnim />
-      </div>
-      <div className="intro-section h-[100vh] w-full bg-primary-700">
-        <SvgDesktopWebFlatSvgo />
-      </div>
-
-      <div className="intro-section h-[100vh] w-full bg-primary-700">
-        <SvgMobileBlueprintOpt />
+        {animPhase === 'architecture' && (
+          <ArchBlueprintAnim setAnimPhase={setAnimPhase} />
+        )}
+        {animPhase === 'mobile' && (
+          <MobileBlueprintAnim setAnimPhase={setAnimPhase} />
+        )}
+        {animPhase === 'desktop' && <DesktopBlueprintAnim />}
       </div>
     </>
   )

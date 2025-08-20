@@ -7,7 +7,11 @@ import MobileLayout04 from '@/components/intro/svgr_output/MobileLayout04Opt'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
-export default function MobileBlueprintAnim() {
+export default function MobileBlueprintAnim({
+  setAnimPhase,
+}: {
+  setAnimPhase: (value: string) => void
+}) {
   const svgRef01 = useRef<SVGGElement | null>(null)
   const svgRef02 = useRef<SVGGElement | null>(null)
   const svgRef03 = useRef<SVGGElement | null>(null)
@@ -20,9 +24,9 @@ export default function MobileBlueprintAnim() {
 
     gsap.set(textRef.current, { y: 200 })
 
-    const mainTl = gsap.timeline()
+    const textTl = gsap.timeline()
 
-    mainTl.to(textRef.current, {
+    textTl.to(textRef.current, {
       opacity: 1,
       duration: 1,
       y: 0,
@@ -34,7 +38,18 @@ export default function MobileBlueprintAnim() {
     animateMobileLayout(svgRef03, 0.6)
     animateMobileLayout(svgRef04, 0.9)
 
-    mainTl.to(textRef.current, { y: -400, opacity: 0, duration: 1 }, 6.5)
+    textTl.to(
+      textRef.current,
+      {
+        y: -400,
+        opacity: 0,
+        duration: 1,
+        onComplete: () => {
+          setAnimPhase('desktop')
+        },
+      },
+      6.5,
+    )
   }, [])
 
   function animateMobileLayout(
