@@ -1,9 +1,9 @@
 'use client'
 
-import MobileLayout01 from '@/components/intro/svgr_output/MobileLayout01Opt'
-import MobileLayout02 from '@/components/intro/svgr_output/MobileLayout02Opt'
-import MobileLayout03 from '@/components/intro/svgr_output/MobileLayout03Opt'
-import MobileLayout04 from '@/components/intro/svgr_output/MobileLayout04Opt'
+import MobileLayout01 from '@/components/intro/svgr/MobileLayout01Opt'
+import MobileLayout02 from '@/components/intro/svgr/MobileLayout02Opt'
+import MobileLayout03 from '@/components/intro/svgr/MobileLayout03Opt'
+import MobileLayout04 from '@/components/intro/svgr/MobileLayout04Opt'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
@@ -20,36 +20,19 @@ export default function MobileBlueprintAnim({
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
   useEffect(() => {
-    if (!svgRef01.current) return
-
     gsap.set(textRef.current, { y: 200 })
-
     const textTl = gsap.timeline()
-
-    textTl.to(textRef.current, {
-      opacity: 1,
-      duration: 1,
-      y: 0,
-      ease: 'power3.out',
-    })
+    const textTo = { opacity: 1, duration: 1, y: 0, ease: 'power3.out' }
+    textTl.to(textRef.current, textTo)
 
     animateMobileLayout(svgRef01, 0)
     animateMobileLayout(svgRef02, 0.3)
     animateMobileLayout(svgRef03, 0.6)
     animateMobileLayout(svgRef04, 0.9)
 
-    textTl.to(
-      textRef.current,
-      {
-        y: -400,
-        opacity: 0,
-        duration: 1,
-        onComplete: () => {
-          setAnimPhase('desktop')
-        },
-      },
-      6.5,
-    )
+    // prettier-ignore
+    const textEnd = {y: -400, opacity: 0, duration: 1, onComplete: () => {     setAnimPhase('desktop')}, }
+    textTl.to(textRef.current, textEnd, 6.5)
   }, [])
 
   function animateMobileLayout(
@@ -112,7 +95,7 @@ export default function MobileBlueprintAnim({
           <br /> digital systems and experiences
           <br /> - as a fullstack developer.
         </h2>
-        <div className="absolute top-[320px] left-[120px] flex flex-row justify-around w-[100vw] h-[80vh]">
+        <div className="absolute top-[320px] left-[120px] flex flex-row justify-around w-full max-w-[1340px] h-[80vh]">
           <MobileLayout01 svgRef01={svgRef01} />
           <MobileLayout02 className="relative top-[80px]" svgRef02={svgRef02} />
           <MobileLayout03

@@ -1,4 +1,4 @@
-import Intro from '@/lib/ui/Intro'
+import Intro from '@/components/intro/animations/Intro'
 
 export default function Home() {
   return (

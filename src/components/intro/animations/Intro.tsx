@@ -1,11 +1,11 @@
 'use client'
 
-import ArchBlueprintAnim from './ArchBlueprintAnim'
-import GridBackground from './GridBackground'
 import { useEffect, useRef, useState } from 'react'
-import gsap from 'gsap'
+import ArchBlueprintAnim from './ArchBlueprintAnim'
 import DesktopBlueprintAnim from './DesktopBlueprintAnim'
 import MobileBlueprintAnim from './MobileBlueprintAnim'
+import GridBackground from '../grid/GridBackground'
+import gsap from 'gsap'
 
 export default function Intro() {
   const [animPhase, setAnimPhase] = useState('architecture')
@@ -25,13 +25,18 @@ export default function Intro() {
         }}
       >
         <GridBackground gridRef={gridRef} />
-        {animPhase === 'architecture' && (
-          <ArchBlueprintAnim setAnimPhase={setAnimPhase} />
-        )}
-        {animPhase === 'mobile' && (
-          <MobileBlueprintAnim setAnimPhase={setAnimPhase} />
-        )}
-        {animPhase === 'desktop' && <DesktopBlueprintAnim />}
+
+        <MobileBlueprintAnim setAnimPhase={setAnimPhase} />
+
+        {/* <div className="intro-animation-container mx-auto max-w-[1520px]">
+          {animPhase === 'architecture' && (
+            <ArchBlueprintAnim setAnimPhase={setAnimPhase} />
+          )}
+          {animPhase === 'mobile' && (
+            <MobileBlueprintAnim setAnimPhase={setAnimPhase} />
+          )}
+          {animPhase === 'desktop' && <DesktopBlueprintAnim />}
+        </div> */}
       </div>
     </>
   )

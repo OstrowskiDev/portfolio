@@ -2,7 +2,7 @@
 
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
-import ArchitectureBlueprint from '@/components/intro/svgr_output/ArchitectureBlueprint'
+import ArchitectureBlueprint from '@/components/intro/svgr/ArchitectureBlueprint'
 
 export default function ArchBlueprintAnim({
   setAnimPhase,

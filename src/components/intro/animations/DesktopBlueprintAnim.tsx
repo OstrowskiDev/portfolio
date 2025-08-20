@@ -1,6 +1,6 @@
 'use client'
 
-import DesktopBlueprintSm from '@/components/intro/svgr_output/DesktopBlueprintSmall'
+import DesktopBlueprintSm from '@/components/intro/svgr/DesktopBlueprintSmall'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
