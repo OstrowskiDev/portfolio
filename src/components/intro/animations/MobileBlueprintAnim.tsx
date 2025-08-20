@@ -43,6 +43,8 @@ export default function MobileBlueprintAnim({
 
     const frame = getNodes(ref, '.frame')
     const framePaths = getNodes(ref, '.frame path')
+    const framePathsLg = getNodes(ref, '.frame-long')
+    const framePathsSm = getNodes(ref, '.frame-small')
     const layout = getNodes(ref, '.layout')
     const fill = getNodes(ref, '.fill')
 
@@ -58,13 +60,28 @@ export default function MobileBlueprintAnim({
       })
     })
 
-    tl.set(frame, { opacity: 1 })
+    // tl.set(frame, { opacity: 1 })
 
     tl.addLabel('blueprint')
       .to(
-        framePaths,
+        framePathsLg,
+        { opacity: 1, duration: 0.5 },
+        `blueprint+=${delay + 0}`,
+      )
+      .to(
+        framePathsLg,
         { strokeDashoffset: 0, duration: 2, delay: 1 },
         `blueprint+=${delay + 0}`,
+      )
+      .to(
+        framePathsSm,
+        { opacity: 1, duration: 0.5 },
+        `blueprint+=${delay + 2.5}`,
+      )
+      .to(
+        framePathsSm,
+        { strokeDashoffset: 0, duration: 0.5 },
+        `blueprint+=${delay + 2.5}`,
       )
       .to(fill, { opacity: 1, duration: 3 }, `blueprint+=${delay + 2}`)
       .to(layout, { opacity: 1, duration: 2 }, `blueprint+=${delay + 3}`)

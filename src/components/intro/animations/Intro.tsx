@@ -26,9 +26,7 @@ export default function Intro() {
       >
         <GridBackground gridRef={gridRef} />
 
-        <MobileBlueprintAnim setAnimPhase={setAnimPhase} />
-
-        {/* <div className="intro-animation-container mx-auto max-w-[1520px]">
+        <div className="intro-animation-container mx-auto max-w-[1520px]">
           {animPhase === 'architecture' && (
             <ArchBlueprintAnim setAnimPhase={setAnimPhase} />
           )}
@@ -36,7 +34,7 @@ export default function Intro() {
             <MobileBlueprintAnim setAnimPhase={setAnimPhase} />
           )}
           {animPhase === 'desktop' && <DesktopBlueprintAnim />}
-        </div> */}
+        </div>
       </div>
     </>
   )

@@ -5,8 +5,7 @@ export default function MobileLayout01({ svgRef01, ...props }) {
     <svg
       ref={svgRef01}
       xmlns="http://www.w3.org/2000/svg"
-      width={240}
-      height={460}
+      width={280}
       viewBox="0 0 63.5 121.708"
       {...props}
     >
@@ -293,12 +292,31 @@ export default function MobileLayout01({ svgRef01, ...props }) {
         </g>
       </g>
       <g
-        className="frame opacity-0"
+        className="frame"
         style={{
           display: 'inline',
         }}
       >
         <path
+          className="frame-small opacity-0"
+          d="M69.683 48.837h.036a1.026 1.026 45 0 1 1.027 1.026v6.548a1.11 1.11 135 0 1-1.108 1.108h-.023"
+          style={{
+            display: 'inline',
+            fill: 'none',
+            fillOpacity: 0.395408,
+            stroke: '#fff',
+            strokeWidth: 0.264583,
+            strokeLinecap: 'butt',
+            strokeLinejoin: 'round',
+            strokeMiterlimit: 0,
+            strokeDasharray: 'none',
+            strokeOpacity: 0.6,
+            paintOrder: 'normal',
+          }}
+          transform="translate(-10.179 -15.956)"
+        />
+        <path
+          className="frame-long opacity-0"
           d="M5.671 109.18V16.461h52.44v92.72H5.67"
           style={{
             display: 'inline',
@@ -312,6 +330,7 @@ export default function MobileLayout01({ svgRef01, ...props }) {
           }}
         />
         <path
+          className="frame-long opacity-0"
           d="M4.419 110.552V13.16A5.28 5.28 0 0 1 9.71 7.868h44.361a5.28 5.28 0 0 1 5.292 5.292v97.392a5.28 5.28 0 0 1-5.292 5.292H9.711a5.28 5.28 0 0 1-5.292-5.292"
           style={{
             display: 'inline',
@@ -325,6 +344,7 @@ export default function MobileLayout01({ svgRef01, ...props }) {
           }}
         />
         <path
+          className="frame-small opacity-0"
           d="M14.741 49.018h-.106a1.115 1.115 135 0 0-1.114 1.114v1.796a1.115 1.115 45 0 0 1.114 1.114h.084"
           style={{
             display: 'inline',
@@ -342,6 +362,7 @@ export default function MobileLayout01({ svgRef01, ...props }) {
           transform="translate(-10.316 -7.142)"
         />
         <path
+          className="frame-small opacity-0"
           d="M14.741 49.018h-.106a1.115 1.115 135 0 0-1.114 1.114v1.796a1.115 1.115 45 0 0 1.114 1.114h.084"
           style={{
             display: 'inline',

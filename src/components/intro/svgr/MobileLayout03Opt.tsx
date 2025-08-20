@@ -5,8 +5,7 @@ export default function MobileLayout03({ svgRef03, ...props }) {
     <svg
       ref={svgRef03}
       xmlns="http://www.w3.org/2000/svg"
-      width={240}
-      height={460}
+      width={280}
       viewBox="0 0 63.5 121.708"
       {...props}
     >
@@ -1152,12 +1151,13 @@ export default function MobileLayout03({ svgRef03, ...props }) {
         </g>
       </g>
       <g
-        className="frame opacity-0"
+        className="frame"
         style={{
           display: 'inline',
         }}
       >
         <path
+          className="frame-long opacity-0"
           d="M5.604 108.179v-92.72h52.44v92.72H5.603"
           style={{
             display: 'inline',
@@ -1171,6 +1171,7 @@ export default function MobileLayout03({ svgRef03, ...props }) {
           }}
         />
         <path
+          className="frame-small opacity-0"
           d="M14.741 49.018h-.106a1.115 1.115 135 0 0-1.114 1.114v1.796a1.115 1.115 45 0 0 1.114 1.114h.084"
           style={{
             display: 'inline',
@@ -1188,6 +1189,7 @@ export default function MobileLayout03({ svgRef03, ...props }) {
           transform="translate(-10.383 -15.605)"
         />
         <path
+          className="frame-small opacity-0"
           d="M14.741 49.018h-.106a1.115 1.115 135 0 0-1.114 1.114v1.796a1.115 1.115 45 0 0 1.114 1.114h.084"
           style={{
             display: 'inline',
@@ -1205,6 +1207,7 @@ export default function MobileLayout03({ svgRef03, ...props }) {
           transform="translate(-10.383 -8.144)"
         />
         <path
+          className="frame-small opacity-0"
           d="M69.683 48.837h.036a1.026 1.026 45 0 1 1.027 1.026v6.548a1.11 1.11 135 0 1-1.108 1.108h-.023"
           style={{
             display: 'inline',
@@ -1222,6 +1225,7 @@ export default function MobileLayout03({ svgRef03, ...props }) {
           transform="translate(-10.383 -15.605)"
         />
         <path
+          className="frame-long opacity-0"
           d="M4.352 109.55V12.158a5.28 5.28 0 0 1 5.291-5.292h44.361a5.28 5.28 0 0 1 5.292 5.292v97.392a5.28 5.28 0 0 1-5.292 5.292H9.644a5.28 5.28 0 0 1-5.292-5.292"
           style={{
             display: 'inline',
