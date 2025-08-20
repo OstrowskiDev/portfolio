@@ -19,6 +19,7 @@ export default function MobileBlueprintAnim({
 
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     gsap.set(textRef.current, { y: 200 })
     const textTl = gsap.timeline()
@@ -108,7 +109,7 @@ export default function MobileBlueprintAnim({
           ref={textRef}
           className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-0 z-50"
         >
-          Now I'm building,
+          Now I&apos;m building,
           <br /> digital systems and experiences
           <br /> - as a fullstack developer.
         </h2>

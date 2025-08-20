@@ -15,6 +15,7 @@ export default function ArchBlueprintAnim({
   const structRef = useRef<SVGGElement | null>(null)
   const descriptRef = useRef<SVGGElement | null>(null)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!svgRef.current || !textRef.current) {
       return
