@@ -42,7 +42,6 @@ export default function MobileBlueprintAnim({
   ) {
     if (!ref.current) return
 
-    const frame = getNodes(ref, '.frame')
     const framePaths = getNodes(ref, '.frame path')
     const framePathsLg = getNodes(ref, '.frame-long')
     const framePathsSm = getNodes(ref, '.frame-small')
@@ -60,8 +59,6 @@ export default function MobileBlueprintAnim({
         strokeDashoffset: length,
       })
     })
-
-    // tl.set(frame, { opacity: 1 })
 
     tl.addLabel('blueprint')
       .to(

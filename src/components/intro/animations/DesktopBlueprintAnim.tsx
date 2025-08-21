@@ -11,16 +11,14 @@ export default function DesktopBlueprintAnim() {
   useEffect(() => {
     if (!svgRef.current || !textRef.current) return
 
-    const frame = getNodes(svgRef, '.frame')
     const framePaths = getNodes(svgRef, '.frame path')
     const layout = getNodes(svgRef, '.layout')
     const layoutGradient = getNodes(svgRef, '.layout-gradient')
 
-    if (!frame || !framePaths || !layout) return
+    if (!framePaths || !layout) return
 
     const tl = gsap.timeline()
 
-    tl.set(frame, { opacity: 1 })
     tl.set(layout, { opacity: 1 })
     tl.set(textRef.current, { y: 200 })
 
@@ -50,8 +48,11 @@ export default function DesktopBlueprintAnim() {
     const framesShort = frameSupport
 
     tl.addLabel('frame')
+      .to(framesLong, { opacity: 1 }, 'frame+=0')
       .to(framesLong, { strokeDashoffset: 0, duration: 4 }, 'frame+=0')
+      .to(framesMedium, { opacity: 1 }, 'frame+=1')
       .to(framesMedium, { strokeDashoffset: 0, duration: 3 }, 'frame+=1')
+      .to(framesShort, { opacity: 1 }, 'frame+=3.5')
       .to(framesShort, { strokeDashoffset: 0, duration: 1 }, 'frame+=3.5')
 
     const layoutFrom = { attr: { x1: -100, y1: 0, x2: 100, y2: 200 } }
