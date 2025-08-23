@@ -24,6 +24,7 @@ export default function DesktopBlueprintAnim() {
       opacity: 1,
       duration: 0.7,
       y: 0,
+      ease: 'power3.out',
     })
 
     framePaths.forEach((path) => {
@@ -40,21 +41,25 @@ export default function DesktopBlueprintAnim() {
     const frameSupport = getNodes(svgRef, '.frame-support')
     const frameDesk = getNodes(svgRef, '.frame-desk')
 
-    const framesLong = [frameOuter, frameInner, frameDesk]
+    const framesLong = [frameOuter, frameDesk]
     const framesMedium = frameHoriz
     const framesShort = frameSupport
 
     tl.addLabel('frame')
       .to(framesLong, { opacity: 1 }, '<+=0.2')
-      .to(framesLong, { strokeDashoffset: 0, duration: 2 }, '<')
-      .to(framesMedium, { opacity: 1 }, '<+=1')
+      .to(framesLong, { strokeDashoffset: 0, duration: 1.6 }, '<')
+      .to(frameInner, { opacity: 1 }, '<')
+      .to(frameInner, { strokeDashoffset: 0, duration: 1 }, '<')
+      .to(framesMedium, { opacity: 1 }, '<+=0.2')
       .to(framesMedium, { strokeDashoffset: 0, duration: 1.5 }, '<')
-      .to(framesShort, { opacity: 1 }, '<+=0.7')
+      .to(framesShort, { opacity: 1 }, '<+=1')
       .to(framesShort, { strokeDashoffset: 0, duration: 1 }, '<')
 
-    const layoutToCoords = { attr: { x1: 200, y1: 0, x2: 400, y2: 200 } }
-
-    tl.addLabel('layout').to(layout, { opacity: 1, duration: 3 }, '<-=1.7')
+    tl.addLabel('layout').to(
+      layout,
+      { opacity: 1, duration: 2.5, ease: 'power2.in' },
+      '<-=1.8',
+    )
   }, [])
 
   function getNodes(

@@ -32,8 +32,8 @@ export default function MobileBlueprintAnim({
     animateMobileLayout(svgRef04, 0.3)
 
     // prettier-ignore
-    const textEnd = {y: -400, opacity: 0, duration: 1, onComplete: () => {     setAnimPhase('desktop')}, }
-    textTl.to(textRef.current, textEnd, 3.5)
+    const textEnd = {y: -200, opacity: 0, duration: 0.7, onComplete: () => {     setAnimPhase('desktop')}, }
+    textTl.to(textRef.current, textEnd, 3.6)
   }, [])
 
   function animateMobileLayout(
@@ -83,7 +83,7 @@ export default function MobileBlueprintAnim({
     tl.addLabel('bye-bye')
       .to(fill, { opacity: 0, duration: 0.6 }, `<${1.5 - delay}`)
       .to(layout, { opacity: 0, duration: 0.5 }, '<+=0.1')
-      .to(framePaths, { opacity: 0, duration: 0.7 }, '<+=0.2')
+      .to(framePaths, { opacity: 0, duration: 0.6 }, '<+=0.2')
   }
 
   function getNodes(
