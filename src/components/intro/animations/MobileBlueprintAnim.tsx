@@ -23,17 +23,17 @@ export default function MobileBlueprintAnim({
   useEffect(() => {
     gsap.set(textRef.current, { y: 200 })
     const textTl = gsap.timeline()
-    const textTo = { opacity: 1, duration: 1, y: 0, ease: 'power3.out' }
+    const textTo = { opacity: 1, duration: 0.8, y: 0, ease: 'power3.out' }
     textTl.to(textRef.current, textTo)
 
     animateMobileLayout(svgRef01, 0)
-    animateMobileLayout(svgRef02, 0.3)
-    animateMobileLayout(svgRef03, 0.6)
-    animateMobileLayout(svgRef04, 0.9)
+    animateMobileLayout(svgRef02, 0.1)
+    animateMobileLayout(svgRef03, 0.2)
+    animateMobileLayout(svgRef04, 0.3)
 
     // prettier-ignore
     const textEnd = {y: -400, opacity: 0, duration: 1, onComplete: () => {     setAnimPhase('desktop')}, }
-    textTl.to(textRef.current, textEnd, 6.5)
+    textTl.to(textRef.current, textEnd, 3.5)
   }, [])
 
   function animateMobileLayout(
@@ -61,33 +61,29 @@ export default function MobileBlueprintAnim({
     })
 
     tl.addLabel('blueprint')
+      .to(framePathsLg, { opacity: 1, duration: 1 }, `blueprint+=${delay + 0}`)
       .to(
         framePathsLg,
-        { opacity: 1, duration: 0.5 },
-        `blueprint+=${delay + 0}`,
-      )
-      .to(
-        framePathsLg,
-        { strokeDashoffset: 0, duration: 2, delay: 1 },
+        { strokeDashoffset: 0, duration: 2 },
         `blueprint+=${delay + 0}`,
       )
       .to(
         framePathsSm,
         { opacity: 1, duration: 0.5 },
-        `blueprint+=${delay + 2.5}`,
+        `blueprint+=${delay + 1.5}`,
       )
       .to(
         framePathsSm,
         { strokeDashoffset: 0, duration: 0.5 },
-        `blueprint+=${delay + 2.5}`,
+        `blueprint+=${delay + 1.5}`,
       )
-      .to(fill, { opacity: 1, duration: 3 }, `blueprint+=${delay + 2}`)
-      .to(layout, { opacity: 1, duration: 2 }, `blueprint+=${delay + 3}`)
+      .to(fill, { opacity: 1, duration: 2.5 }, `blueprint+=${delay + 0.5}`)
+      .to(layout, { opacity: 1, duration: 1.7 }, `blueprint+=${delay + 1.5}`)
 
     tl.addLabel('bye-bye')
-      .to(fill, { opacity: 0, duration: 1 }, `<${2.5 - delay}`)
-      .to(layout, { opacity: 0, duration: 1 }, '<')
-      .to(framePaths, { opacity: 0, duration: 1 }, '<')
+      .to(fill, { opacity: 0, duration: 0.6 }, `<${1.5 - delay}`)
+      .to(layout, { opacity: 0, duration: 0.5 }, '<+=0.1')
+      .to(framePaths, { opacity: 0, duration: 0.7 }, '<+=0.2')
   }
 
   function getNodes(
