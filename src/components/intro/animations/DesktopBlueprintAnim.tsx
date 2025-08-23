@@ -13,20 +13,17 @@ export default function DesktopBlueprintAnim() {
 
     const framePaths = getNodes(svgRef, '.frame path')
     const layout = getNodes(svgRef, '.layout')
-    const layoutGradient = getNodes(svgRef, '.layout-gradient')
 
     if (!framePaths || !layout) return
 
     const tl = gsap.timeline()
 
-    tl.set(layout, { opacity: 1 })
     tl.set(textRef.current, { y: 200 })
 
     tl.addLabel('text').to(textRef.current, {
       opacity: 1,
-      duration: 1,
+      duration: 0.7,
       y: 0,
-      ease: 'power3.out',
     })
 
     framePaths.forEach((path) => {
@@ -48,23 +45,16 @@ export default function DesktopBlueprintAnim() {
     const framesShort = frameSupport
 
     tl.addLabel('frame')
-      .to(framesLong, { opacity: 1 }, 'frame+=0')
-      .to(framesLong, { strokeDashoffset: 0, duration: 4 }, 'frame+=0')
-      .to(framesMedium, { opacity: 1 }, 'frame+=1')
-      .to(framesMedium, { strokeDashoffset: 0, duration: 3 }, 'frame+=1')
-      .to(framesShort, { opacity: 1 }, 'frame+=3.5')
-      .to(framesShort, { strokeDashoffset: 0, duration: 1 }, 'frame+=3.5')
+      .to(framesLong, { opacity: 1 }, '<+=0.2')
+      .to(framesLong, { strokeDashoffset: 0, duration: 2 }, '<')
+      .to(framesMedium, { opacity: 1 }, '<+=1')
+      .to(framesMedium, { strokeDashoffset: 0, duration: 1.5 }, '<')
+      .to(framesShort, { opacity: 1 }, '<+=0.7')
+      .to(framesShort, { strokeDashoffset: 0, duration: 1 }, '<')
 
-    const layoutFrom = { attr: { x1: -100, y1: 0, x2: 100, y2: 200 } }
     const layoutToCoords = { attr: { x1: 200, y1: 0, x2: 400, y2: 200 } }
-    const layoutTo = { ...layoutToCoords, duration: 3 }
 
-    tl.addLabel('layout').fromTo(
-      layoutGradient,
-      layoutFrom,
-      layoutTo,
-      'frame+=3.2',
-    )
+    tl.addLabel('layout').to(layout, { opacity: 1, duration: 3 }, '<-=1.7')
   }, [])
 
   function getNodes(
@@ -84,7 +74,7 @@ export default function DesktopBlueprintAnim() {
           className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-0 z-50"
         >
           I’m Marcin Ostrowski,
-          <br /> and I bring ideas to life,
+          <br /> and I bring ideas to life
           <br /> through engineering.
         </h2>
         <DesktopBlueprintSm svgRef={svgRef} />
