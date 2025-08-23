@@ -32,7 +32,7 @@ export default function ArchBlueprintAnim({
 
     const tl = gsap.timeline()
 
-    tl.addLabel('text').to(textRef.current, { y: 0, opacity: 1, duration: 1 })
+    tl.addLabel('text').to(textRef.current, { y: 0, opacity: 1, duration: 0.7 })
 
     const axesFrom = { attr: { x1: 200, y1: 300, x2: 400, y2: 500 } }
     const axesToCoords = { attr: { x1: 1900, y1: 1700, x2: 2100, y2: 1900 } }
@@ -47,14 +47,14 @@ export default function ArchBlueprintAnim({
     const descriptTo = { ...descriptToCoords, duration: 2 }
 
     tl.addLabel('blueprint')
-      .fromTo(axesRef.current, axesFrom, axesTo)
-      .to(structFillGroup, { opacity: 1, duration: 1 }, 'blueprint+=2.5')
-      .fromTo(structRef.current, structFrom, structTo, 'blueprint+=0.7')
-      .fromTo(descriptRef.current, descriptFrom, descriptTo, 'blueprint+=3')
-      .to(descriptFillGroup, { opacity: 1, duration: 1 }, 'blueprint+=4')
+      .fromTo(axesRef.current, axesFrom, axesTo, '<-=0.25')
+      .fromTo(structRef.current, structFrom, structTo, '<+=0.15')
+      .to(structFillGroup, { opacity: 1, duration: 2 }, 'blueprint+=1')
+      .fromTo(descriptRef.current, descriptFrom, descriptTo, 'blueprint+=0.5')
+      .to(descriptFillGroup, { opacity: 1, duration: 1 }, 'blueprint+=2')
 
-    tl.addLabel('bye_bye', 'blueprint+=6')
-      .to([svgGroups], { opacity: 0, duration: 1 }, 'bye_bye+=0')
+    tl.addLabel('bye_bye', 'blueprint+=2.5')
+      .to([svgGroups], { opacity: 0, duration: 0.7 }, 'bye_bye+=0')
       .to(
         textRef.current,
         {
@@ -66,7 +66,7 @@ export default function ArchBlueprintAnim({
             setAnimPhase('mobile')
           },
         },
-        'bye_bye+=1.2',
+        'bye_bye+=0.5',
       )
   }, [])
 
