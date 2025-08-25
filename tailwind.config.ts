@@ -1,8 +1,6 @@
 import type { Config } from 'tailwindcss'
 
-const {
-  appColors,
-} = require('./src/lib/tailwind/appColors')
+const { appColors } = require('./src/lib/tailwind/appColors')
 
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -10,6 +8,9 @@ const config: Config = {
     extend: {
       colors: {
         ...appColors,
+      },
+      screens: {
+        xs: '420px',
       },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],

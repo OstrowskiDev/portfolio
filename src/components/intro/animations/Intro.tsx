@@ -10,7 +10,7 @@ export default function Intro() {
   const [animPhase, setAnimPhase] = useState('architecture')
   const gridRef = useRef(null)
 
-  const isDesktop = useMediaQuery('(min-width: 768px)')
+  const isDesktop = useMediaQuery('(min-width: 620px)')
 
   useEffect(() => {
     if (!gridRef.current) return
