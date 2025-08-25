@@ -91,214 +91,6 @@ export default function ArchitectureBpMobile({
             fill="url(#descript-gradient)"
           />
         </mask>
-
-        <clipPath id="a" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="b" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="c" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="k" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="l" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="m" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="n" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="d" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="e" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="f" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="g" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="h" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="i" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="j" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="o" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="p" clipPathUnits="userSpaceOnUse">
-          <path d="M-.353-.353H110.42v176.036H-.353z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="q" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="r" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="ak" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="al" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="s" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="t" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="u" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="v" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="w" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="x" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="y" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="z" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="A" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="B" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="C" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="D" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="E" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="F" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="G" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="H" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="I" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="J" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="K" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="L" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="M" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="N" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="O" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="P" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="Q" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="R" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="S" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="T" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="U" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="V" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="W" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="X" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="Y" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="Z" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="aa" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="ab" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="ac" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="ad" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="ae" clipPathUnits="userSpaceOnUse">
-          <path d="M107.332 175.165H.033V1.693h107.299z" clipRule="evenodd" />
-        </clipPath>
-        <clipPath id="af" clipPathUnits="userSpaceOnUse">
-          <path
-            d="M-203.102 156.941v-304.154h491.73v304.154z"
-            clipRule="evenodd"
-          />
-        </clipPath>
-        <clipPath id="ag" clipPathUnits="userSpaceOnUse">
-          <path
-            d="M-211.707 156.941v-304.154h491.73v304.154z"
-            clipRule="evenodd"
-          />
-        </clipPath>
-        <clipPath id="ah" clipPathUnits="userSpaceOnUse">
-          <path
-            d="M-216.061 156.941v-304.154h491.73v304.154z"
-            clipRule="evenodd"
-          />
-        </clipPath>
-        <clipPath id="ai" clipPathUnits="userSpaceOnUse">
-          <path
-            d="M-224.665 156.941v-304.154h491.73v304.154z"
-            clipRule="evenodd"
-          />
-        </clipPath>
-        <clipPath id="aj" clipPathUnits="userSpaceOnUse">
-          <path
-            d="M-229.02 156.941v-304.154h491.731v304.154z"
-            clipRule="evenodd"
-          />
-        </clipPath>
       </defs>
 
       <g className="struct-fill opacity-0">
@@ -314,7 +106,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M24.08 174.415h16.493v.75H24.08z"
-          clipPath="url(#a)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -325,7 +116,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M44.085 175.165H40.58v-.75h3.505z"
-          clipPath="url(#b)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -336,7 +126,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M80.33 175.165H53.085v-.75H80.33z"
-          clipPath="url(#c)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -347,7 +136,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M.08 174.415h22.5v.75H.08z"
-          clipPath="url(#d)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -358,7 +146,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M38.83 135.165h2v2h-2z"
-          clipPath="url(#e)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -369,7 +156,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M1.83 137.165H.033v-2H1.83z"
-          clipPath="url(#f)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -380,7 +166,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M1.83 98.165H.033v-2H1.83z"
-          clipPath="url(#g)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -391,7 +176,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M38.83 96.165h2v2h-2z"
-          clipPath="url(#h)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -402,7 +186,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M38.83 57.165h2v2h-2z"
-          clipPath="url(#i)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -413,7 +196,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M1.83 59.165H.033v-2H1.83z"
-          clipPath="url(#j)"
           style={{
             fill: s,
             fillOpacity: 1,
@@ -476,7 +258,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M60.08 136.365v-.4h18v.4z"
-          clipPath="url(#k)"
           style={{
             fill: d,
             fillOpacity: 1,
@@ -487,7 +268,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M60.08 110.365v-.4h18v.4z"
-          clipPath="url(#l)"
           style={{
             fill: d,
             fillOpacity: 1,
@@ -498,7 +278,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M60.08 45.365v-.4h1.151v.4z"
-          clipPath="url(#m)"
           style={{
             fill: d,
             fillOpacity: 1,
@@ -509,7 +288,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M60.08 97.365v-.4h18v.4z"
-          clipPath="url(#n)"
           style={{
             fill: d,
             fillOpacity: 1,
@@ -520,7 +298,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M60.08 162.365v-.4h18v.4z"
-          clipPath="url(#o)"
           style={{
             fill: d,
             fillOpacity: 1,
@@ -531,7 +308,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M60.08 123.365v-.4h18v.4z"
-          clipPath="url(#p)"
           style={{
             fill: d,
             fillOpacity: 1,
@@ -584,7 +360,6 @@ export default function ArchitectureBpMobile({
       <g mask="url(#draw-descript-mask)" className="descript opacity-0">
         <path
           d="M55.78 105.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#q)"
           style={{
             fill: 'none',
             stroke: d,
@@ -599,7 +374,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M19.38 159.592a4.5 4.5 0 0 1 4.5 4.5"
-          clipPath="url(#r)"
           style={{
             fill: 'none',
             stroke: d,
@@ -614,7 +388,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 118.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#s)"
           style={{
             fill: 'none',
             stroke: d,
@@ -629,7 +402,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 131.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#t)"
           style={{
             fill: 'none',
             stroke: d,
@@ -644,7 +416,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 144.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#u)"
           style={{
             fill: 'none',
             stroke: d,
@@ -659,7 +430,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 157.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#v)"
           style={{
             fill: 'none',
             stroke: d,
@@ -674,7 +444,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 170.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#w)"
           style={{
             fill: 'none',
             stroke: d,
@@ -689,7 +458,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M25.34 167.698a1.69 1.69 0 1 0-3.381 0 1.69 1.69 0 0 0 3.38 0"
-          clipPath="url(#x)"
           style={{
             fill: 'none',
             stroke: d,
@@ -704,7 +472,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M26.681 171.057a2.54 2.54 0 1 0-5.08 0 2.54 2.54 0 0 0 5.08 0"
-          clipPath="url(#y)"
           style={{
             fill: 'none',
             stroke: d,
@@ -719,7 +486,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 92.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#z)"
           style={{
             fill: 'none',
             stroke: d,
@@ -734,7 +500,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 79.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#A)"
           style={{
             fill: 'none',
             stroke: d,
@@ -749,7 +514,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 66.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#B)"
           style={{
             fill: 'none',
             stroke: d,
@@ -764,7 +528,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M25.518 45.365a4.5 4.5 0 0 1-4.5 4.5"
-          clipPath="url(#C)"
           style={{
             fill: 'none',
             stroke: d,
@@ -779,7 +542,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M64.177 32.629a5 5 0 1 0-10 0 5 5 0 0 0 10 0"
-          clipPath="url(#D)"
           style={{
             fill: 'none',
             stroke: d,
@@ -794,7 +556,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M58.273 26.061a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#E)"
           style={{
             fill: 'none',
             stroke: d,
@@ -809,7 +570,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M62.506 26.167a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#F)"
           style={{
             fill: 'none',
             stroke: d,
@@ -824,7 +584,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M65.87 28.74a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#G)"
           style={{
             fill: 'none',
             stroke: d,
@@ -839,7 +598,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M67.077 32.8a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#H)"
           style={{
             fill: 'none',
             stroke: d,
@@ -854,7 +612,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M41.266 105.349a2.22 2.22 0 1 0-4.44 0 2.22 2.22 0 0 0 4.44 0"
-          clipPath="url(#I)"
           style={{
             fill: 'none',
             stroke: d,
@@ -869,7 +626,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M38.472 83.719a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#J)"
           style={{
             fill: 'none',
             stroke: d,
@@ -884,7 +640,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M41.72 83.719a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#K)"
           style={{
             fill: 'none',
             stroke: d,
@@ -899,7 +654,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M44.97 83.719a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#L)"
           style={{
             fill: 'none',
             stroke: d,
@@ -914,7 +668,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M31.93 57.437a2.583 2.583 0 1 0-5.167 0 2.583 2.583 0 0 0 5.166 0"
-          clipPath="url(#M)"
           style={{
             fill: 'none',
             stroke: d,
@@ -929,7 +682,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M32.519 60.35a1.683 1.683 0 1 0-3.367 0 1.683 1.683 0 0 0 3.367 0"
-          clipPath="url(#N)"
           style={{
             fill: 'none',
             stroke: d,
@@ -944,7 +696,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M31.062 63.057a1.785 1.785 0 1 0-3.57 0 1.785 1.785 0 0 0 3.57 0"
-          clipPath="url(#O)"
           style={{
             fill: 'none',
             stroke: d,
@@ -959,7 +710,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M51.11 57.096a2.583 2.583 0 1 0-5.165 0 2.583 2.583 0 0 0 5.166 0"
-          clipPath="url(#P)"
           style={{
             fill: 'none',
             stroke: d,
@@ -974,7 +724,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M49.122 60.283a1.8 1.8 0 1 0-3.599 0 1.8 1.8 0 0 0 3.6 0"
-          clipPath="url(#Q)"
           style={{
             fill: 'none',
             stroke: d,
@@ -989,7 +738,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M50.789 62.594a.717.717 0 1 0-1.433 0 .717.717 0 0 0 1.433 0"
-          clipPath="url(#R)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1004,7 +752,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M37.148 58.74a1.684 1.684 0 1 0-3.368 0 1.684 1.684 0 0 0 3.367 0"
-          clipPath="url(#S)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1019,7 +766,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M43.399 62.11a1.684 1.684 0 1 0-3.367 0 1.684 1.684 0 0 0 3.367 0"
-          clipPath="url(#T)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1034,7 +780,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M35.223 83.719a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#U)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1049,7 +794,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M55.78 53.253a4.5 4.5 0 0 1 4.5-4.5"
-          clipPath="url(#V)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1064,7 +808,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M48.136 45.165a4.5 4.5 0 0 1-4.5 4.5"
-          clipPath="url(#W)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1079,7 +822,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M71.547 33.606a27 27 0 0 1 2.582 1.808"
-          clipPath="url(#X)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1094,7 +836,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M70.884 42.399a27 27 0 0 1-3.047-.806"
-          clipPath="url(#Y)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1109,7 +850,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M74.287 38.631q-.39.922-.842 1.814"
-          clipPath="url(#Z)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1124,7 +864,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M74.057 38.534a28 28 0 0 1-.835 1.798"
-          clipPath="url(#aa)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1139,7 +878,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M53.915 35.297a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#ab)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1154,7 +892,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M56.689 38.497a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#ac)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1169,7 +906,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M60.814 39.456a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#ad)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1184,7 +920,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M64.715 37.807a1.05 1.05 0 1 0-2.1 0 1.05 1.05 0 0 0 2.1 0"
-          clipPath="url(#ae)"
           style={{
             fill: 'none',
             stroke: d,
@@ -1213,7 +948,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="m.645-2.916 1.435-.121q.16 1.048.737 1.58.585.523 1.405.523.987 0 1.67-.744t.683-1.974q0-1.17-.66-1.845-.653-.676-1.716-.676-.66 0-1.192.304-.532.296-.835.774L.888-5.262l1.079-5.717h5.535v1.306H3.06l-.6 2.991q1.002-.698 2.103-.698 1.458 0 2.46 1.01t1.003 2.596q0 1.511-.881 2.612Q6.075.19 4.222.19q-1.519 0-2.483-.85Q.782-1.512.645-2.917"
-          clipPath="url(#af)"
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
@@ -1223,7 +957,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M1.412 0v-1.557H2.97V0Z"
-          clipPath="url(#ag)"
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
@@ -1233,7 +966,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M5.793 0H4.427v-8.709q-.494.47-1.299.942-.797.47-1.435.706v-1.321q1.147-.54 2.005-1.306.858-.767 1.215-1.489h.88z"
-          clipPath="url(#ah)"
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
@@ -1243,7 +975,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M1.412 0v-1.557H2.97V0Z"
-          clipPath="url(#ai)"
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
@@ -1253,7 +984,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M5.793 0H4.427v-8.709q-.494.47-1.299.942-.797.47-1.435.706v-1.321q1.147-.54 2.005-1.306.858-.767 1.215-1.489h.88z"
-          clipPath="url(#aj)"
           style={{
             fontSize: '15.5501px',
             fontFamily: 'Arial',
@@ -1265,7 +995,6 @@ export default function ArchitectureBpMobile({
       <g mask="url(#draw-struct-mask)" className="struct opacity-0">
         <path
           d="M53.085 179.665a4.5 4.5 0 0 1-4.5-4.5"
-          clipPath="url(#ak)"
           style={{
             fill: 'none',
             stroke: s,
@@ -1280,7 +1009,6 @@ export default function ArchitectureBpMobile({
         />
         <path
           d="M48.585 175.165a4.5 4.5 0 0 1-4.5 4.5"
-          clipPath="url(#al)"
           style={{
             fill: 'none',
             stroke: s,
