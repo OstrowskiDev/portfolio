@@ -1,6 +1,7 @@
 'use client'
 
 import DesktopBlueprintSm from '@/components/intro/svgr/DesktopBlueprintSmall'
+import { getNodes } from '@/lib/helpers'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
@@ -61,15 +62,6 @@ export default function DesktopBpAnimDesktop() {
       '<-=1.8',
     )
   }, [])
-
-  function getNodes(
-    ref: React.RefObject<SVGGElement>,
-    query: string,
-  ): NodeListOf<SVGPathElement> | null {
-    if (!ref.current) return null
-    const nodes = ref.current.querySelectorAll<SVGPathElement>(query)
-    return nodes
-  }
 
   return (
     <>

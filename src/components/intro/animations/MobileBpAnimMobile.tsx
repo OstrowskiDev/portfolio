@@ -2,6 +2,7 @@
 
 import MobileLayout02 from '@/components/intro/svgr/MobileLayout02Opt'
 import MobileLayout03 from '@/components/intro/svgr/MobileLayout03Opt'
+import { getNodes } from '@/lib/helpers'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
@@ -82,15 +83,6 @@ export default function MobileBpAnimMobile({
       .to(fill, { opacity: 0, duration: 0.9 }, `<${1.5 - delay}`)
       .to(layout, { opacity: 0, duration: 0.8 }, '<+=0.1')
       .to(framePaths, { opacity: 0, duration: 0.9 }, '<+=0.2')
-  }
-
-  function getNodes(
-    ref: React.RefObject<SVGGElement>,
-    query: string,
-  ): NodeListOf<SVGPathElement> | null {
-    if (!ref.current) return null
-    const nodes = ref.current.querySelectorAll<SVGPathElement>(query)
-    return nodes
   }
 
   return (
