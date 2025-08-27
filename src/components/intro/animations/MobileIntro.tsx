@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import ArchBlueprintAnim from './ArchBlueprintAnim'
-import DesktopBlueprintAnim from './DesktopBlueprintAnim'
-import MobileBlueprintAnim from './MobileBlueprintAnim'
+import ArchBlueprintAnim from './ArchBpAnimDesktop'
+import DesktopBlueprintAnim from './DesktopBpAnimDesktop'
+import MobileBlueprintAnim from './MobileBpAnimDesktop'
 import GridBackground from '../grid/GridBackground'
 import gsap from 'gsap'
 import ArchBpAnimMobile from './ArchBpAnimMobile'

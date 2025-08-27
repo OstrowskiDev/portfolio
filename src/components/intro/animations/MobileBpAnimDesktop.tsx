@@ -7,7 +7,7 @@ import MobileLayout04 from '@/components/intro/svgr/MobileLayout04Opt'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
-export default function MobileBlueprintAnim({
+export default function MobileBpAnimDesktop({
   setAnimPhase,
 }: {
   setAnimPhase: (value: string) => void

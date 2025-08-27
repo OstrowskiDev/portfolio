@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import ArchBlueprintAnim from './ArchBlueprintAnim'
-import DesktopBlueprintAnim from './DesktopBlueprintAnim'
-import MobileBlueprintAnim from './MobileBlueprintAnim'
+import ArchBpAnimDesktop from './ArchBpAnimDesktop'
+import DesktopBpAnimDesktop from './DesktopBpAnimDesktop'
+import MobileBpAnimDesktop from './MobileBpAnimDesktop'
 import GridBackground from '../grid/GridBackground'
 import gsap from 'gsap'
 
@@ -28,12 +28,12 @@ export default function DesktopIntro() {
 
         <div className="intro-animation-container mx-auto max-w-[1520px]">
           {animPhase === 'architecture' && (
-            <ArchBlueprintAnim setAnimPhase={setAnimPhase} />
+            <ArchBpAnimDesktop setAnimPhase={setAnimPhase} />
           )}
           {animPhase === 'mobile' && (
-            <MobileBlueprintAnim setAnimPhase={setAnimPhase} />
+            <MobileBpAnimDesktop setAnimPhase={setAnimPhase} />
           )}
-          {animPhase === 'desktop' && <DesktopBlueprintAnim />}
+          {animPhase === 'desktop' && <DesktopBpAnimDesktop />}
         </div>
       </div>
     </>

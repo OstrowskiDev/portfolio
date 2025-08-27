@@ -4,7 +4,7 @@ import DesktopBlueprintSm from '@/components/intro/svgr/DesktopBlueprintSmall'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
-export default function DesktopBlueprintAnim() {
+export default function DesktopBpAnimDesktop() {
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
@@ -82,7 +82,7 @@ export default function DesktopBlueprintAnim() {
           <br /> and I bring ideas to life
           <br /> through engineering.
         </h2>
-        <DesktopBlueprintSm svgRef={svgRef} />
+        <DesktopBlueprintSm svgRef={svgRef} strokeWidth="0.25" />
       </div>
     </>
   )
