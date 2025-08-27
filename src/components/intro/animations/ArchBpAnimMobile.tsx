@@ -83,6 +83,7 @@ export default function ArchBpAnimMobile({
           <br />- as an architect.
         </h2>
         <ArchitectureBpMobile
+          twClasses="left-[-60px]"
           svgRef={svgRef}
           axesRef={axesRef}
           structRef={structRef}

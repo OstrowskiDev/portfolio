@@ -5,6 +5,7 @@ export default function ArchitectureBpMobile({
   axesRef,
   structRef,
   descriptRef,
+  twClasses,
   ...props
 }) {
   const a = '#fff' //axes color
@@ -13,7 +14,7 @@ export default function ArchitectureBpMobile({
 
   return (
     <svg
-      className="architecture-blueprint-masters-thesis relative top-[190px] pl-2 z-50"
+      className={`architecture-blueprint-masters-thesis relative top-[190px] pl-2 z-50 ${twClasses}`}
       style={{ transformOrigin: 'left center' }}
       ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
