@@ -24,7 +24,6 @@ export default function DesktopBlueprintSm({ svgRef, strokeWidth, ...props }) {
           className="frame-outer opacity-0"
           d="M114.546 108.796V12.724a5.28 5.28 0 0 1 5.292-5.292H258.13a5.28 5.28 0 0 1 5.292 5.292v96.072a5.28 5.28 0 0 1-5.292 5.292H119.838a5.28 5.28 0 0 1-5.292-5.292"
           style={{
-            opacity: 1,
             fill: 'none',
             fillOpacity: 0.6,
             stroke: '#fff',
@@ -38,7 +37,6 @@ export default function DesktopBlueprintSm({ svgRef, strokeWidth, ...props }) {
           className="frame-inner opacity-0"
           d="M121.556 91.005v-75.44c0-.803.59-1.45 1.322-1.45h133c.733 0 1.323.647 1.323 1.45v75.44c0 .803-.59 1.45-1.323 1.45h-133c-.732 0-1.322-.647-1.322-1.45"
           style={{
-            opacity: 1,
             fill: 'none',
             fillOpacity: 0.6,
             stroke: '#fff',
@@ -52,7 +50,6 @@ export default function DesktopBlueprintSm({ svgRef, strokeWidth, ...props }) {
           className="frame-horizontal opacity-0"
           d="M114.586 97.945h148.861"
           style={{
-            opacity: 1,
             fill: 'none',
             fillOpacity: 0.6,
             stroke: '#fff',
@@ -68,7 +65,6 @@ export default function DesktopBlueprintSm({ svgRef, strokeWidth, ...props }) {
           d="m86.635 127.039 3.617-12.868m23.25 12.841-3.617-12.868"
           style={{
             display: 'inline',
-            opacity: 1,
             strokeWidth: svgStrokeWidth,
             strokeDasharray: 'none',
             fill: 'none',
@@ -84,7 +80,6 @@ export default function DesktopBlueprintSm({ svgRef, strokeWidth, ...props }) {
           className="frame-desk opacity-0"
           d="m145.425 127.157 84.47-.181c6.99-.075 6.806 9.987 0 10.038H22.307c-6.954 0-6.656 9.587 0 9.587h25.201"
           style={{
-            opacity: 1,
             fill: 'none',
             fillOpacity: 0.6,
             stroke: '#fff',
