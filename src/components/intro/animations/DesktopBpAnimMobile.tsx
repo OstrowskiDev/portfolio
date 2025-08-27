@@ -1,10 +1,15 @@
 'use client'
 
 import DesktopBlueprintSm from '@/components/intro/svgr/DesktopBlueprintSmall'
-import gsap from 'gsap'
+import { getNodes } from '@/lib/helpers'
 import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
 
-export default function DesktopBpAnimMobile() {
+export default function DesktopBpAnimMobile({
+  setAnimPhase,
+}: {
+  setAnimPhase: (value: string) => void
+}) {
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
@@ -59,16 +64,10 @@ export default function DesktopBpAnimMobile() {
       { opacity: 1, duration: 2.5, ease: 'power2.in' },
       '<-=1.8',
     )
+    // prettier-ignore
+    const animationEnd = {opacity: 0, duration: 0, onComplete: () => { setAnimPhase('hero')}, }
+    tl.to(textRef.current, animationEnd, '<-=0.2')
   }, [])
-
-  function getNodes(
-    ref: React.RefObject<SVGGElement>,
-    query: string,
-  ): NodeListOf<SVGPathElement> | null {
-    if (!ref.current) return null
-    const nodes = ref.current.querySelectorAll<SVGPathElement>(query)
-    return nodes
-  }
 
   return (
     <>

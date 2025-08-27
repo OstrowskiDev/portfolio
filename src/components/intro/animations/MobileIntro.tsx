@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import ArchBpAnimMobile from './ArchBpAnimMobile'
 import MobileBpAnimMobile from './MobileBpAnimMobile'
 import DesktopBpAnimMobile from './DesktopBpAnimMobile'
+import HeroMobile from './HeroMobile'
 
 export default function MobileIntro() {
   const [animPhase, setAnimPhase] = useState('architecture')
@@ -32,7 +33,10 @@ export default function MobileIntro() {
           {animPhase === 'mobile' && (
             <MobileBpAnimMobile setAnimPhase={setAnimPhase} />
           )}
-          {animPhase === 'desktop' && <DesktopBpAnimMobile />}
+          {animPhase === 'desktop' && (
+            <DesktopBpAnimMobile setAnimPhase={setAnimPhase} />
+          )}
+          {animPhase === 'hero' && <HeroMobile />}
         </div>
       </div>
     </>
