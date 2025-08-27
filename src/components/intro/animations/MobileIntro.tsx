@@ -8,6 +8,7 @@ import GridBackground from '../grid/GridBackground'
 import gsap from 'gsap'
 import ArchBpAnimMobile from './ArchBpAnimMobile'
 import MobileBpAnimMobile from './MobileBpAnimMobile'
+import DesktopBpAnimMobile from './DesktopBpAnimMobile'
 
 export default function MobileIntro() {
   const [animPhase, setAnimPhase] = useState('architecture')
@@ -28,19 +29,14 @@ export default function MobileIntro() {
       >
         <GridBackground gridRef={gridRef} />
         <div className="intro-animation-container mx-auto min-w-[415px] max-w-[480px]">
-          {/* <ArchBpAnimMobile setAnimPhase={setAnimPhase} /> */}
-          <MobileBpAnimMobile setAnimPhase={setAnimPhase} />
-        </div>
-
-        {/* <div className="intro-animation-container mx-auto max-w-[1520px]">
           {animPhase === 'architecture' && (
-            <ArchBlueprintAnim setAnimPhase={setAnimPhase} />
+            <ArchBpAnimMobile setAnimPhase={setAnimPhase} />
           )}
           {animPhase === 'mobile' && (
-            <MobileBlueprintAnim setAnimPhase={setAnimPhase} />
+            <MobileBpAnimMobile setAnimPhase={setAnimPhase} />
           )}
-          {animPhase === 'desktop' && <DesktopBlueprintAnim />}
-        </div> */}
+          {animPhase === 'desktop' && <DesktopBpAnimMobile />}
+        </div>
       </div>
     </>
   )

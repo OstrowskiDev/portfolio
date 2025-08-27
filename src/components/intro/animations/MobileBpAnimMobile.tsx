@@ -30,8 +30,8 @@ export default function MobileBpAnimMobile({
     animateMobileLayout(svgRef04, 0.3)
 
     // prettier-ignore
-    // const textEnd = {x: 400, opacity: 0, duration: 0.6, onComplete: () => {     setAnimPhase('desktop')}, }
-    // textTl.to(textRef.current, textEnd, 3.6)
+    const textEnd = {x: 500, opacity: 0, duration: 0.7, ease: 'power3.in', onComplete: () => { setAnimPhase('desktop')}, }
+    textTl.to(textRef.current, textEnd, 3.3)
   }, [])
 
   function animateMobileLayout(
@@ -78,10 +78,10 @@ export default function MobileBpAnimMobile({
       .to(fill, { opacity: 1, duration: 2.5 }, `blueprint+=${delay + 0.5}`)
       .to(layout, { opacity: 1, duration: 1.7 }, `blueprint+=${delay + 1.5}`)
 
-    // tl.addLabel('bye-bye')
-    //   .to(fill, { opacity: 0, duration: 0.6 }, `<${1.5 - delay}`)
-    //   .to(layout, { opacity: 0, duration: 0.5 }, '<+=0.1')
-    //   .to(framePaths, { opacity: 0, duration: 0.6 }, '<+=0.2')
+    tl.addLabel('bye-bye')
+      .to(fill, { opacity: 0, duration: 0.9 }, `<${1.5 - delay}`)
+      .to(layout, { opacity: 0, duration: 0.8 }, '<+=0.1')
+      .to(framePaths, { opacity: 0, duration: 0.9 }, '<+=0.2')
   }
 
   function getNodes(
@@ -98,7 +98,7 @@ export default function MobileBpAnimMobile({
       <div className="intro-section relative h-[100vh] w-full xs:flex xs:justify-center">
         <h2
           ref={textRef}
-          className="intro-line-one absolute top-[calc(10px+2vh)] pl-6 xs:pl-0 font-bold italic text-[clamp(18px,6vw,24px)] xs:text-[24px] text-primary-100 opacity-0 z-50"
+          className="intro-line-three absolute top-[calc(10px+2vh)] pl-6 xs:pl-0 font-bold italic text-[clamp(18px,6vw,24px)] xs:text-[24px] text-primary-100 opacity-0 z-50"
         >
           Now I&apos;m building
           <br /> digital systems and experiences

@@ -36,7 +36,7 @@ export default function ArchBpAnimMobile({
 
     const axesFrom = { attr: { x1: -200, y1: -100, x2: 0, y2: 100 } }
     const axesToCoords = { attr: { x1: 1300, y1: 1100, x2: 1500, y2: 1300 } }
-    const axesTo = { ...axesToCoords, duration: 3, ease: 'power2.inOut' }
+    const axesTo = { ...axesToCoords, duration: 3.5, ease: 'power2.inOut' }
 
     const structFrom = { attr: { x1: -200, y1: -100, x2: 0, y2: 100 } }
     const structToCoords = { attr: { x1: 1300, y1: 1100, x2: 1500, y2: 1300 } }
@@ -47,14 +47,14 @@ export default function ArchBpAnimMobile({
     const descriptTo = { ...descriptToCoords, duration: 2 }
 
     tl.addLabel('blueprint')
-      .fromTo(axesRef.current, axesFrom, axesTo, '<-=0')
-      .fromTo(structRef.current, structFrom, structTo, '<+=0.35')
-      .to(structFillGroup, { opacity: 1, duration: 2 }, 'blueprint+=1')
-      .fromTo(descriptRef.current, descriptFrom, descriptTo, 'blueprint+=1')
+      .fromTo(axesRef.current, axesFrom, axesTo, '<-=0.6')
+      .fromTo(structRef.current, structFrom, structTo, '<+=0.6')
+      .to(structFillGroup, { opacity: 1, duration: 2 }, 'blueprint+=1.2')
+      .fromTo(descriptRef.current, descriptFrom, descriptTo, 'blueprint+=1.2')
       .to(descriptFillGroup, { opacity: 1, duration: 1 }, 'blueprint+=2')
 
     tl.addLabel('bye_bye', 'blueprint+=2.5')
-      .to([svgGroups], { opacity: 0, duration: 0.7 }, 'bye_bye+=0')
+      .to([svgGroups], { opacity: 0, duration: 1 }, 'bye_bye-=0.3')
       .to(
         textRef.current,
         {
@@ -66,7 +66,7 @@ export default function ArchBpAnimMobile({
             setAnimPhase('mobile')
           },
         },
-        'bye_bye+=0.5',
+        'bye_bye+=0.1',
       )
   }, [])
 

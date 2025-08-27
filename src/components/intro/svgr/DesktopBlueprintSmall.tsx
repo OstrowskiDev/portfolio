@@ -1,6 +1,7 @@
 // @ts-nocheck
 
-export default function DesktopBlueprintSm({ svgRef, ...props }) {
+export default function DesktopBlueprintSm({ svgRef, strokeWidth, ...props }) {
+  const svgStrokeWidth = strokeWidth || '0.3'
   return (
     <svg
       ref={svgRef}
@@ -27,7 +28,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
             fill: 'none',
             fillOpacity: 0.6,
             stroke: '#fff',
-            strokeWidth: 0.529167,
+            strokeWidth: svgStrokeWidth,
             strokeLinejoin: 'bevel',
             strokeMiterlimit: 0,
             strokeOpacity: 0.6,
@@ -41,7 +42,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
             fill: 'none',
             fillOpacity: 0.6,
             stroke: '#fff',
-            strokeWidth: 0.529167,
+            strokeWidth: svgStrokeWidth,
             strokeLinejoin: 'bevel',
             strokeMiterlimit: 0,
             strokeOpacity: 0.6,
@@ -55,7 +56,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
             fill: 'none',
             fillOpacity: 0.6,
             stroke: '#fff',
-            strokeWidth: 0.529167,
+            strokeWidth: svgStrokeWidth,
             strokeLinejoin: 'bevel',
             strokeMiterlimit: 0,
             strokeDasharray: 'none',
@@ -68,7 +69,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
           style={{
             display: 'inline',
             opacity: 1,
-            strokeWidth: 0.529167,
+            strokeWidth: svgStrokeWidth,
             strokeDasharray: 'none',
             fill: 'none',
             fillOpacity: 0.6,
@@ -87,7 +88,7 @@ export default function DesktopBlueprintSm({ svgRef, ...props }) {
             fill: 'none',
             fillOpacity: 0.6,
             stroke: '#fff',
-            strokeWidth: 0.529167,
+            strokeWidth: svgStrokeWidth,
             strokeLinejoin: 'bevel',
             strokeMiterlimit: 0,
             strokeDasharray: 'none',
