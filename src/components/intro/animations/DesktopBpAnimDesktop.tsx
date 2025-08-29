@@ -5,11 +5,7 @@ import { getNodes } from '@/lib/helpers'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
-export default function DesktopBpAnimDesktop({
-  setAnimPhase,
-}: {
-  setAnimPhase: (value: string) => void
-}) {
+export default function DesktopBpAnimDesktop() {
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
@@ -70,7 +66,7 @@ export default function DesktopBpAnimDesktop({
     tl.addLabel('animation-end')
 
     // prettier-ignore
-    const animationEnd = { height: 'calc(100vh - 100px)', duration: 0.8, ease: 'power3.out', onComplete: () => { setAnimPhase('finished')}, }
+    const animationEnd = { height: 'calc(100vh - 100px)', duration: 0.8, ease: 'power3.out' }
     tl.to(home, animationEnd, '>')
   }, [])
 

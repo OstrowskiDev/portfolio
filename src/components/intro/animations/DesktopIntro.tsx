@@ -34,9 +34,7 @@ export default function DesktopIntro() {
           {animPhase === 'mobile' && (
             <MobileBpAnimDesktop setAnimPhase={setAnimPhase} />
           )}
-          {(animPhase === 'desktop' || animPhase === 'finished') && (
-            <DesktopBpAnimDesktop setAnimPhase={setAnimPhase} />
-          )}
+          {animPhase === 'desktop' && <DesktopBpAnimDesktop />}
         </div>
       </div>
     </>

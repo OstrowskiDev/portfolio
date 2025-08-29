@@ -5,11 +5,7 @@ import { getNodes } from '@/lib/helpers'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
-export default function DesktopBpAnimMobile({
-  setAnimPhase,
-}: {
-  setAnimPhase: (value: string) => void
-}) {
+export default function DesktopBpAnimMobile() {
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
@@ -65,17 +61,11 @@ export default function DesktopBpAnimMobile({
       { opacity: 1, duration: 2.5, ease: 'power2.in' },
       '<-=1.8',
     )
-    // prettier-ignore
-    const animationEnd = { opacity: 0, duration: 0.5, ease: 'power2.out', onComplete: () => { setAnimPhase('finished')}, }
-    tl.to(home, animationEnd, '<=0.3')
   }, [])
 
   return (
     <>
-      <div
-        id="home"
-        className="intro-section hero-section relative h-[100vh] w-full overflow-hidden"
-      >
+      <div className="intro-section hero-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
           className="intro-line-three absolute top-[calc(10px+2vh)] pl-6 xs:pl-0 font-bold italic text-[clamp(18px,6vw,24px)] xs:text-[24px] text-primary-100 opacity-0 z-50"
