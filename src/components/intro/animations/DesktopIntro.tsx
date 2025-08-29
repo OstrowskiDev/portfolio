@@ -19,6 +19,7 @@ export default function DesktopIntro() {
   return (
     <>
       <div
+        id="home"
         className="intro-section relative h-[100vh] w-full overflow-hidden"
         style={{
           background: 'radial-gradient(circle, hsl(0,0%,35%), hsl(0,0%,45%))',
@@ -27,13 +28,17 @@ export default function DesktopIntro() {
         <GridBackground gridRef={gridRef} />
 
         <div className="intro-animation-container mx-auto max-w-[1520px]">
-          {animPhase === 'architecture' && (
+          <DesktopBpAnimDesktop setAnimPhase={setAnimPhase} />
+
+          {/* {animPhase === 'architecture' && (
             <ArchBpAnimDesktop setAnimPhase={setAnimPhase} />
           )}
           {animPhase === 'mobile' && (
             <MobileBpAnimDesktop setAnimPhase={setAnimPhase} />
           )}
-          {animPhase === 'desktop' && <DesktopBpAnimDesktop />}
+          {(animPhase === 'desktop' || animPhase === 'finished') && (
+            <DesktopBpAnimDesktop setAnimPhase={setAnimPhase} />
+          )} */}
         </div>
       </div>
     </>

@@ -18,6 +18,7 @@ export default function DesktopBpAnimMobile({
 
     const framePaths = getNodes(svgRef, '.frame path')
     const layout = getNodes(svgRef, '.layout')
+    const home = document.getElementById('home')
 
     if (!framePaths || !layout) return
 
@@ -65,13 +66,16 @@ export default function DesktopBpAnimMobile({
       '<-=1.8',
     )
     // prettier-ignore
-    const animationEnd = {opacity: 0, duration: 0, onComplete: () => { setAnimPhase('hero')}, }
-    tl.to(textRef.current, animationEnd, '<-=0.2')
+    const animationEnd = { opacity: 0, duration: 0.5, ease: 'power2.out', onComplete: () => { setAnimPhase('finished')}, }
+    tl.to(home, animationEnd, '<=0.3')
   }, [])
 
   return (
     <>
-      <div className="intro-section relative h-[100vh] w-full overflow-hidden">
+      <div
+        id="home"
+        className="intro-section hero-section relative h-[100vh] w-full overflow-hidden"
+      >
         <h2
           ref={textRef}
           className="intro-line-three absolute top-[calc(10px+2vh)] pl-6 xs:pl-0 font-bold italic text-[clamp(18px,6vw,24px)] xs:text-[24px] text-primary-100 opacity-0 z-50"

@@ -5,7 +5,11 @@ import { getNodes } from '@/lib/helpers'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
-export default function DesktopBpAnimDesktop() {
+export default function DesktopBpAnimDesktop({
+  setAnimPhase,
+}: {
+  setAnimPhase: (value: string) => void
+}) {
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
@@ -14,6 +18,7 @@ export default function DesktopBpAnimDesktop() {
 
     const framePaths = getNodes(svgRef, '.frame path')
     const layout = getNodes(svgRef, '.layout')
+    const home = document.getElementById('home')
 
     if (!framePaths || !layout) return
 
@@ -61,11 +66,15 @@ export default function DesktopBpAnimDesktop() {
       { opacity: 1, duration: 2.5, ease: 'power2.in' },
       '<-=1.8',
     )
+
+    // prettier-ignore
+    const animationEnd = { height: 'calc(100vh - 100px)', duration: 0.8, ease: 'power2.out', onComplete: () => { setAnimPhase('finished')}, }
+    tl.to(home, animationEnd, '>')
   }, [])
 
   return (
     <>
-      <div className="intro-section relative h-[100vh] w-full overflow-hidden">
+      <div className="intro-section hero-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
           className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-0 z-50"

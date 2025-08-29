@@ -1,4 +1,4 @@
-import { NavLink } from '../common/NavAnchor'
+import { NavLink } from '../common/NavLink'
 
 export function NavBar() {
   return (
