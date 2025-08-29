@@ -28,9 +28,7 @@ export default function DesktopIntro() {
         <GridBackground gridRef={gridRef} />
 
         <div className="intro-animation-container mx-auto max-w-[1520px]">
-          <DesktopBpAnimDesktop setAnimPhase={setAnimPhase} />
-
-          {/* {animPhase === 'architecture' && (
+          {animPhase === 'architecture' && (
             <ArchBpAnimDesktop setAnimPhase={setAnimPhase} />
           )}
           {animPhase === 'mobile' && (
@@ -38,7 +36,7 @@ export default function DesktopIntro() {
           )}
           {(animPhase === 'desktop' || animPhase === 'finished') && (
             <DesktopBpAnimDesktop setAnimPhase={setAnimPhase} />
-          )} */}
+          )}
         </div>
       </div>
     </>

@@ -67,8 +67,10 @@ export default function DesktopBpAnimDesktop({
       '<-=1.8',
     )
 
+    tl.addLabel('animation-end')
+
     // prettier-ignore
-    const animationEnd = { height: 'calc(100vh - 100px)', duration: 0.8, ease: 'power2.out', onComplete: () => { setAnimPhase('finished')}, }
+    const animationEnd = { height: 'calc(100vh - 100px)', duration: 0.8, ease: 'power3.out', onComplete: () => { setAnimPhase('finished')}, }
     tl.to(home, animationEnd, '>')
   }, [])
 
