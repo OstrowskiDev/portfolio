@@ -1,13 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import useMediaQuery from '@/components/hooks/useMediaQuery'
 import DesktopIntro from './DesktopIntro'
 import MobileIntro from './MobileIntro'
 
 export default function Intro() {
-  const [animPhase, setAnimPhase] = useState('architecture')
   const gridRef = useRef(null)
 
   const isDesktop = useMediaQuery('(min-width: 620px)')

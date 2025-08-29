@@ -1,6 +1,6 @@
 import { NavLink } from '../common/NavLink'
 
-export function NavBar() {
+export default function NavBar() {
   return (
     <div className="navbar sticky top-0 z-[100] w-full h-[100px] flex justify-around items-center bg-white">
       <NavLink name="Intro" targetId="intro" />
