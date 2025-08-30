@@ -74,7 +74,6 @@ export default function DesktopBpAnimDesktop() {
 
     tl.call(() => {
       tl.pause()
-      console.log('Normalna animacja zakończona - timeline wstrzymany')
     })
 
     tl.addLabel('outro')
@@ -83,6 +82,12 @@ export default function DesktopBpAnimDesktop() {
     // prettier-ignore
     const cleanVectors = { height: '100vh', duration: 0.5, onComplete: () => { setAnimPhase('architecture')}}
     tl.to(home, cleanVectors, '<')
+
+    // Cleanup
+    return () => {
+      tl.kill()
+      desktopTimelineRef.current = null
+    }
   }, [])
 
   return (

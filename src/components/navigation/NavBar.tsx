@@ -6,7 +6,7 @@ export default function NavBar() {
 
   function playOutroAnimation() {
     if (desktopTimelineRef.current) {
-      desktopTimelineRef.current.play('outro')
+      desktopTimelineRef.current.play()
     }
   }
 
@@ -14,7 +14,7 @@ export default function NavBar() {
     <div className="navbar sticky top-0 z-[100] w-full h-[100px] flex justify-around items-center border-b-[1px] border-primary-200 shadow-[0_2px_2px_theme(colors.primary.100)] bg-white">
       <NavLink
         name="Intro"
-        targetId="intro"
+        targetId="home"
         callback={() => playOutroAnimation()}
       />
       <NavLink name="Home" targetId="home" />

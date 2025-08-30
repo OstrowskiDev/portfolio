@@ -16,18 +16,16 @@ export function NavLink({
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
 
-    if (callback) {
-      callback()
-    } else {
-      const targetElement = document.getElementById(targetId)
+    const targetElement = document.getElementById(targetId)
 
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
-      }
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
     }
+
+    if (callback) callback()
   }
 
   return (
