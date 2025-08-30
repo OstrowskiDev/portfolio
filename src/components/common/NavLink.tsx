@@ -4,18 +4,29 @@ interface NavLinkProps {
   name: string
   targetId: string
   className?: string
+  callback?: () => void
 }
 
-export function NavLink({ name, targetId, className = '' }: NavLinkProps) {
+export function NavLink({
+  name,
+  targetId,
+  className = '',
+  callback,
+}: NavLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    const targetElement = document.getElementById(targetId)
 
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
+    if (callback) {
+      callback()
+    } else {
+      const targetElement = document.getElementById(targetId)
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+      }
     }
   }
 

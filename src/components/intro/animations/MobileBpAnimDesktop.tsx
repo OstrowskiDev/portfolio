@@ -1,5 +1,6 @@
 'use client'
 
+import { useIntroAnimation } from '@/components/hooks/introAnimationContext'
 import MobileLayout01 from '@/components/intro/svgr/MobileLayout01Opt'
 import MobileLayout02 from '@/components/intro/svgr/MobileLayout02Opt'
 import MobileLayout03 from '@/components/intro/svgr/MobileLayout03Opt'
@@ -8,11 +9,9 @@ import { getNodes } from '@/lib/helpers'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
-export default function MobileBpAnimDesktop({
-  setAnimPhase,
-}: {
-  setAnimPhase: (value: string) => void
-}) {
+export default function MobileBpAnimDesktop() {
+  const { setAnimPhase } = useIntroAnimation()
+
   const svgRef01 = useRef<SVGGElement | null>(null)
   const svgRef02 = useRef<SVGGElement | null>(null)
   const svgRef03 = useRef<SVGGElement | null>(null)

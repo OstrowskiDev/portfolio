@@ -1,14 +1,15 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import ArchBpAnimDesktop from './ArchBpAnimDesktop'
 import DesktopBpAnimDesktop from './DesktopBpAnimDesktop'
 import MobileBpAnimDesktop from './MobileBpAnimDesktop'
 import GridBackground from '../grid/GridBackground'
 import gsap from 'gsap'
+import { useIntroAnimation } from '@/components/hooks/introAnimationContext'
 
 export default function DesktopIntro() {
-  const [animPhase, setAnimPhase] = useState('architecture')
+  const { animPhase } = useIntroAnimation()
   const gridRef = useRef(null)
 
   useEffect(() => {
@@ -28,12 +29,8 @@ export default function DesktopIntro() {
         <GridBackground gridRef={gridRef} />
 
         <div className="intro-animation-container mx-auto max-w-[1520px]">
-          {animPhase === 'architecture' && (
-            <ArchBpAnimDesktop setAnimPhase={setAnimPhase} />
-          )}
-          {animPhase === 'mobile' && (
-            <MobileBpAnimDesktop setAnimPhase={setAnimPhase} />
-          )}
+          {animPhase === 'architecture' && <ArchBpAnimDesktop />}
+          {animPhase === 'mobile' && <MobileBpAnimDesktop />}
           {animPhase === 'desktop' && <DesktopBpAnimDesktop />}
         </div>
       </div>

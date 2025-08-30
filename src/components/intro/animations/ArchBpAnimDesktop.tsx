@@ -3,17 +3,15 @@
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 import ArchitectureBlueprint from '@/components/intro/svgr/ArchitectureBlueprint'
+import { useIntroAnimation } from '@/components/hooks/introAnimationContext'
 
-export default function ArchBpAnimDesktop({
-  setAnimPhase,
-}: {
-  setAnimPhase: (value: string) => void
-}) {
+export default function ArchBpAnimDesktop() {
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
   const axesRef = useRef<SVGGElement | null>(null)
   const structRef = useRef<SVGGElement | null>(null)
   const descriptRef = useRef<SVGGElement | null>(null)
+  const { setAnimPhase } = useIntroAnimation()
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {

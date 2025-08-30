@@ -1,11 +1,13 @@
 'use client'
 
+import { useIntroAnimation } from '@/components/hooks/introAnimationContext'
 import DesktopBlueprintSm from '@/components/intro/svgr/DesktopBlueprintSmall'
 import { getNodes } from '@/lib/helpers'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
 export default function DesktopBpAnimDesktop() {
+  const { setAnimPhase, desktopTimelineRef } = useIntroAnimation()
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
@@ -19,6 +21,7 @@ export default function DesktopBpAnimDesktop() {
     if (!framePaths || !layout) return
 
     const tl = gsap.timeline()
+    desktopTimelineRef.current = tl
 
     tl.set(textRef.current, { y: 200 })
 
@@ -68,6 +71,18 @@ export default function DesktopBpAnimDesktop() {
     // prettier-ignore
     const animationEnd = { height: 'calc(100vh - 100px)', duration: 0.8, ease: 'power3.out' }
     tl.to(home, animationEnd, '>')
+
+    tl.call(() => {
+      tl.pause()
+      console.log('Normalna animacja zakończona - timeline wstrzymany')
+    })
+
+    tl.addLabel('outro')
+    tl.to(textRef.current, { y: -400, duration: 0.4 }, 'outro')
+    tl.to([framePaths, layout], { opacity: 0, duration: 0.4 }, '<')
+    // prettier-ignore
+    const cleanVectors = { height: '100vh', duration: 0.5, onComplete: () => { setAnimPhase('architecture')}}
+    tl.to(home, cleanVectors, '<')
   }, [])
 
   return (
