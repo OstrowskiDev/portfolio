@@ -4,7 +4,7 @@ import { IntroAnimationProvider } from '@/components/hooks/introAnimationContext
 import useMediaQuery from '@/components/hooks/useMediaQuery'
 import DesktopLayout from '@/components/layouts/DesktopLayout'
 import MobileLayout from '@/components/layouts/MobileLayout'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function Home() {
   const gridRef = useRef(null)
@@ -17,10 +17,10 @@ export default function Home() {
   })
 
   return (
-    <main className="main-container w-full">
+    <>
       <IntroAnimationProvider>
         {isDesktop ? <DesktopLayout /> : <MobileLayout />}
       </IntroAnimationProvider>
-    </main>
+    </>
   )
 }

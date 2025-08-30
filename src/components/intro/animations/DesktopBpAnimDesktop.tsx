@@ -7,7 +7,8 @@ import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
 export default function DesktopBpAnimDesktop() {
-  const { setAnimPhase, desktopTimelineRef } = useIntroAnimation()
+  const { setAnimPhase, desktopTimelineRef, setIntroActive } =
+    useIntroAnimation()
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
 
@@ -65,6 +66,10 @@ export default function DesktopBpAnimDesktop() {
       { opacity: 1, duration: 2.5, ease: 'power2.in' },
       '<-=1.8',
     )
+
+    tl.call(() => {
+      setIntroActive(false)
+    })
 
     tl.addLabel('animation-end')
 

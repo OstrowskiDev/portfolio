@@ -4,6 +4,8 @@ interface IntroAnimationContextType {
   animPhase: string
   setAnimPhase: React.Dispatch<React.SetStateAction<string>>
   desktopTimelineRef: React.MutableRefObject<gsap.core.Timeline | null>
+  introActive: boolean
+  setIntroActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const IntroAnimationContext = createContext<
@@ -16,11 +18,18 @@ export function IntroAnimationProvider({
   children: React.ReactNode
 }) {
   const [animPhase, setAnimPhase] = useState('architecture')
+  const [introActive, setIntroActive] = useState(true)
   const desktopTimelineRef = useRef<gsap.core.Timeline | null>(null)
 
   return (
     <IntroAnimationContext.Provider
-      value={{ animPhase, setAnimPhase, desktopTimelineRef }}
+      value={{
+        animPhase,
+        setAnimPhase,
+        desktopTimelineRef,
+        introActive,
+        setIntroActive,
+      }}
     >
       {children}
     </IntroAnimationContext.Provider>

@@ -2,12 +2,15 @@ import { NavLink } from '../common/NavLink'
 import { useIntroAnimation } from '../hooks/introAnimationContext'
 
 export default function NavBar() {
-  const { desktopTimelineRef } = useIntroAnimation()
+  const { desktopTimelineRef, setIntroActive } = useIntroAnimation()
 
   function playOutroAnimation() {
-    if (desktopTimelineRef.current) {
-      desktopTimelineRef.current.play()
-    }
+    setTimeout(() => {
+      if (desktopTimelineRef.current) {
+        setIntroActive(true)
+        desktopTimelineRef.current.play()
+      }
+    }, 300)
   }
 
   return (
