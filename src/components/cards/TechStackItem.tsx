@@ -4,15 +4,15 @@ interface TechStackItemProps {
 }
 
 export default function TechStackItem({ text, ico }: TechStackItemProps) {
-  const displayIco = ico ?? text.toLowerCase()
+  const icoName = ico ?? text.toLowerCase()
 
   return (
     <div className="tech-stack-item flex items-center h-[17px] mr-2">
       <div
         className="item-ico mr-1 h-[16px] w-[16px] bg-primary-400"
         style={{
-          maskImage: `url(/icons/${displayIco}.svg)`,
-          WebkitMaskImage: `url(/icons/${displayIco}.svg)`,
+          maskImage: `url(/icons/${icoName}.svg)`,
+          WebkitMaskImage: `url(/icons/${icoName}.svg)`,
           maskSize: 'contain',
           WebkitMaskSize: 'contain',
           maskRepeat: 'no-repeat',

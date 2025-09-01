@@ -13,7 +13,7 @@ export default function DesktopLayout() {
       <NavBar />
       <div
         id="portfolio"
-        className="w-full h-[100vh] flex justify-center mt-[240px] bg-primary-200"
+        className="w-full h-[100vh] flex justify-center mt-[240px]"
       >
         <ProjectCard />
       </div>
