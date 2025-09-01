@@ -8,7 +8,7 @@ export default function DesktopLayout() {
     <main
       className={`main-container w-full bg-white ${introActive ? 'fixed overflow-hidden' : ''} `}
     >
-      <DesktopIntro />
+      {/* <DesktopIntro /> */}
       <NavBar />
       <div id="portfolio" className="w-full h-[100vh]"></div>
       <div id="extras" className="w-full h-[100vh]"></div>

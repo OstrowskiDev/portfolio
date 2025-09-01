@@ -75,7 +75,7 @@ export default function ArchBpAnimMobile({
       <div className="intro-section relative h-[100vh] w-full overflow-hidden xs:flex xs:justify-center">
         <h2
           ref={textRef}
-          className="intro-line-one absolute top-10 pl-6 xs:pl-0 font-bold italic text-[24px] text-primary-100 opacity-0 z-50"
+          className="intro-line-one absolute top-10 pl-6 xs:pl-0 font-bold italic text-[24px] text-primary-100 select-none opacity-0 z-50"
         >
           I spent over a decade
           <br />

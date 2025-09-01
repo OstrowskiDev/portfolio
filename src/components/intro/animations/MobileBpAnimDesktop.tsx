@@ -91,7 +91,7 @@ export default function MobileBpAnimDesktop() {
       <div className="intro-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
-          className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 opacity-0 z-50"
+          className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 select-none opacity-0 z-50"
         >
           Now I&apos;m building
           <br /> digital systems and experiences

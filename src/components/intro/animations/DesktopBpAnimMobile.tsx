@@ -68,7 +68,7 @@ export default function DesktopBpAnimMobile() {
       <div className="intro-section hero-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
-          className="intro-line-three absolute top-[calc(10px+2vh)] pl-6 xs:pl-0 font-bold italic text-[clamp(18px,6vw,24px)] xs:text-[24px] text-primary-100 opacity-0 z-50"
+          className="intro-line-three absolute top-[calc(10px+2vh)] pl-6 xs:pl-0 font-bold italic text-[clamp(18px,6vw,24px)] xs:text-[24px] text-primary-100 select-none opacity-0 z-50"
         >
           I’m Marcin Ostrowski,
           <br /> and I bring ideas to life

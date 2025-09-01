@@ -90,7 +90,7 @@ export default function MobileBpAnimMobile({
       <div className="intro-section relative h-[100vh] w-full xs:flex xs:justify-center">
         <h2
           ref={textRef}
-          className="intro-line-three absolute top-[calc(10px+2vh)] pl-6 xs:pl-0 font-bold italic text-[clamp(18px,6vw,24px)] xs:text-[24px] text-primary-100 opacity-0 z-50"
+          className="intro-line-three absolute top-[calc(10px+2vh)] pl-6 xs:pl-0 font-bold italic text-[clamp(18px,6vw,24px)] xs:text-[24px] text-primary-100 select-none opacity-0 z-50"
         >
           Now I&apos;m building
           <br /> digital systems and experiences
