@@ -14,7 +14,7 @@ export default function NavBar() {
   }
 
   return (
-    <div className="navbar sticky top-0 z-[100] w-full h-[100px] flex justify-center border-b-[1px] border-primary-200 shadow-[0_2px_2px_theme(colors.primary.100)] bg-white">
+    <div className="navbar sticky top-0 z-[100] w-full h-[80px] flex justify-center border-b-[1px] border-primary-200 shadow-[0_2px_2px_theme(colors.primary.100)] bg-white">
       <div className="navbar-elements flex justify-around items-center w-full max-w-screen-xl">
         <NavLink
           name="Intro"
