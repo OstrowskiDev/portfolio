@@ -3,6 +3,7 @@ export const projectsData = [
     title: 'Node-Based Tailwind Colors Manger',
     subtitle:
       'A local dev tool for instantly applying custom Tailwind color palettes to projects during development',
+    image: 'open_palette.png',
     links: [
       { text: 'Demo Site', url: '' },
       { text: 'GitHub Repo', url: '' },
@@ -34,6 +35,7 @@ export const projectsData = [
     title: 'From Simple CRUD to Reddit-Inspired App',
     subtitle:
       'Started small, it grew with me as I learned fullstack development, and became a milestone in my journey with Next.js',
+    image: 'open_palette.png',
     links: [
       { text: 'Live Site', url: '' },
       { text: 'GitHub Repo', url: '' },
@@ -55,9 +57,9 @@ export const projectsData = [
       { text: 'Cypress' },
       { text: 'Jest' },
       { text: 'Docker' },
-      { text: 'AWS S3 (image storage)', hasIco: true },
-      { text: 'NextAuth()JWT', hasIco: true },
-      { text: 'React-quill', hasIco: true },
+      { text: 'AWS S3 (image storage)', noIcon: true },
+      { text: 'NextAuth()JWT', noIcon: true },
+      { text: 'React-quill', noIcon: true },
       { text: 'DigitalOcean (VPS)', ico: 'digitalocean' },
     ],
   },
@@ -65,6 +67,7 @@ export const projectsData = [
     title: 'Professional Law Firm Website',
     subtitle:
       'Designed and deployed an elegant and trustworthy law firm website tailored for the legal industry',
+    image: 'open_palette.png',
     links: [
       { text: 'Live Site', url: '' },
       { text: 'GitHub Repo', url: '' },

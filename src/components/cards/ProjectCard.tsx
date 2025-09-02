@@ -80,7 +80,7 @@ export default function ProjectCard({
               <TechStackItem
                 text={tech.text}
                 ico={tech?.ico}
-                hasIco={tech?.hasIco}
+                noIcon={tech?.noIcon}
               />
             )
           })}
