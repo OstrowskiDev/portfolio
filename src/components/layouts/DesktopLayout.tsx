@@ -15,9 +15,9 @@ export default function DesktopLayout() {
       <NavBar />
       <div
         id="portfolio"
-        className="w-full h-[100vh] flex justify-center mt-[240px]"
+        className="w-full h-[100vh] flex justify-center mt-[260px]"
       >
-        <ProjectCard projectData={projectsData[0]} />
+        <ProjectCard projectData={projectsData[2]} />
       </div>
       <div id="extras" className="w-full h-[100vh]"></div>
       <div id="articles" className="w-full h-[100vh]"></div>

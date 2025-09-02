@@ -11,17 +11,23 @@ export default function ProjectCard({
 }) {
   return (
     <div
-      className="project-card-container relative top-[80px] w-[680px] h-[720px] mt-8 rounded-xl bg-primary-900 bg-no-repeat bg-right-top bg-contain"
-      style={{ backgroundImage: "url('/projects/open_palette.png')" }}
+      className="project-card-container relative top-[80px] w-[860px] h-[680px] mt-8 rounded-xl overflow-hidden font-inter"
+      style={{
+        backgroundColor: projectData.bgColor,
+        backgroundImage: `url('/projects/${projectData.image}')`,
+        backgroundSize: '100% auto',
+        backgroundPosition: 'top center',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
-      <div className="project-card-content flex flex-col  relative w-[600px] h-[500px] mt-[180px] mx-auto px-8 pt-4 bg-white rounded-xl">
-        <h3 className="project-title text-3xl text-primary-950 font-bold">
+      <div className="project-card-content absolute top-[20px] right-[20px] flex flex-col w-[540px] h-[640px] px-6 pt-4 bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]">
+        <h3 className="project-title text-[24px] text-primary-950 font-bold">
           {projectData.title}
         </h3>
-        <p className="project-card-subtitle mt-3">{projectData.subtitle}</p>
+        <p className="project-card-subtitle mt-2">{projectData.subtitle}</p>
 
         {/* to najlepiej dodać jako osobny komponent */}
-        <div className="external-links w-full h-[80px] py-16 px-12 flex justify-around items-center">
+        <div className="external-links w-full h-[80px] py-16 px-12 my-auto flex justify-around items-center">
           <a className="link-live flex flex-col items-center w-[72px] h-[76px] text-primary-950">
             <GlobeIco width={56} />
             <p className="link-text text-sm mt-auto">
@@ -29,7 +35,7 @@ export default function ProjectCard({
             </p>
           </a>
 
-          <a className="link-github flex flex-col items-center w-[80px] h-[76px] text-primary-950">
+          <a className="link-github flex flex-col items-center w-[90px] h-[76px] text-primary-950">
             <GithubIco width={50} />
             <p className="link-text text-sm mt-auto">
               {projectData.links[1].text}
