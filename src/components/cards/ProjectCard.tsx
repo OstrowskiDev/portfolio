@@ -11,16 +11,17 @@ export default function ProjectCard({
 }) {
   return (
     <div
-      className="project-card-container relative top-[calc((100vh-640px)/2)] w-[860px] h-[680px] rounded-xl overflow-hidden font-inter"
+      className="project-card-container relative top-[calc((100vh-640px)/2)] w-[860px] h-[680px] rounded-xl overflow-hidden font-inter border-[12px] border-r-0"
       style={{
+        borderColor: projectData.bgColor,
         backgroundColor: projectData.bgColor,
         backgroundImage: `url('/projects/${projectData.image}')`,
-        backgroundSize: '100% auto',
-        backgroundPosition: 'top center',
+        backgroundSize: 'auto 100%',
+        backgroundPosition: 'top left',
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="project-card-content absolute top-[20px] right-[20px] flex flex-col w-[540px] h-[640px] px-6 pt-4 bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]">
+      <div className="project-card-content absolute top-[8px] right-[20px] flex flex-col w-[540px] h-[640px] px-6 pt-4 bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]">
         <h3 className="project-title text-[24px] text-primary-950 font-bold">
           {projectData.title}
         </h3>
