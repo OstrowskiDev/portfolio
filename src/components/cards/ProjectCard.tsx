@@ -1,41 +1,14 @@
+import { ProjectData } from '@/types/ProjectDada'
 import GithubIco from '../icons/GithubIco'
 import GlobeIco from '../icons/GlobeIco'
 import TextIco from '../icons/TextIco'
 import TechStackItem from './TechStackItem'
 
-export default function ProjectCard() {
-  const projectData = {
-    title: 'Node-Based Tailwind Colors Manger',
-    subtitle:
-      'A local dev tool for instantly applying custom Tailwind color palettes to projects during development',
-    links: [
-      { text: 'Demo Site', url: '' },
-      { text: 'GitHub Repo', url: '' },
-      { text: 'Case Study', url: '' },
-    ],
-    challenges: [
-      'Safely overwriting local config files without triggering OS permission issues.',
-      'Building a live demo version for non-dev users without requiring local setup.',
-    ],
-    learned: [
-      'First project fully written in TypeScript with clear MVP vision and focus on reusable UI components.',
-      'Stronger planning led to smoother dev process and less code chaos overall.',
-    ],
-    techStack: [
-      { text: 'Node.js', ico: 'nodejs' },
-      { text: 'Next.js', ico: 'nextjs' },
-      { text: 'TailwindCSS' },
-      { text: 'TypeScript' },
-      { text: 'Zod' },
-      { text: 'PostgreSQL' },
-      { text: 'Prisma' },
-      { text: 'Supabase' },
-      { text: 'Docker' },
-      { text: 'DigitalOcean (VPS)', ico: 'digitalocean' },
-      { text: 'Cloudflare (DNS)', ico: 'cloudflare' },
-    ],
-  }
-  const { title, subtitle } = projectData
+export default function ProjectCard({
+  projectData,
+}: {
+  projectData: ProjectData
+}) {
   return (
     <div
       className="project-card-container relative top-[80px] w-[680px] h-[720px] mt-8 rounded-xl bg-primary-900 bg-no-repeat bg-right-top bg-contain"
@@ -43,9 +16,9 @@ export default function ProjectCard() {
     >
       <div className="project-card-content flex flex-col  relative w-[600px] h-[500px] mt-[180px] mx-auto px-8 pt-4 bg-white rounded-xl">
         <h3 className="project-title text-3xl text-primary-950 font-bold">
-          {title}
+          {projectData.title}
         </h3>
-        <p className="project-card-subtitle mt-3">{subtitle}</p>
+        <p className="project-card-subtitle mt-3">{projectData.subtitle}</p>
 
         {/* to najlepiej dodać jako osobny komponent */}
         <div className="external-links w-full h-[80px] py-16 px-12 flex justify-around items-center">
@@ -103,7 +76,13 @@ export default function ProjectCard() {
 
         <div className="project-tech-stack-container flex flex-wrap justify-between mt-auto w-full h-[55px] pt-1 border-t border-primary-300">
           {projectData.techStack.map((tech) => {
-            return <TechStackItem text={tech.text} ico={tech.ico} />
+            return (
+              <TechStackItem
+                text={tech.text}
+                ico={tech?.ico}
+                hasIco={tech?.hasIco}
+              />
+            )
           })}
         </div>
       </div>
