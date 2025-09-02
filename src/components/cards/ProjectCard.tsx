@@ -11,7 +11,7 @@ export default function ProjectCard({
 }) {
   return (
     <div
-      className="project-card-container relative top-[80px] w-[860px] h-[680px] mt-8 rounded-xl overflow-hidden font-inter"
+      className="project-card-container relative top-[calc((100vh-640px)/2)] w-[860px] h-[680px] rounded-xl overflow-hidden font-inter"
       style={{
         backgroundColor: projectData.bgColor,
         backgroundImage: `url('/projects/${projectData.image}')`,
