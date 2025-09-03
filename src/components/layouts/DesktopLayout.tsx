@@ -3,22 +3,32 @@ import DesktopIntro from '../intro/animations/DesktopIntro'
 import { useIntroAnimation } from '../hooks/introAnimationContext'
 import ProjectCard from '../cards/ProjectCard'
 import { projectsData } from '@/lib/content/projectsData'
+import SkipAnimation from '../intro/buttons/SkipAnimation'
 
 export default function DesktopLayout() {
   const { introActive } = useIntroAnimation()
 
   return (
-    <main
-      className={`main-container w-full bg-white ${introActive ? 'fixed overflow-hidden' : ''} `}
-    >
-      <DesktopIntro />
-      <NavBar />
-      <div id="portfolio" className="w-full h-[100vh] flex justify-center">
-        <ProjectCard projectData={projectsData[0]} />
+    <main>
+      <div
+        className={`main-container w-full bg-white ${introActive ? 'fixed overflow-hidden' : ''} `}
+      >
+        <DesktopIntro />
+
+        <NavBar />
+        <div id="portfolio" className="w-full h-[100vh] flex justify-center">
+          <ProjectCard projectData={projectsData[0]} />
+        </div>
+        <div id="extras" className="w-full h-[100vh]"></div>
+        <div id="articles" className="w-full h-[100vh]"></div>
+        <div id="contact" className="w-full h-[100vh]"></div>
       </div>
-      <div id="extras" className="w-full h-[100vh]"></div>
-      <div id="articles" className="w-full h-[100vh]"></div>
-      <div id="contact" className="w-full h-[100vh]"></div>
+
+      {introActive && (
+        <div className="animation-overlay fixed inset-0 w-full h-full">
+          <SkipAnimation />
+        </div>
+      )}
     </main>
   )
 }

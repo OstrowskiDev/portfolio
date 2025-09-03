@@ -34,6 +34,11 @@ export default function MobileBpAnimDesktop() {
     // prettier-ignore
     const textEnd = {y: -200, opacity: 0, duration: 0.7, onComplete: () => {     setAnimPhase('desktop')}, }
     textTl.to(textRef.current, textEnd, 3.6)
+
+    // Cleanup
+    return () => {
+      textTl.kill()
+    }
   }, [])
 
   function animateMobileLayout(

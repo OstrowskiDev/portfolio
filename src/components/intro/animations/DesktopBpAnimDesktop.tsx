@@ -7,7 +7,7 @@ import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
 export default function DesktopBpAnimDesktop() {
-  const { setAnimPhase, desktopTimelineRef, setIntroActive } =
+  const { setAnimPhase, setIntroActive, introActive, desktopTimelineRef } =
     useIntroAnimation()
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
@@ -94,6 +94,14 @@ export default function DesktopBpAnimDesktop() {
       desktopTimelineRef.current = null
     }
   }, [])
+
+  useEffect(() => {
+    // functionality for skip animation button
+    if (!introActive) {
+      console.log('ugh!')
+      desktopTimelineRef.current?.seek(2.6, false)
+    }
+  }, [introActive])
 
   return (
     <>

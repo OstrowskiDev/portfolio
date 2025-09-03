@@ -66,6 +66,11 @@ export default function ArchBpAnimDesktop() {
         },
         'bye_bye+=0.5',
       )
+
+    // Cleanup
+    return () => {
+      tl.kill()
+    }
   }, [])
 
   return (
@@ -73,7 +78,7 @@ export default function ArchBpAnimDesktop() {
       <div className="intro-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
-          className="intro-line-one absolute top-28 left-12 w-[875px] font-bold italic text-[40px] text-primary-100 select-none opacity-0 z-50"
+          className="intro-line-one absolute top-28 left-12 w-[875px] font-bold italic text-[40px] text-primary-100 select-none opacity-0 z-40"
         >
           I spent over a decade shaping physical spaces - as an architect.
         </h2>
