@@ -4,6 +4,7 @@ import { useIntroAnimation } from '../hooks/introAnimationContext'
 import ProjectCard from '../cards/ProjectCard'
 import { projectsData } from '@/lib/content/projectsData'
 import SkipAnimation from '../intro/buttons/SkipAnimation'
+import ProjectCardWide from '../cards/ProjectCardWide'
 
 export default function DesktopLayout() {
   const { introActive } = useIntroAnimation()
@@ -17,7 +18,7 @@ export default function DesktopLayout() {
 
         <NavBar />
         <div id="portfolio" className="w-full h-[100vh] flex justify-center">
-          <ProjectCard projectData={projectsData[0]} />
+          <ProjectCardWide projectData={projectsData[1]} />
         </div>
         <div id="extras" className="w-full h-[100vh]"></div>
         <div id="articles" className="w-full h-[100vh]"></div>

@@ -29,7 +29,7 @@ export const projectsData = [
       // { text: 'Supabase' },
       { text: 'Docker' },
       { text: 'DigitalOcean (VPS)', ico: 'digitalocean' },
-      // { text: 'Cloudflare (DNS)', ico: 'cloudflare' },
+      { text: 'Cloudflare (DNS)', ico: 'cloudflare' },
     ],
   },
   {
@@ -61,7 +61,7 @@ export const projectsData = [
       { text: 'Docker' },
       { text: 'AWS S3 (image storage)', noIcon: true },
       { text: 'NextAuth(JWT)', noIcon: true },
-      // { text: 'React-quill', noIcon: true },
+      { text: 'React-quill', noIcon: true },
       { text: 'DigitalOcean (VPS)', ico: 'digitalocean' },
     ],
   },
