@@ -19,7 +19,7 @@ export default function DesktopIntro() {
 
   return (
     <>
-      <div
+      <section
         id="home"
         className="intro-section relative h-[100vh] w-full overflow-hidden"
         style={{
@@ -33,7 +33,7 @@ export default function DesktopIntro() {
           {animPhase === 'mobile' && <MobileBpAnimDesktop />}
           {animPhase === 'desktop' && <DesktopBpAnimDesktop />}
         </div>
-      </div>
+      </section>
     </>
   )
 }

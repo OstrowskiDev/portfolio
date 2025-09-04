@@ -30,7 +30,7 @@ export default function PortfolioCarousel() {
   })
 
   return (
-    <div
+    <section
       id="portfolio"
       className="portfolio-section scroll-target w-full h-[100vh] flex justify-center "
     >
@@ -67,6 +67,6 @@ export default function PortfolioCarousel() {
 
         <CarouselDots totalItems={totalProjects} currentIndex={currentIndex} />
       </div>
-    </div>
+    </section>
   )
 }

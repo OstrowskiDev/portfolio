@@ -1,8 +1,27 @@
+import { useEffect, useState } from 'react'
 import { NavLink } from '../common/NavLink'
 import { useIntroAnimation } from '../hooks/introAnimationContext'
 
 export default function NavBar() {
   const { desktopTimelineRef, setIntroActive } = useIntroAnimation()
+  const [activeId, setActiveId] = useState('')
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section')
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.6 }, // 60% sekcji w widoku = aktywna
+    )
+
+    sections.forEach((sec) => observer.observe(sec))
+    return () => sections.forEach((sec) => observer.unobserve(sec))
+  }, [])
 
   function playOutroAnimation() {
     setTimeout(() => {
@@ -19,14 +38,15 @@ export default function NavBar() {
         <NavLink
           name="Intro"
           targetId="home"
+          activeId={activeId}
           callback={() => playOutroAnimation()}
         />
-        <NavLink name="Home" targetId="home" />
-        <NavLink name="Portfolio" targetId="portfolio" />
+        <NavLink name="Home" targetId="home" activeId={activeId} />
+        <NavLink name="Portfolio" targetId="portfolio" activeId={activeId} />
         <div className="authors-data w-[260px]"></div>
-        <NavLink name="Extras" targetId="extras" />
-        <NavLink name="Articles" targetId="articles" />
-        <NavLink name="Contact" targetId="contact" />
+        <NavLink name="Extras" targetId="extras" activeId={activeId} />
+        <NavLink name="Articles" targetId="articles" activeId={activeId} />
+        <NavLink name="Contact" targetId="contact" activeId={activeId} />
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ interface NavLinkProps {
   name: string
   targetId: string
   className?: string
+  activeId?: string
   callback?: () => void
 }
 
@@ -11,9 +12,10 @@ export function NavLink({
   name,
   targetId,
   className = '',
+  activeId,
   callback,
 }: NavLinkProps) {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
 
     const targetElement = document.getElementById(targetId)
@@ -32,7 +34,7 @@ export function NavLink({
     <a
       href={`#${targetId}`}
       onClick={handleClick}
-      className={`nav-link w-[120px] text-2xl font-semibold text-center hover:text-accent-500 cursor-pointer ${className}`}
+      className={`nav-link w-[120px] text-2xl font-semibold text-center hover:text-accent-500 cursor-pointer ${className} ${targetId === activeId && name !== 'Intro' && 'text-accent-700'}`}
     >
       {name}
     </a>

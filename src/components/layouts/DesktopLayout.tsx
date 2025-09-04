@@ -16,18 +16,18 @@ export default function DesktopLayout() {
         <NavBar />
         <PortfolioCarousel />
 
-        <div
+        <section
           id="extras"
           className="extras-section scroll-target w-full h-[100vh]"
-        ></div>
-        <div
+        ></section>
+        <section
           id="articles"
           className="articles-section scroll-target w-full h-[100vh]"
-        ></div>
-        <div
+        ></section>
+        <section
           id="contact"
           className="contact-section scroll-target w-full h-[100vh]"
-        ></div>
+        ></section>
       </div>
 
       {introActive && (
