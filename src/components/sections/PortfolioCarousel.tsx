@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ProjectCardWide from '../cards/ProjectCardWide'
+import BackgroundCards from '../cards/BackgroundCards'
 import { projectsData } from '@/lib/content/projectsData'
 import CarouselDots from '../carousel/CarouselDots'
 import CarouselArrow from '../carousel/CarouselArrow'
@@ -45,6 +46,11 @@ export default function PortfolioCarousel() {
           backgroundRepeat: 'no-repeat',
         }}
       >
+        <BackgroundCards
+          currentIndex={currentIndex}
+          totalProjects={totalProjects}
+        />
+
         <ProjectCardWide projectData={projectsData[currentIndex]} />
 
         {currentIndex > 0 && (

@@ -11,7 +11,7 @@ export default function ProjectCardWide({
   projectData: ProjectData
 }) {
   return (
-    <div className="project-card-content absolute top-[calc((100%-660px)/2)] left-[calc(50vw-290px)] flex flex-col w-[580px] h-[640px] px-6 pt-4 bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]">
+    <div className="project-card-content absolute top-[calc((100%-660px)/2)] left-[calc(50vw-290px)] flex flex-col w-[580px] h-[640px] px-6 pt-4 bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)] z-20">
       <ProjectCardHeader
         title={projectData.title}
         subtitle={projectData.subtitle}
