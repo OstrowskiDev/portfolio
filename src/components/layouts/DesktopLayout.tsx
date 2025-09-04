@@ -17,12 +17,24 @@ export default function DesktopLayout() {
         <DesktopIntro />
 
         <NavBar />
-        <div id="portfolio" className="w-full h-[100vh] flex justify-center">
+        <div
+          id="portfolio"
+          className="portfolio-section scroll-target w-full h-[100vh] flex justify-center "
+        >
           <ProjectCardWide projectData={projectsData[1]} />
         </div>
-        <div id="extras" className="w-full h-[100vh]"></div>
-        <div id="articles" className="w-full h-[100vh]"></div>
-        <div id="contact" className="w-full h-[100vh]"></div>
+        <div
+          id="extras"
+          className="extras-section scroll-target w-full h-[100vh]"
+        ></div>
+        <div
+          id="articles"
+          className="articles-section scroll-target w-full h-[100vh]"
+        ></div>
+        <div
+          id="contact"
+          className="contact-section scroll-target w-full h-[100vh]"
+        ></div>
       </div>
 
       {introActive && (

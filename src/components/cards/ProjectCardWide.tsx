@@ -12,7 +12,7 @@ export default function ProjectCardWide({
 }) {
   return (
     <div
-      className="project-card-container relative top-[80px] w-full h-[calc(100vh-80px)] overflow-hidden font-inter border-[12px] border-r-0"
+      className="project-card-container relative w-full h-[calc(100vh-80px)] overflow-hidden font-inter border-[12px] border-r-0"
       style={{
         borderColor: projectData.bgColor,
         backgroundColor: projectData.bgColor,
