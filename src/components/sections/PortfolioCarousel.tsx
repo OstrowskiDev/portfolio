@@ -32,7 +32,7 @@ export default function PortfolioCarousel() {
   return (
     <section
       id="portfolio"
-      className="portfolio-section scroll-target w-full h-[100vh] flex justify-center "
+      className="portfolio-section scroll-target w-full h-[100vh] flex justify-center snap-start"
     >
       <div
         className="project-background-image relative w-full h-[calc(100vh-80px)] overflow-hidden font-inter border-[12px] border-r-0"

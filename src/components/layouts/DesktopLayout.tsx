@@ -10,7 +10,7 @@ export default function DesktopLayout() {
   return (
     <main>
       <div
-        className={`main-container w-full bg-white ${introActive ? 'fixed overflow-hidden' : ''} `}
+        className={`main-container w-full bg-white snap-y snap-mandatory scroll-smooth ${introActive ? 'fixed overflow-hidden' : 'h-screen overflow-y-scroll'} `}
       >
         <DesktopIntro />
         <NavBar />
@@ -18,15 +18,15 @@ export default function DesktopLayout() {
 
         <section
           id="extras"
-          className="extras-section scroll-target w-full h-[100vh]"
+          className="extras-section scroll-target w-full h-[100vh] snap-start"
         ></section>
         <section
           id="articles"
-          className="articles-section scroll-target w-full h-[100vh]"
+          className="articles-section scroll-target w-full h-[100vh] snap-start"
         ></section>
         <section
           id="contact"
-          className="contact-section scroll-target w-full h-[100vh]"
+          className="contact-section scroll-target w-full h-[100vh] snap-start"
         ></section>
       </div>
 

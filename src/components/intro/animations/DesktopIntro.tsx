@@ -21,7 +21,7 @@ export default function DesktopIntro() {
     <>
       <section
         id="home"
-        className="intro-section relative h-[100vh] w-full overflow-hidden"
+        className="intro-section relative h-[100vh] w-full overflow-hidden  snap-start"
         style={{
           background: 'radial-gradient(circle, hsl(0,0%,35%), hsl(0,0%,45%))',
         }}
