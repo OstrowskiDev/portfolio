@@ -1,10 +1,8 @@
 import NavBar from '@/components/navigation/NavBar'
 import DesktopIntro from '../intro/animations/DesktopIntro'
 import { useIntroAnimation } from '../hooks/introAnimationContext'
-import ProjectCard from '../cards/ProjectCard'
-import { projectsData } from '@/lib/content/projectsData'
 import SkipAnimation from '../intro/buttons/SkipAnimation'
-import ProjectCardWide from '../cards/ProjectCardWide'
+import PortfolioCarousel from '../sections/PortfolioCarousel'
 
 export default function DesktopLayout() {
   const { introActive } = useIntroAnimation()
@@ -17,12 +15,9 @@ export default function DesktopLayout() {
         <DesktopIntro />
 
         <NavBar />
-        <div
-          id="portfolio"
-          className="portfolio-section scroll-target w-full h-[100vh] flex justify-center "
-        >
-          <ProjectCardWide projectData={projectsData[1]} />
-        </div>
+
+        <PortfolioCarousel />
+
         <div
           id="extras"
           className="extras-section scroll-target w-full h-[100vh]"
