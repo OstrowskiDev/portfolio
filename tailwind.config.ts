@@ -27,6 +27,14 @@ const config: Config = {
         // 2s, liniowo, zatrzymaj na końcu (forwards)
         'mask-move': 'mask-move-x 1s linear forwards',
       },
+      dropShadow: {
+        strong: [
+          '0 0 5px rgba(0,0,0,1)',
+          '0 0 10px rgba(0,0,0,0.9)',
+          '0 0 20px rgba(0,0,0,0.9)',
+          '0 0 30px rgba(0,0,0,0.9)',
+        ],
+      },
     },
   },
   plugins: [],

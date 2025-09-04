@@ -22,9 +22,8 @@ export default function CarouselArrow({
         p-3 
         text-white 
         transition-all duration-200 z-20
+        drop-shadow-strong
         hover:scale-110
-        drop-shadow-[0_0_4px_rgba(0,0,0,0.8)]
-        hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]
 `}
       aria-label={`${direction === 'left' ? 'Previous' : 'Next'} project`}
     >

@@ -13,9 +13,7 @@ export default function DesktopLayout() {
         className={`main-container w-full bg-white ${introActive ? 'fixed overflow-hidden' : ''} `}
       >
         <DesktopIntro />
-
         <NavBar />
-
         <PortfolioCarousel />
 
         <div
