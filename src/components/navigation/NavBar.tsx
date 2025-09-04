@@ -1,27 +1,10 @@
-import { useEffect, useState } from 'react'
 import { NavLink } from '../common/NavLink'
 import { useIntroAnimation } from '../hooks/introAnimationContext'
+import useScrollSpy from '../hooks/useScrollSpy'
 
 export default function NavBar() {
   const { desktopTimelineRef, setIntroActive } = useIntroAnimation()
-  const [activeId, setActiveId] = useState('')
-
-  useEffect(() => {
-    const sections = document.querySelectorAll('section')
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
-          }
-        })
-      },
-      { threshold: 0.6 }, // 60% sekcji w widoku = aktywna
-    )
-
-    sections.forEach((sec) => observer.observe(sec))
-    return () => sections.forEach((sec) => observer.unobserve(sec))
-  }, [])
+  const activeId = useScrollSpy()
 
   function playOutroAnimation() {
     setTimeout(() => {
