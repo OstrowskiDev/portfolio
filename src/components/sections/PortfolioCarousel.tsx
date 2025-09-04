@@ -3,23 +3,31 @@ import ProjectCardWide from '../cards/ProjectCardWide'
 import { projectsData } from '@/lib/content/projectsData'
 import CarouselDots from '../carousel/CarouselDots'
 import CarouselArrow from '../carousel/CarouselArrow'
+import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 
 export default function PortfolioCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const projectData = projectsData[currentIndex]
   const totalProjects = projectsData.length
 
-  const goToPrevious = () => {
+  function goToPrevious() {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1)
     }
   }
 
-  const goToNext = () => {
+  function goToNext() {
     if (currentIndex < totalProjects - 1) {
       setCurrentIndex(currentIndex + 1)
     }
   }
+
+  useKeyboardNavigation({
+    currentIndex,
+    totalItems: totalProjects,
+    onPrevious: goToPrevious,
+    onNext: goToNext,
+  })
 
   return (
     <div
@@ -39,7 +47,6 @@ export default function PortfolioCarousel() {
       >
         <ProjectCardWide projectData={projectsData[currentIndex]} />
 
-        {/* Navigation Arrows */}
         {currentIndex > 0 && (
           <CarouselArrow
             size={60}

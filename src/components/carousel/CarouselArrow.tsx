@@ -16,7 +16,16 @@ export default function CarouselArrow({
   return (
     <button
       onClick={onClick}
-      className={`absolute ${position} top-1/2 transform -translate-y-1/2 p-3 text-primary-100 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-200 z-20`}
+      className={`
+        absolute ${position} 
+        top-1/2 transform -translate-y-1/2 
+        p-3 
+        text-white 
+        transition-all duration-200 z-20
+        hover:scale-110
+        drop-shadow-[0_0_4px_rgba(0,0,0,0.8)]
+        hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]
+`}
       aria-label={`${direction === 'left' ? 'Previous' : 'Next'} project`}
     >
       <ChevronIco
