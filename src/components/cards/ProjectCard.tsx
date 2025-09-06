@@ -15,7 +15,7 @@ export default function ProjectCard({
       style={{
         borderColor: projectData.bgColor,
         backgroundColor: projectData.bgColor,
-        backgroundImage: `url('/projects/${projectData.image}')`,
+        backgroundImage: `url('./projects/${projectData.image}')`,
         backgroundSize: 'auto 100%',
         backgroundPosition: 'top left',
         backgroundRepeat: 'no-repeat',

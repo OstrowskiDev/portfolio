@@ -17,8 +17,8 @@ export default function TechStackItem({
         <div
           className="item-ico mr-1 h-[16px] w-[16px] bg-primary-400"
           style={{
-            maskImage: `url(/icons/${icoName}.svg)`,
-            WebkitMaskImage: `url(/icons/${icoName}.svg)`,
+            maskImage: `url(./icons/${icoName}.svg)`,
+            WebkitMaskImage: `url(./icons/${icoName}.svg)`,
             maskSize: 'contain',
             WebkitMaskSize: 'contain',
             maskRepeat: 'no-repeat',
