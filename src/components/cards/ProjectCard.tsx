@@ -82,9 +82,10 @@ export default function ProjectCard({
         </div>
 
         <div className="project-tech-stack-container flex flex-wrap justify-between mt-auto w-full h-[55px] pt-1 border-t border-primary-300">
-          {projectData.techStack.map((tech) => {
+          {projectData.techStack.map((tech, i) => {
             return (
               <TechStackItem
+                key={i}
                 text={tech.text}
                 ico={tech?.ico}
                 noIcon={tech?.noIcon}
