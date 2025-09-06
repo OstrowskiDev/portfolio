@@ -98,7 +98,6 @@ export default function DesktopBpAnimDesktop() {
   useEffect(() => {
     // functionality for skip animation button
     if (!introActive) {
-      console.log('ugh!')
       desktopTimelineRef.current?.seek(2.6, false)
     }
   }, [introActive])
