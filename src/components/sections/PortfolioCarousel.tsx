@@ -40,7 +40,7 @@ export default function PortfolioCarousel() {
         style={{
           borderColor: projectData.bgColor,
           backgroundColor: projectData.bgColor,
-          backgroundImage: `url('/projects/${projectData.image}')`,
+          backgroundImage: `url('./projects/${projectData.image}')`,
           backgroundSize: 'auto 100%',
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat',
