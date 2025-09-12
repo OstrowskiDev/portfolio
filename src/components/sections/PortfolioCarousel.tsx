@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import ProjectCardWide from '../cards/ProjectCardWide'
-import BackgroundCards from '../cards/BackgroundCards'
 import { projectsData } from '@/lib/content/projectsData'
 import CarouselDots from '../carousel/CarouselDots'
 import CarouselArrow from '../carousel/CarouselArrow'
 import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
+import ProjectCardAnimated from '../cards/ProjectCardAnimated'
 
 export default function PortfolioCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -46,12 +45,15 @@ export default function PortfolioCarousel() {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <BackgroundCards
-          currentIndex={currentIndex}
-          totalProjects={totalProjects}
-        />
-
-        <ProjectCardWide projectData={projectsData[currentIndex]} />
+        {projectsData.map((projectData, i) => {
+          return (
+            <ProjectCardAnimated
+              projectData={projectData}
+              index={i}
+              currentIndex={currentIndex}
+            />
+          )
+        })}
 
         {currentIndex > 0 && (
           <CarouselArrow
