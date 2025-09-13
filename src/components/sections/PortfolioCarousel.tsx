@@ -1,14 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { projectsData } from '@/lib/content/projectsData'
 import CarouselDots from '../carousel/CarouselDots'
 import CarouselArrow from '../carousel/CarouselArrow'
 import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 import ProjectCardAnimated from '../cards/ProjectCardAnimated'
+import ProjectBgImage from '../cards/ProjectBgImage'
 
 export default function PortfolioCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const projectData = projectsData[currentIndex]
   const totalProjects = projectsData.length
+
+  useEffect(() => {
+    projectsData.forEach((projectData) => {
+      const img = new Image()
+      img.src = `/projects/${projectData.image}`
+    })
+  }, [])
 
   function goToPrevious() {
     if (currentIndex > 0) {
@@ -32,49 +39,45 @@ export default function PortfolioCarousel() {
   return (
     <section
       id="portfolio"
-      className="portfolio-section scroll-target w-full h-[100vh] flex justify-center snap-start"
+      className="portfolio-section relative scroll-target w-full h-[calc(100vh-80px)] flex justify-center snap-start bg-primary-800"
     >
-      <div
-        className="project-background-image relative w-full h-[calc(100vh-80px)] overflow-hidden font-inter border-[12px] border-r-0"
-        style={{
-          borderColor: projectData.bgColor,
-          backgroundColor: projectData.bgColor,
-          backgroundImage: `url('./projects/${projectData.image}')`,
-          backgroundSize: 'auto 100%',
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        {projectsData.map((projectData, i) => {
-          return (
-            <ProjectCardAnimated
-              projectData={projectData}
-              index={i}
-              currentIndex={currentIndex}
-            />
-          )
-        })}
+      {projectsData.map((projectData, i) => (
+        <ProjectBgImage
+          key={i}
+          projectData={projectData}
+          active={i === currentIndex}
+        />
+      ))}
 
-        {currentIndex > 0 && (
-          <CarouselArrow
-            size={60}
-            direction="left"
-            position="left-[calc(50vw-290px-60px-60px)]"
-            onClick={goToPrevious}
+      {projectsData.map((projectData, i) => {
+        return (
+          <ProjectCardAnimated
+            projectData={projectData}
+            index={i}
+            currentIndex={currentIndex}
           />
-        )}
+        )
+      })}
 
-        {currentIndex < totalProjects - 1 && (
-          <CarouselArrow
-            size={60}
-            direction="right"
-            position="left-[calc(50vw+290px+40px)]"
-            onClick={goToNext}
-          />
-        )}
+      {currentIndex > 0 && (
+        <CarouselArrow
+          size={60}
+          direction="left"
+          position="left-[calc(50vw-290px-60px-60px)]"
+          onClick={goToPrevious}
+        />
+      )}
 
-        <CarouselDots totalItems={totalProjects} currentIndex={currentIndex} />
-      </div>
+      {currentIndex < totalProjects - 1 && (
+        <CarouselArrow
+          size={60}
+          direction="right"
+          position="left-[calc(50vw+290px+40px)]"
+          onClick={goToNext}
+        />
+      )}
+
+      <CarouselDots totalItems={totalProjects} currentIndex={currentIndex} />
     </section>
   )
 }

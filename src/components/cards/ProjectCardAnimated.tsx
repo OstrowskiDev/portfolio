@@ -31,7 +31,14 @@ export default function ProjectCardAnimated({
   return (
     <div
       key={index}
-      className={`project-card-${index} absolute top-[calc((100%-660px)/2)] left-[calc(50vw-290px)] flex flex-col w-[580px] h-[640px] px-6 pt-4 bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]`}
+      className={`
+        project-card-${index} 
+        absolute top-[calc((100%-660px)/2)] left-[calc(50vw-290px)] 
+        flex flex-col 
+        w-[580px] h-[640px] px-6 pt-4 
+        bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]
+        transition-transform duration-500 ease-out
+        `}
       style={{
         transform: `translateX(${translateX}px) scale(${scale})`,
         zIndex: zIndex,

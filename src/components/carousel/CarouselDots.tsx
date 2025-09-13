@@ -8,7 +8,7 @@ export default function CarouselDots({
   currentIndex,
 }: CarouselIndicatorProps) {
   return (
-    <div className="carousel-dots absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-5 z-20">
+    <div className="carousel-dots absolute bottom-12 left-1/2 transform -translate-x-1/2 flex items-center gap-5 z-20">
       {Array.from({ length: totalItems }, (_, index) => (
         <button
           key={index}
