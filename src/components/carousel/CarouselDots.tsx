@@ -12,7 +12,7 @@ export default function CarouselDots({
       {Array.from({ length: totalItems }, (_, index) => (
         <button
           key={index}
-          className={`dot ${
+          className={`dot transition-all duration-500 ease-in-out ${
             index === currentIndex
               ? 'w-4 h-4 bg-primary-100'
               : 'w-3 h-3  bg-primary-300'
