@@ -63,7 +63,7 @@ export default function PortfolioCarousel() {
         <CarouselArrow
           size={60}
           direction="left"
-          position="left-[calc(50vw-290px-60px-60px)]"
+          position="left-[calc(50vw-290px-60px-50px)]"
           onClick={goToPrevious}
         />
       )}
@@ -72,7 +72,7 @@ export default function PortfolioCarousel() {
         <CarouselArrow
           size={60}
           direction="right"
-          position="left-[calc(50vw+290px+40px)]"
+          position="left-[calc(50vw+290px+30px)]"
           onClick={goToNext}
         />
       )}

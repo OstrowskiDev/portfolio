@@ -37,6 +37,7 @@ export default function ProjectCardAnimated({
         flex flex-col 
         w-[580px] h-[640px] px-6 pt-4 
         bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]
+        font-inter
         transition-transform duration-500 ease-out
         `}
       style={{

@@ -9,7 +9,7 @@ export default function ExternalLinksSection({
   links: { text: string; url: string }[]
 }) {
   return (
-    <div className="external-links w-full h-[80px] py-16 px-12 my-6 flex justify-around items-center">
+    <div className="external-links w-full h-[80px] py-16 px-12 my-4 flex justify-around items-center">
       <ExternalLink
         href={links[0].url}
         text={links[0].text}

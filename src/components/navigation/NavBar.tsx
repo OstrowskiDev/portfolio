@@ -16,7 +16,7 @@ export default function NavBar() {
   }
 
   return (
-    <div className="navbar sticky top-0 z-[100] w-full h-[80px] flex justify-center border-b-[1px] border-primary-200 shadow-[0_2px_2px_theme(colors.primary.100)] bg-white">
+    <div className="navbar sticky top-0 z-[100] w-full h-[80px] flex justify-center border-b-[1px] border-primary-200 shadow-[0_2px_2px_theme(colors.primary.100)] bg-white font-inter">
       <div className="navbar-elements flex justify-around items-center w-full max-w-screen-xl">
         <NavLink
           name="Intro"
@@ -26,7 +26,14 @@ export default function NavBar() {
         />
         <NavLink name="Home" targetId="home" activeId={activeId} />
         <NavLink name="Portfolio" targetId="portfolio" activeId={activeId} />
-        <div className="authors-data w-[260px]"></div>
+        <div className="authors-data flex flex-col w-[260px]">
+          <p className="authors-name text-center font-medium text-2xl">
+            Marcin Ostrowski
+          </p>
+          <p className="authors-profession text-primary-500 text-center">
+            Fullstack Developer
+          </p>
+        </div>
         <NavLink name="Extras" targetId="extras" activeId={activeId} />
         <NavLink name="Articles" targetId="articles" activeId={activeId} />
         <NavLink name="Contact" targetId="contact" activeId={activeId} />
