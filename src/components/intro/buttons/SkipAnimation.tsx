@@ -10,17 +10,19 @@ export default function SkipAnimation() {
 
   return (
     <div
-      className="skip-button absolute bottom-28 left-[calc(50vw-80px)] 
-      flex items-center justify-center 
-      w-40 h-10 
-      border border-primary-200 rounded-2xl 
-      font-roboto font-semibold text-white 
-      select-none hover:cursor-pointer
-      bg-white/5 backdrop-blur-sm 
-      z-50"
+      className="skip-button 
+        absolute bottom-16 left-1/2 -translate-x-1/2
+        flex items-center justify-center
+        w-32 h-12
+        bg-white/0 backdrop-blur-sm
+        border border-primary-400 rounded-full 
+        font-roboto font-semibold text-primary-200 text-xl
+        select-none hover:cursor-pointer
+        hover:bg-primary-200/20 active:scale-95
+        z-50"
       onClick={skipAnimation}
     >
-      Skip Animation
+      Skip
     </div>
   )
 }
