@@ -3,15 +3,16 @@ import { useEffect, useRef } from 'react'
 
 export default function SkipAnimation() {
   const buttonRef = useRef<HTMLButtonElement | null>(null)
-  const { setAnimPhase, setIntroActive } = useIntroAnimation()
+  const { setAnimPhase, setIntroActive, setSrReadIntro } = useIntroAnimation()
 
-  // useEffect(() => {
-  //   buttonRef.current?.focus()
-  // }, [])
+  useEffect(() => {
+    buttonRef.current?.focus()
+  }, [])
 
   function skipAnimation() {
     setAnimPhase('desktop')
     setIntroActive(false)
+    setSrReadIntro(false)
   }
 
   return (

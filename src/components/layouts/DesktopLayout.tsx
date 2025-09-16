@@ -35,13 +35,8 @@ export default function DesktopLayout() {
       </div>
 
       {introActive && (
-        <div
-          className="intro-controls-nav fixed inset-0 w-full h-full"
-          role="group"
-          aria-label="Intro navigation controls"
-        >
+        <div className="intro-controls fixed inset-0 w-full h-full">
           <SkipAnimation />
-          <ReadSrIntro />
         </div>
       )}
     </main>

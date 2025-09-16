@@ -3,13 +3,15 @@ import { useIntroAnimation } from '../hooks/introAnimationContext'
 import useScrollSpy from '../hooks/useScrollSpy'
 
 export default function NavBar() {
-  const { desktopTimelineRef, setIntroActive } = useIntroAnimation()
+  const { desktopTimelineRef, setIntroActive, setSrReadIntro } =
+    useIntroAnimation()
   const activeId = useScrollSpy()
 
   function playOutroAnimation() {
     setTimeout(() => {
       if (desktopTimelineRef.current) {
         setIntroActive(true)
+        setSrReadIntro(true)
         desktopTimelineRef.current.play()
       }
     }, 300)
