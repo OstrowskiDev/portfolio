@@ -16,7 +16,7 @@ export default function NavBar() {
   }
 
   return (
-    <div className="navbar sticky top-0 z-[100] w-full h-[80px] flex justify-center border-b-[1px] border-primary-200 shadow-[0_2px_2px_theme(colors.primary.100)] bg-white font-inter">
+    <nav className="navbar sticky top-0 z-[100] w-full h-[80px] flex justify-center border-b-[1px] border-primary-200 shadow-[0_2px_2px_theme(colors.primary.100)] bg-white font-inter">
       <div className="navbar-elements flex justify-around items-center w-full max-w-screen-xl">
         <NavLink
           name="Intro"
@@ -38,6 +38,6 @@ export default function NavBar() {
         <NavLink name="Articles" targetId="articles" activeId={activeId} />
         <NavLink name="Contact" targetId="contact" activeId={activeId} />
       </div>
-    </div>
+    </nav>
   )
 }

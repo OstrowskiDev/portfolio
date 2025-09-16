@@ -14,6 +14,7 @@ export default function ArchitectureBlueprint({
   return (
     <svg
       className="architecture-blueprint-masters-thesis relative z-40"
+      aria-hidden="true"
       ref={svgRef}
       xmlns="http://www.w3.org/2000/svg"
       width="2000px"

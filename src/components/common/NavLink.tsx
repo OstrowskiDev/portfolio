@@ -35,6 +35,9 @@ export function NavLink({
       href={`#${targetId}`}
       onClick={handleClick}
       className={`nav-link w-[120px] text-2xl font-medium text-center hover:text-accent-500 cursor-pointer ${className} ${targetId === activeId && name !== 'Intro' && 'text-accent-700'}`}
+      aria-current={
+        targetId === activeId && name !== 'Intro' ? 'page' : undefined
+      }
     >
       {name}
     </a>

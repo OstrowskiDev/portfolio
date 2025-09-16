@@ -10,7 +10,7 @@ export default function CarouselDots({
   return (
     <div className="carousel-dots absolute bottom-12 left-1/2 transform -translate-x-1/2 flex items-center gap-5 z-20">
       {Array.from({ length: totalItems }, (_, index) => (
-        <button
+        <div
           key={index}
           className={`dot transition-all duration-500 ease-in-out ${
             index === currentIndex

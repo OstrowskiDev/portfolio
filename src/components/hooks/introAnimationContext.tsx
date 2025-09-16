@@ -6,6 +6,8 @@ interface IntroAnimationContextType {
   desktopTimelineRef: React.MutableRefObject<gsap.core.Timeline | null>
   introActive: boolean
   setIntroActive: React.Dispatch<React.SetStateAction<boolean>>
+  srReadIntro: boolean
+  setSrReadIntro: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const IntroAnimationContext = createContext<
@@ -19,6 +21,7 @@ export function IntroAnimationProvider({
 }) {
   const [animPhase, setAnimPhase] = useState('architecture')
   const [introActive, setIntroActive] = useState(true)
+  const [srReadIntro, setSrReadIntro] = useState(false)
   const desktopTimelineRef = useRef<gsap.core.Timeline | null>(null)
 
   return (
@@ -29,6 +32,8 @@ export function IntroAnimationProvider({
         desktopTimelineRef,
         introActive,
         setIntroActive,
+        srReadIntro,
+        setSrReadIntro,
       }}
     >
       {children}

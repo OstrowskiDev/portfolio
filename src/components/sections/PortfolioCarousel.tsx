@@ -39,6 +39,8 @@ export default function PortfolioCarousel() {
   return (
     <section
       id="portfolio"
+      aria-label="Portfolio projects carousel"
+      aria-roledescription="carousel"
       className="portfolio-section relative scroll-target w-full h-[calc(100vh-80px)] flex justify-center snap-start bg-primary-800"
     >
       {projectsData.map((projectData, i) => (
@@ -52,9 +54,10 @@ export default function PortfolioCarousel() {
       {projectsData.map((projectData, i) => {
         return (
           <ProjectCardAnimated
-            projectData={projectData}
             index={i}
+            projectData={projectData}
             currentIndex={currentIndex}
+            totalProjects={totalProjects}
           />
         )
       })}

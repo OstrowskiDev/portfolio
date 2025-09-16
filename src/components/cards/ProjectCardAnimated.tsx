@@ -6,13 +6,15 @@ import ChallengesSection from './ChallengesSection'
 import LearnedSection from './LearnedSection'
 
 export default function ProjectCardAnimated({
+  index,
   projectData,
   currentIndex,
-  index,
+  totalProjects,
 }: {
+  index: number
   projectData: ProjectData
   currentIndex: number
-  index: number
+  totalProjects: number
 }) {
   const position = index - currentIndex
   const absPosition = Math.abs(position)
@@ -31,6 +33,10 @@ export default function ProjectCardAnimated({
   return (
     <div
       key={index}
+      role="tabpanel"
+      aria-label={`Project ${index + 1} of ${totalProjects}`}
+      aria-hidden={index !== currentIndex}
+      tabIndex={index === currentIndex ? 0 : -1}
       className={`
         project-card-${index} 
         absolute top-1/2 left-1/2

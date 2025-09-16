@@ -16,6 +16,8 @@ export default function CarouselArrow({
   return (
     <button
       onClick={onClick}
+      aria-label={`${direction === 'left' ? 'Previous' : 'Next'} project`}
+      aria-controls="portfolio"
       className={`
         absolute ${position} 
         top-1/2 transform -translate-y-1/2 
@@ -25,7 +27,6 @@ export default function CarouselArrow({
         drop-shadow-strong
         hover:scale-110
 `}
-      aria-label={`${direction === 'left' ? 'Previous' : 'Next'} project`}
     >
       <ChevronIco
         width={size}

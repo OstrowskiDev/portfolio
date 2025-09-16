@@ -9,7 +9,7 @@ import gsap from 'gsap'
 import { useIntroAnimation } from '@/components/hooks/introAnimationContext'
 
 export default function DesktopIntro() {
-  const { animPhase } = useIntroAnimation()
+  const { animPhase, srReadIntro } = useIntroAnimation()
   const gridRef = useRef(null)
 
   useEffect(() => {
@@ -21,14 +21,39 @@ export default function DesktopIntro() {
     <>
       <section
         id="home"
-        className="intro-section relative h-[100vh] w-full overflow-hidden  snap-start"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Intro animation"
+        className="intro-section relative h-[100vh] w-full overflow-hidden snap-start"
         style={{
           background: 'radial-gradient(circle, hsl(0,0%,35%), hsl(0,0%,45%))',
         }}
       >
         <GridBackground gridRef={gridRef} />
 
-        <div className="intro-animation-container mx-auto max-w-[1520px]">
+        <div aria-live="assertive" className="sr-only">
+          {srReadIntro && (
+            <>
+              <h1>Portfolio Introduction:</h1>
+              <p>
+                - I spent over a decade shaping physical spaces as an architect
+              </p>
+              <p>
+                - Now I'm building digital systems and experiences as a
+                fullstack developer
+              </p>
+              <p>
+                - I'm Marcin Ostrowski - and I bring ideas to life through
+                engineering
+              </p>
+            </>
+          )}
+        </div>
+
+        <div
+          className="intro-animation-container mx-auto max-w-[1520px]"
+          aria-hidden="true"
+        >
           {animPhase === 'architecture' && <ArchBpAnimDesktop />}
           {animPhase === 'mobile' && <MobileBpAnimDesktop />}
           {animPhase === 'desktop' && <DesktopBpAnimDesktop />}

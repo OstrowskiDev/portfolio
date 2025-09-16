@@ -1,26 +1,21 @@
 import { useIntroAnimation } from '@/components/hooks/introAnimationContext'
 import { useEffect, useRef } from 'react'
 
-export default function SkipAnimation() {
+export default function ReadSrIntro() {
   const buttonRef = useRef<HTMLButtonElement | null>(null)
-  const { setAnimPhase, setIntroActive } = useIntroAnimation()
+  const { setSrReadIntro } = useIntroAnimation()
 
-  // useEffect(() => {
-  //   buttonRef.current?.focus()
-  // }, [])
-
-  function skipAnimation() {
-    setAnimPhase('desktop')
-    setIntroActive(false)
-  }
+  useEffect(() => {
+    buttonRef.current?.focus()
+  }, [])
 
   return (
     <button
       ref={buttonRef}
-      aria-label="Skip intro animation"
-      tabIndex={2}
-      className="skip-button 
-        absolute bottom-16 left-1/2 -translate-x-1/2
+      aria-label="Listen to portfolio introduction"
+      tabIndex={1}
+      className="listen-button 
+        absolute bottom-16 left-1/2 -translate-x-[160%]
         flex items-center justify-center
         w-32 h-12
         bg-white/0 backdrop-blur-sm
@@ -29,9 +24,9 @@ export default function SkipAnimation() {
         select-none hover:cursor-pointer
         hover:bg-primary-200/20 active:scale-95
         z-50"
-      onClick={skipAnimation}
+      onClick={() => setSrReadIntro(true)}
     >
-      Skip
+      Read Intro
     </button>
   )
 }
