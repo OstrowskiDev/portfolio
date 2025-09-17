@@ -3,11 +3,12 @@ import { useEffect, useRef } from 'react'
 
 export default function SkipAnimation() {
   const buttonRef = useRef<HTMLButtonElement | null>(null)
-  const { setAnimPhase, setIntroActive, setSrReadIntro } = useIntroAnimation()
+  const { setAnimPhase, introActive, setIntroActive, setSrReadIntro } =
+    useIntroAnimation()
 
   useEffect(() => {
-    buttonRef.current?.focus()
-  }, [])
+    if (introActive) buttonRef.current?.focus()
+  }, [setIntroActive])
 
   function skipAnimation() {
     setAnimPhase('desktop')
@@ -29,6 +30,7 @@ export default function SkipAnimation() {
         font-roboto font-semibold text-primary-200 text-xl
         select-none hover:cursor-pointer
         hover:bg-primary-200/20 active:scale-95
+        focus:outline-none
         z-50"
       onClick={skipAnimation}
     >
