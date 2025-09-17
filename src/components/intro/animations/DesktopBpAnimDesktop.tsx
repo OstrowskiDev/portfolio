@@ -105,15 +105,14 @@ export default function DesktopBpAnimDesktop() {
   return (
     <>
       <div className="intro-section hero-section relative h-[100vh] w-full overflow-hidden">
-        <h2
+        <h1
           ref={textRef}
-          aria-live="polite"
           className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 select-none opacity-0 z-50"
         >
           I’m Marcin Ostrowski,
           <br /> and I bring ideas to life
           <br /> through engineering.
-        </h2>
+        </h1>
         <DesktopBlueprintSm svgRef={svgRef} strokeWidth="0.25" />
       </div>
     </>

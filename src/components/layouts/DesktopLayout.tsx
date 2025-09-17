@@ -3,7 +3,6 @@ import DesktopIntro from '../intro/animations/DesktopIntro'
 import { useIntroAnimation } from '../hooks/introAnimationContext'
 import SkipAnimation from '../intro/buttons/SkipAnimation'
 import PortfolioCarousel from '../sections/PortfolioCarousel'
-import ReadSrIntro from '../intro/buttons/ReadSrIntro'
 
 export default function DesktopLayout() {
   const { introActive } = useIntroAnimation()
@@ -19,16 +18,19 @@ export default function DesktopLayout() {
 
         <section
           id="extras"
+          role="region"
           aria-label="Extra projects"
           className="extras-section scroll-target w-full h-[100vh] snap-start"
         ></section>
         <section
           id="articles"
+          role="region"
           aria-label="Articles"
           className="articles-section scroll-target w-full h-[100vh] snap-start"
         ></section>
         <section
           id="contact"
+          role="region"
           aria-label="Contact"
           className="contact-section scroll-target w-full h-[100vh] snap-start"
         ></section>

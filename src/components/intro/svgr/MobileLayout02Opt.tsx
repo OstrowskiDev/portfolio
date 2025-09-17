@@ -4,6 +4,7 @@ export default function MobileLayout02({ svgRef02, ...props }) {
   return (
     <svg
       ref={svgRef02}
+      aria-hidden={true}
       xmlns="http://www.w3.org/2000/svg"
       width={280}
       viewBox="0 0 63.5 121.708"

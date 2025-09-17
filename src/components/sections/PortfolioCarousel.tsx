@@ -51,6 +51,15 @@ export default function PortfolioCarousel() {
         />
       ))}
 
+      {currentIndex > 0 && (
+        <CarouselArrow
+          size={60}
+          direction="left"
+          position="left-[calc(50vw-290px)] -translate-x-[130%]"
+          onClick={goToPrevious}
+        />
+      )}
+
       {projectsData.map((projectData, i) => {
         return (
           <ProjectCardAnimated
@@ -61,15 +70,6 @@ export default function PortfolioCarousel() {
           />
         )
       })}
-
-      {currentIndex > 0 && (
-        <CarouselArrow
-          size={60}
-          direction="left"
-          position="left-[calc(50vw-290px)] -translate-x-[130%]"
-          onClick={goToPrevious}
-        />
-      )}
 
       {currentIndex < totalProjects - 1 && (
         <CarouselArrow

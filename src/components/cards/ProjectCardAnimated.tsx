@@ -18,6 +18,7 @@ export default function ProjectCardAnimated({
 }) {
   const position = index - currentIndex
   const absPosition = Math.abs(position)
+  const isActive = index === currentIndex
 
   // Constants
   const CARD_OFFSET = 40
@@ -35,8 +36,8 @@ export default function ProjectCardAnimated({
       key={index}
       role="tabpanel"
       aria-label={`Project ${index + 1} of ${totalProjects}`}
-      aria-hidden={index !== currentIndex}
-      tabIndex={index === currentIndex ? 0 : -1}
+      aria-hidden={!isActive}
+      tabIndex={isActive ? 0 : -1}
       className={`
         project-card-${index} 
         absolute top-1/2 left-1/2
@@ -64,7 +65,11 @@ export default function ProjectCardAnimated({
 
       <LearnedSection learned={projectData.learned} />
 
-      <div className="project-tech-stack-container flex flex-wrap justify-between mt-auto w-full h-[55px] pt-1 border-t border-primary-300">
+      <div
+        role="group"
+        aria-label="project tech stack"
+        className="project-tech-stack-container flex flex-wrap justify-between mt-auto w-full h-[55px] pt-1 border-t border-primary-300"
+      >
         {projectData.techStack.map((tech, i) => {
           return (
             <TechStackItem

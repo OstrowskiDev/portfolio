@@ -18,6 +18,7 @@ export default function CarouselArrow({
       onClick={onClick}
       aria-label={`${direction === 'left' ? 'Previous' : 'Next'} project`}
       aria-controls="portfolio"
+      tabIndex={0}
       className={`
         absolute ${position} 
         top-1/2 transform -translate-y-1/2 
