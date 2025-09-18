@@ -33,7 +33,6 @@ export default function ProjectCardAnimated({
 
   return (
     <div
-      key={index}
       role="tabpanel"
       aria-label={`Project ${index + 1} of ${totalProjects}`}
       aria-hidden={!isActive}

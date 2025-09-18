@@ -33,11 +33,11 @@ export default function ScreenReaderIntro() {
           <h1>- Portfolio Introduction:</h1>
           <p>- I spent over a decade shaping physical spaces as an architect</p>
           <p>
-            - Now I'm building digital systems and experiences as a fullstack
-            developer
+            - Now I&apos;m building digital systems and experiences as a
+            fullstack developer
           </p>
           <p>
-            - I'm Marcin Ostrowski - and I bring ideas to life through
+            - I&apos;m Marcin Ostrowski - and I bring ideas to life through
             engineering
           </p>
         </>

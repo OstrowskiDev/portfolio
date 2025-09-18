@@ -63,6 +63,7 @@ export default function PortfolioCarousel() {
       {projectsData.map((projectData, i) => {
         return (
           <ProjectCardAnimated
+            key={i}
             index={i}
             projectData={projectData}
             currentIndex={currentIndex}
