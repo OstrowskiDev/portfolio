@@ -43,6 +43,8 @@ export default function PortfolioCarousel() {
       aria-roledescription="carousel"
       className="portfolio-section relative scroll-target w-full h-[calc(100vh-80px)] flex justify-center snap-start bg-primary-800"
     >
+      <h2 className="sr-only">Portfolio projects</h2>
+
       {projectsData.map((projectData, i) => (
         <ProjectBgImage
           key={i}

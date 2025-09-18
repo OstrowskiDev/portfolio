@@ -21,19 +21,25 @@ export default function DesktopLayout() {
           role="region"
           aria-label="Extra projects"
           className="extras-section scroll-target w-full h-[100vh] snap-start"
-        ></section>
+        >
+          <h2 className="sr-only">Extras</h2>
+        </section>
         <section
           id="articles"
           role="region"
           aria-label="Articles"
           className="articles-section scroll-target w-full h-[100vh] snap-start"
-        ></section>
+        >
+          <h2 className="sr-only">Articles</h2>
+        </section>
         <section
           id="contact"
           role="region"
           aria-label="Contact"
           className="contact-section scroll-target w-full h-[100vh] snap-start"
-        ></section>
+        >
+          <h2 className="sr-only">Contact</h2>
+        </section>
       </div>
 
       {introActive && (

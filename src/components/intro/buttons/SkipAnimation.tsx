@@ -20,7 +20,6 @@ export default function SkipAnimation() {
     <button
       ref={buttonRef}
       aria-label="Skip intro animation"
-      tabIndex={2}
       className="skip-button 
         absolute bottom-16 left-1/2 -translate-x-1/2
         flex items-center justify-center

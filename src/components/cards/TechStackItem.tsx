@@ -28,7 +28,7 @@ export default function TechStackItem({
           }}
         />
       )}
-      <span className="item-text text-primary-500 text-sm">{text}</span>
+      <span className="item-text text-primary-600 text-sm">{text}</span>
     </div>
   )
 }

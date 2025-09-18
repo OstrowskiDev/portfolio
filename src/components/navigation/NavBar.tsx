@@ -32,7 +32,7 @@ export default function NavBar() {
           <p className="authors-name text-center font-medium text-2xl">
             Marcin Ostrowski
           </p>
-          <p className="authors-profession text-primary-500 text-center">
+          <p className="authors-profession text-primary-600 text-center">
             Fullstack Developer
           </p>
         </div>
