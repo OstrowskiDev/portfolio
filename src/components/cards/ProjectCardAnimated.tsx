@@ -42,7 +42,7 @@ export default function ProjectCardAnimated({
         absolute top-1/2 left-1/2
         flex flex-col 
         w-[580px] h-[640px] px-6 pt-4 
-        bg-white rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]
+        bg-primary-50 rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]
         font-inter
         transition-transform duration-500 ease-out
         `}
