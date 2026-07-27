@@ -1,0 +1,226 @@
+/* Wymaga w <head>:
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+*/
+
+/* MAIN CONTAINER FOR ARTICLES PAGE */
+.article {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  line-height: 1.7;
+  color: theme('colors.primary.950');
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+/* --- EYEBROW LABEL (tag) --- */
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: theme('colors.accent.700');
+  margin-bottom: 0.5rem;
+}
+
+/* --- HEADERS --- */
+.article h1,
+.article h2,
+.article h3,
+.article h4 {
+  font-family: 'Fraunces', serif;
+  color: theme('colors.primary.950');
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.article h1 {
+  font-size: 2.6rem;
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.article h2 {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.article h3 {
+  font-size: 1.3rem;
+}
+
+/* --- DATE & METADATA --- */
+.meta {
+  display: inline-block;
+  color: theme('colors.primary.500');
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+}
+
+/* --- PARAGRAPHS AND LINKS --- */
+.article p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* FIRST LETTER IS CAPITAL */
+.article > p:first-of-type::first-letter {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 3.2rem;
+  line-height: 0.7;
+  float: left;
+  margin: 0.1rem 0.5rem 0 0;
+  color: theme('colors.accent.700');
+}
+
+.article a {
+  color: theme('colors.accent.700');
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article a:hover {
+  color: theme('colors.accent.900');
+}
+
+/* --- TEXT FORMATTING --- */
+.article strong,
+.article b {
+  font-weight: 600;
+  color: theme('colors.primary.950');
+}
+
+.article em,
+.article i {
+  font-style: italic;
+}
+
+.article del,
+.article s {
+  text-decoration: line-through;
+  color: theme('colors.primary.400');
+}
+
+.article u {
+  text-decoration: underline;
+}
+
+.article sup,
+.article sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.article sup {
+  top: -0.5em;
+}
+.article sub {
+  bottom: -0.25em;
+}
+
+/* --- LISTS --- */
+.article ul,
+.article ol {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-left: 1.4rem;
+}
+
+.article ul {
+  list-style-type: disc;
+}
+.article ol {
+  list-style-type: decimal;
+}
+
+.article li {
+  margin-bottom: 0.4rem;
+}
+
+.article li > ul,
+.article li > ol {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+}
+
+/* --- BLOCKQUOTES (pull-quote, bez ramki i tła) --- */
+.article blockquote {
+  margin: 2.5rem 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: theme('colors.primary.950');
+}
+
+.article blockquote::before {
+  content: '"';
+  color: theme('colors.accent.700');
+  font-size: 2rem;
+  margin-right: 0.15rem;
+}
+
+.article blockquote p {
+  display: inline;
+  margin: 0;
+}
+
+/* --- CODE INLINE AND BLOCK --- */
+.article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: theme('colors.primary.100');
+  color: theme('colors.accent.700');
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.article pre {
+  background-color: theme('colors.primary.950');
+  color: theme('colors.primary.50');
+  padding: 1.25rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.article pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+/* --- MARK / HIGHLIGHT --- */
+.article mark {
+  background-color: theme('colors.accent.100');
+  color: theme('colors.accent.900');
+  padding: 0.1em 0.2em;
+  border-radius: 3px;
+}
+
+/* --- SEPARATORS --- */
+.article hr {
+  border: 0;
+  border-top: 1px solid theme('colors.primary.200');
+  margin: 2.5rem 0;
+}
