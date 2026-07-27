@@ -1,4 +1,4 @@
-import { ProjectData } from '@/types/ProjectDada'
+import { ProjectData } from '@/types'
 
 export default function ProjectBgImage({
   projectData,

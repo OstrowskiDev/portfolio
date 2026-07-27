@@ -1,4 +1,4 @@
-import { ProjectData } from '@/types/ProjectDada'
+import { ProjectData } from '@/types'
 import TechStackItem from './TechStackItem'
 import ExternalLinksSection from './ExternalLinksSection'
 import ProjectCardHeader from './ProjectCardHeader'
