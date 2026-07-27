@@ -4,6 +4,7 @@ import CarouselDots from '../carousel/CarouselDots'
 import CarouselArrow from '../carousel/CarouselArrow'
 import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 import ArticleCard from '../articles/ArticleCard'
+import { articles } from '@/lib/content/articles'
 
 export default function ArticlesSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -43,10 +44,9 @@ export default function ArticlesSection() {
         </h3>
 
         <div className="articles-list w-[680px] h-[420px] mt-8">
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
-          <ArticleCard />
+          {articles.map((article, i) => {
+            return <ArticleCard article={article} key={i} />
+          })}
         </div>
 
         <CarouselDots totalItems={totalProjects} currentIndex={currentIndex} />
