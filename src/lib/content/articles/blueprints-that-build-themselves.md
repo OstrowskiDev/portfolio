@@ -28,4 +28,4 @@ Imagine an architect walking onto an empty construction site, throwing the bluep
 
 That's why programming felt so different to me. As an architect, I designed buildings that depended on hundreds of people before they could exist. As a software engineer, I also build them myself.
 
-`That's the difference I've been looking for.`
+_That's the difference I've been looking for._
