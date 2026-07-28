@@ -4,6 +4,7 @@ import { useIntroAnimation } from '../hooks/introAnimationContext'
 import SkipAnimation from '../intro/buttons/SkipAnimation'
 import PortfolioCarousel from '../sections/PortfolioCarousel'
 import ArticlesSection from '../sections/ArticlesSection'
+import ExtrasSection from '../sections/ExtrasSection'
 
 export default function DesktopLayout() {
   const { introActive } = useIntroAnimation()
@@ -16,22 +17,14 @@ export default function DesktopLayout() {
         <DesktopIntro />
         <NavBar />
         <PortfolioCarousel />
-        <section
-          id="extras"
-          role="region"
-          aria-label="Extra projects"
-          className="extras-section scroll-target w-full h-[100vh] snap-start"
-        >
-          <h2 className="sr-only">Extras</h2>
-        </section>
-
         <ArticlesSection />
+        <ExtrasSection />
 
         <section
           id="contact"
           role="region"
           aria-label="Contact"
-          className="contact-section scroll-target w-full h-[100vh] snap-start"
+          className="contact-section scroll-target w-full h-[calc(100vh-80px)] snap-start"
         >
           <h2 className="sr-only">Contact</h2>
         </section>

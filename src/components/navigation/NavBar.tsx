@@ -36,8 +36,8 @@ export default function NavBar() {
             Fullstack Developer
           </p>
         </div>
-        <NavLink name="Extras" targetId="extras" activeId={activeId} />
         <NavLink name="Articles" targetId="articles" activeId={activeId} />
+        <NavLink name="Extras" targetId="extras" activeId={activeId} />
         <NavLink name="Contact" targetId="contact" activeId={activeId} />
       </div>
     </nav>
