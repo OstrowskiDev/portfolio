@@ -6,9 +6,9 @@ export default function ArticleCard({ article }: { article: Article }) {
   return (
     <Link
       href={`/articles/${slug}`}
-      className="article group border-b flex flex-row w-full h-[140px] p-4 border-primary-300 hover:bg-primary-100"
+      className="article group border-b flex flex-row w-full h-[140px] p-4  border-primary-300 hover:bg-primary-50"
     >
-      <div className="article-iconography w-2 border-r-[3px] border-primary-300 group-hover:border-accent-400 transition-colors duration-400 ease-out"></div>
+      <div className="article-iconography w-2 border-r-[3px] border-primary-300 group-hover:border-accent-600 transition-colors duration-400 ease-out"></div>
       <div className="article-container flex flex-col w-full ml-4">
         <div className="article-tag uppercase text-accent-700 text-xs font-bold tracking-[0.5px] group-hover:translate-x-1 transition-transform duration-200 ease-out">
           {tag}

@@ -34,7 +34,7 @@ export default function ArticlesSection() {
       id="articles"
       role="region"
       aria-label="Articles"
-      className="articles-section relative scroll-target w-full h-[calc(100vh-80px)] snap-start bg-primary-50"
+      className="articles-section relative scroll-target w-full h-[calc(100vh-80px)] snap-start bg-white"
     >
       <h2 className="sr-only">Articles</h2>
 
@@ -51,18 +51,6 @@ export default function ArticlesSection() {
 
         <CarouselDots totalItems={totalProjects} currentIndex={currentIndex} />
       </div>
-
-      {/* {projectsData.map((projectData, i) => {
-        return (
-          <ProjectCardAnimated
-            key={i}
-            index={i}
-            projectData={projectData}
-            currentIndex={currentIndex}
-            totalProjects={totalProjects}
-          />
-        )
-      })} */}
 
       {/* 
       {currentIndex > 0 && (
