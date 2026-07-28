@@ -2,7 +2,6 @@ import { ProjectData } from '@/types'
 import TechStackItem from './TechStackItem'
 import ExternalLinksSection from './ExternalLinksSection'
 import ProjectCardHeader from './ProjectCardHeader'
-import ChallengesSection from './ChallengesSection'
 import LearnedSection from './LearnedSection'
 
 export default function ProjectCardAnimated({
@@ -41,8 +40,10 @@ export default function ProjectCardAnimated({
         project-card-${index} 
         absolute top-1/2 left-1/2
         flex flex-col 
-        w-[580px] h-[640px] px-6 pt-4 
-        bg-primary-50 rounded-xl shadow-[0_0_45px_rgba(0,0,0,.9)]
+        w-[540px] h-[680px] px-6 pt-4 
+        bg-primary-50 
+        border border-primary-600
+        shadow-[0_0_45px_rgba(0,0,0,.9)]
         font-inter
         transition-transform duration-500 ease-out
         `}
@@ -54,20 +55,19 @@ export default function ProjectCardAnimated({
       }}
     >
       <ProjectCardHeader
+        tag={projectData.tag}
         title={projectData.title}
         subtitle={projectData.subtitle}
       />
 
       <ExternalLinksSection links={projectData.links} />
 
-      <ChallengesSection challenges={projectData.challenges} />
-
       <LearnedSection learned={projectData.learned} />
 
       <div
         role="group"
         aria-label="project tech stack"
-        className="project-tech-stack-container flex flex-wrap justify-between mt-auto w-full h-[55px] pt-1 border-t border-primary-300"
+        className="project-tech-stack-container flex flex-wrap justify-around items-end gap-y-1 mt-auto w-full mb-4 pt-1 border-t border-primary-300"
       >
         {projectData.techStack.map((tech, i) => {
           return (

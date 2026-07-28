@@ -82,8 +82,6 @@ export default function PortfolioCarousel() {
           onClick={goToNext}
         />
       )}
-
-      <CarouselDots totalItems={totalProjects} currentIndex={currentIndex} />
     </section>
   )
 }
