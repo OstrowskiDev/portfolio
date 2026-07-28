@@ -38,7 +38,7 @@ export default function ArticlesSection() {
     >
       <h2 className="sr-only">Articles</h2>
 
-      <div className="articles-section-content flex flex-col justify-between items-center h-[calc(100vh-80px) max-w-[720px] m-auto">
+      <div className="articles-section-content flex flex-col justify-between items-center h-full max-w-[720px] m-auto">
         <h3 className="articles-section-label self-start mt-6 text-primary-950 text-2xl font-semibold">
           Thoughts on engineering
         </h3>
