@@ -6,10 +6,13 @@ import PortfolioCarousel from '../sections/PortfolioCarousel'
 import ArticlesSection from '../sections/ArticlesSection'
 import ExtrasSection from '../sections/ExtrasSection'
 import useScrollSpy from '../hooks/useScrollSpy'
+import useNormalizeSectionScroll from '../hooks/useNormalizeSectionScroll'
 
 export default function DesktopLayout() {
   const { introActive } = useIntroAnimation()
   const activeId = useScrollSpy()
+
+  useNormalizeSectionScroll(activeId, introActive)
 
   return (
     <main>
