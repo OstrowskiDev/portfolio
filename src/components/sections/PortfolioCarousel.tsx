@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import { projectsData } from '@/lib/content/projectsData'
-import CarouselDots from '../carousel/CarouselDots'
 import CarouselArrow from '../carousel/CarouselArrow'
 import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 import ProjectCardAnimated from '../cards/ProjectCardAnimated'
 import ProjectBgImage from '../cards/ProjectBgImage'
 
-export default function PortfolioCarousel() {
+export default function PortfolioCarousel({ isActive }: { isActive: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const totalProjects = projectsData.length
 
@@ -30,6 +29,7 @@ export default function PortfolioCarousel() {
   }
 
   useKeyboardNavigation({
+    isActive,
     currentIndex,
     totalItems: totalProjects,
     onPrevious: goToPrevious,

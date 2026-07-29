@@ -2,10 +2,10 @@ import { NavLink } from '../common/NavLink'
 import { useIntroAnimation } from '../hooks/introAnimationContext'
 import useScrollSpy from '../hooks/useScrollSpy'
 
-export default function NavBar() {
+export default function NavBar({ activeId }: { activeId: string }) {
   const { desktopTimelineRef, setIntroActive, setSrReadIntro } =
     useIntroAnimation()
-  const activeId = useScrollSpy()
+  // const activeId = useScrollSpy()
 
   function playOutroAnimation() {
     setTimeout(() => {

@@ -1,14 +1,20 @@
 import { useState } from 'react'
-import { projectsData } from '@/lib/content/projectsData'
-import CarouselDots from '../carousel/CarouselDots'
-import CarouselArrow from '../carousel/CarouselArrow'
-import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 import ArticleCard from '../articles/ArticleCard'
 import { articles } from '@/lib/content/articles'
+import Pagination from '../pagination/Pagination'
+import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 
-export default function ArticlesSection() {
+export default function ArticlesSection({ isActive }: { isActive: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const totalProjects = projectsData.length
+
+  const pageSize = 4
+
+  const totalItems = articles.length
+  const totalPages = Math.ceil(totalItems / pageSize)
+  const currentArticles = articles.slice(
+    currentIndex * pageSize,
+    currentIndex * pageSize + pageSize,
+  )
 
   function goToPrevious() {
     if (currentIndex > 0) {
@@ -17,17 +23,18 @@ export default function ArticlesSection() {
   }
 
   function goToNext() {
-    if (currentIndex < totalProjects - 1) {
+    if (currentIndex < totalPages - 1) {
       setCurrentIndex(currentIndex + 1)
     }
   }
 
-  // useKeyboardNavigation({
-  //   currentIndex,
-  //   totalItems: totalProjects,
-  //   onPrevious: goToPrevious,
-  //   onNext: goToNext,
-  // })
+  useKeyboardNavigation({
+    isActive,
+    currentIndex,
+    totalItems: totalItems,
+    onPrevious: goToPrevious,
+    onNext: goToNext,
+  })
 
   return (
     <section
@@ -44,32 +51,18 @@ export default function ArticlesSection() {
         </h3>
 
         <div className="articles-list w-[680px] h-[420px] mt-8">
-          {articles.map((article, i) => {
+          {currentArticles.map((article, i) => {
             return <ArticleCard article={article} key={i} />
           })}
         </div>
-
-        <CarouselDots totalItems={totalProjects} currentIndex={currentIndex} />
+        <Pagination
+          totalItems={totalPages}
+          currentIndex={currentIndex}
+          goToPrevious={goToPrevious}
+          goToNext={goToNext}
+          sectionLabel={'articles'}
+        />
       </div>
-
-      {/* 
-      {currentIndex > 0 && (
-        <CarouselArrow
-          size={60}
-          direction="left"
-          position="left-[calc(50vw-290px)] -translate-x-[130%]"
-          onClick={goToPrevious}
-        />
-      )} */}
-
-      {/* {currentIndex < totalProjects - 1 && (
-        <CarouselArrow
-          size={60}
-          direction="right"
-          position="right-[calc(50vw-290px)] translate-x-[130%]"
-          onClick={goToNext}
-        />
-      )} */}
     </section>
   )
 }

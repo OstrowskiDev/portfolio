@@ -1,20 +1,42 @@
 'use client'
 
 import { useState } from 'react'
-import CarouselDots from '../carousel/CarouselDots'
 import { extrasData } from '@/lib/content/extrasData'
 import ExtraCard from '../extras/ExtraCard'
+import Pagination from '../pagination/Pagination'
+import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 
-const PAGE_SIZE = 6
-
-export default function ExtrasSection() {
+export default function ExtrasSection({ isActive }: { isActive: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const totalPages = Math.ceil(extrasData.length / PAGE_SIZE)
+  const pageSize = 6
+
+  const totalItems = extrasData.length
+  const totalPages = Math.ceil(totalItems / pageSize)
   const currentExtras = extrasData.slice(
-    currentIndex * PAGE_SIZE,
-    currentIndex * PAGE_SIZE + PAGE_SIZE,
+    currentIndex * pageSize,
+    currentIndex * pageSize + pageSize,
   )
+
+  function goToPrevious() {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    }
+  }
+
+  function goToNext() {
+    if (currentIndex < totalPages - 1) {
+      setCurrentIndex(currentIndex + 1)
+    }
+  }
+
+  useKeyboardNavigation({
+    isActive,
+    currentIndex,
+    totalItems: totalItems,
+    onPrevious: goToPrevious,
+    onNext: goToNext,
+  })
 
   return (
     <section
@@ -36,7 +58,13 @@ export default function ExtrasSection() {
           ))}
         </div>
 
-        <CarouselDots totalItems={totalPages} currentIndex={currentIndex} />
+        <Pagination
+          totalItems={totalPages}
+          currentIndex={currentIndex}
+          goToPrevious={goToPrevious}
+          goToNext={goToNext}
+          sectionLabel={'extras'}
+        />
       </div>
     </section>
   )

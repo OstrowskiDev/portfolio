@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 
 interface UseKeyboardNavigationProps {
+  isActive: boolean
   currentIndex: number
   totalItems: number
   onPrevious: () => void
@@ -8,6 +9,7 @@ interface UseKeyboardNavigationProps {
 }
 
 export default function useKeyboardNavigation({
+  isActive,
   currentIndex,
   totalItems,
   onPrevious,
@@ -15,6 +17,8 @@ export default function useKeyboardNavigation({
 }: UseKeyboardNavigationProps) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      // ignore input when user is in different section
+      if (!isActive) return
       // ignore input when user is typing in textarea/input fields:
       if (
         event.target instanceof HTMLInputElement ||
