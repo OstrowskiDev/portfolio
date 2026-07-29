@@ -6,6 +6,8 @@ export default function ArticleCard({ article }: { article: Article }) {
   return (
     <Link
       href={`/articles/${slug}`}
+      target={'_blank'}
+      rel={'noopener noreferrer'}
       className="article group border-b flex flex-row w-full h-[140px] p-4  border-primary-300 hover:bg-primary-50"
     >
       <div className="article-iconography w-2 border-r-[3px] border-primary-300 group-hover:border-accent-600 transition-colors duration-400 ease-out"></div>
