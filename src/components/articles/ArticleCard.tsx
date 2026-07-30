@@ -8,11 +8,11 @@ export default function ArticleCard({ article }: { article: Article }) {
       href={`/articles/${slug}`}
       target={'_blank'}
       rel={'noopener noreferrer'}
-      className="article group border-b flex flex-row w-full h-[140px] p-4  border-primary-300 hover:bg-primary-50"
+      className="article group border-b flex flex-row w-full h-[140px] p-4  border-primary-300 bg-white"
     >
       <div className="article-iconography w-2 border-r-[3px] border-primary-300 group-hover:border-accent-600 transition-colors duration-400 ease-out"></div>
       <div className="article-container flex flex-col w-full ml-4">
-        <div className="article-tag uppercase text-accent-700 text-xs font-bold tracking-[0.5px] group-hover:translate-x-1 transition-transform duration-200 ease-out">
+        <div className="article-tag uppercase text-accent-600 text-xs font-semibold tracking-[0.5px] group-hover:translate-x-1 transition-transform duration-200 ease-out">
           {tag}
         </div>
         <div className="article-title font-bold mt-1 text-primary-950 text-lg group-hover:translate-x-1 transition-transform duration-200 ease-out">

@@ -7,7 +7,7 @@ import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 export default function ArticlesSection({ isActive }: { isActive: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const pageSize = 4
+  const pageSize = 3
 
   const totalItems = articles.length
   const totalPages = Math.ceil(totalItems / pageSize)
@@ -41,20 +41,24 @@ export default function ArticlesSection({ isActive }: { isActive: boolean }) {
       id="articles"
       role="region"
       aria-label="Articles"
-      className="articles-section relative scroll-target w-full h-[calc(100vh-80px)] snap-start bg-white"
+      className="articles-section flex justify-center items-center scroll-target w-full h-[calc(100vh-80px)] snap-start bg-app-white-bg"
     >
       <h2 className="sr-only">Articles</h2>
 
-      <div className="articles-section-content flex flex-col justify-between items-center h-full max-w-[720px] m-auto">
-        <h3 className="articles-section-label self-start mt-6 text-primary-950 text-2xl font-semibold">
-          Thoughts on engineering
+      <div className="articles-section-content flex flex-col justify-center items-center w-[750px] h-[500px] mb-4">
+        <h3 className="articles-section-label text-primary-950 text-2xl font-semibold">
+          Engineering journey
+          <span className="block text-primary-800 text-base text-center -mt-1">
+            and lessons learned
+          </span>
         </h3>
 
-        <div className="articles-list w-[680px] h-[420px] mt-8">
+        <div className="articles-list w-[720px] h-[460px] mt-4 mb-2">
           {currentArticles.map((article, i) => {
             return <ArticleCard article={article} key={i} />
           })}
         </div>
+
         <Pagination
           totalItems={totalPages}
           currentIndex={currentIndex}

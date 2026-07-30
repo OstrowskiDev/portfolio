@@ -43,16 +43,19 @@ export default function ExtrasSection({ isActive }: { isActive: boolean }) {
       id="extras"
       role="region"
       aria-label="Extras"
-      className="extras-section relative scroll-target w-full h-[calc(100vh-80px)] snap-start bg-white"
+      className="extras-section flex justify-center items-center scroll-target w-full h-[calc(100vh-80px)] snap-start bg-app-white-bg"
     >
       <h2 className="sr-only">Extras</h2>
 
-      <div className="extras-section-content flex flex-col justify-between items-center h-[calc(100vh-80px)] max-w-[720px] m-auto">
-        <h3 className="extras-section-label self-start mt-6 text-primary-950 text-2xl font-semibold">
-          Smaller tools and open-source projects
+      <div className="extras-section-content flex flex-col justify-around items-center h-[640px] max-w-[720px] mb-4">
+        <h3 className="extras-section-label text-primary-950 text-2xl font-semibold">
+          Smaller tools, experiments
+          <span className="block text-primary-800 text-base text-center -mt-1">
+            and open-source projects
+          </span>
         </h3>
 
-        <div className="extras-cards grid grid-cols-3 grid-rows-2 gap-4 w-[680px] h-[480px] mt-8">
+        <div className="extras-cards grid grid-cols-3 grid-rows-2 gap-4 w-[750px] h-[500px] mt-6 mb-2">
           {currentExtras.map((extra, i) => (
             <ExtraCard extra={extra} key={i} />
           ))}
