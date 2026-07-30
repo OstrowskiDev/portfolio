@@ -8,6 +8,7 @@ const config: Config = {
     extend: {
       colors: {
         ...appColors,
+        'app-white-bg': '#fcfcfc',
       },
       screens: {
         xs: '420px',
