@@ -1,12 +1,9 @@
 import { NavLink } from '../common/NavLink'
 import { useIntroAnimation } from '../hooks/introAnimationContext'
-import useScrollSpy from '../hooks/useScrollSpy'
 
 export default function NavBar({ activeId }: { activeId: string }) {
   const { desktopTimelineRef, setIntroActive, setSrReadIntro } =
     useIntroAnimation()
-  // const activeId = useScrollSpy()
-
   function playOutroAnimation() {
     setTimeout(() => {
       if (desktopTimelineRef.current) {
@@ -36,8 +33,13 @@ export default function NavBar({ activeId }: { activeId: string }) {
             Fullstack Developer
           </p>
         </div>
+        <NavLink
+          name="Experiments"
+          targetId="extras"
+          activeId={activeId}
+          className="w-[140px]"
+        />
         <NavLink name="Articles" targetId="articles" activeId={activeId} />
-        <NavLink name="Extras" targetId="extras" activeId={activeId} />
         <NavLink name="Contact" targetId="contact" activeId={activeId} />
       </div>
     </nav>

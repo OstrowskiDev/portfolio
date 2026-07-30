@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const SECTION_IDS = ['home', 'portfolio', 'articles', 'extras', 'contact']
+const SECTION_IDS = ['home', 'portfolio', 'extras', 'articles', 'contact']
 
 // this customHook overrides default browser scroll up/down arrow up/down events
 // reason: Chromium and Firefox handle those very differently

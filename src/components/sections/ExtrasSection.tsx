@@ -49,7 +49,7 @@ export default function ExtrasSection({ isActive }: { isActive: boolean }) {
 
       <div className="extras-section-content flex flex-col justify-between items-center h-[calc(100vh-80px)] max-w-[720px] m-auto">
         <h3 className="extras-section-label self-start mt-6 text-primary-950 text-2xl font-semibold">
-          Side projects and experiments
+          Smaller tools and open-source projects
         </h3>
 
         <div className="extras-cards grid grid-cols-3 grid-rows-2 gap-4 w-[680px] h-[480px] mt-8">

@@ -22,8 +22,8 @@ export default function DesktopLayout() {
         <DesktopIntro />
         <NavBar activeId={activeId} />
         <PortfolioCarousel isActive={activeId === 'portfolio'} />
-        <ArticlesSection isActive={activeId === 'articles'} />
         <ExtrasSection isActive={activeId === 'extras'} />
+        <ArticlesSection isActive={activeId === 'articles'} />
 
         <section
           id="contact"
