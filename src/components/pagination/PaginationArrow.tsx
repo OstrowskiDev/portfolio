@@ -18,6 +18,8 @@ export default function PaginationArrow({
   return (
     <button
       onClick={onClick}
+      disabled={!isActive}
+      aria-disabled={!isActive}
       aria-label={`${direction === 'left' ? 'Previous' : 'Next'} ${sectionLabel}`}
       aria-controls={sectionLabel}
       tabIndex={0}
