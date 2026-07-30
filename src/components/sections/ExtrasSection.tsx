@@ -55,7 +55,7 @@ export default function ExtrasSection({ isActive }: { isActive: boolean }) {
           </span>
         </h3>
 
-        <div className="extras-cards grid grid-cols-3 grid-rows-2 gap-4 w-[750px] h-[500px] mt-6 mb-2">
+        <div className="extras-cards grid grid-cols-3 grid-rows-2 gap-4 w-[750px] h-[500px] shrink-0 mt-6 mb-2">
           {currentExtras.map((extra, i) => (
             <ExtraCard extra={extra} key={i} />
           ))}

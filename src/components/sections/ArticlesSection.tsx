@@ -53,7 +53,7 @@ export default function ArticlesSection({ isActive }: { isActive: boolean }) {
           </span>
         </h3>
 
-        <div className="articles-list w-[720px] h-[460px] mt-4 mb-2">
+        <div className="articles-list flex w-[720px] h-[452px] shrink-0 flex-col justify-start gap-4 mt-4 mb-2">
           {currentArticles.map((article, i) => {
             return <ArticleCard article={article} key={i} />
           })}
