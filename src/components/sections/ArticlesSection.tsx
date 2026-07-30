@@ -1,37 +1,26 @@
-import { useState } from 'react'
+'use client'
+
 import ArticleCard from '../articles/ArticleCard'
 import { articles } from '@/lib/content/articles'
 import Pagination from '../pagination/Pagination'
 import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
+import usePaginatedItems from '../hooks/usePaginatedItems'
 
 export default function ArticlesSection({ isActive }: { isActive: boolean }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-
   const pageSize = 3
 
-  const totalItems = articles.length
-  const totalPages = Math.ceil(totalItems / pageSize)
-  const currentArticles = articles.slice(
-    currentIndex * pageSize,
-    currentIndex * pageSize + pageSize,
-  )
-
-  function goToPrevious() {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
-    }
-  }
-
-  function goToNext() {
-    if (currentIndex < totalPages - 1) {
-      setCurrentIndex(currentIndex + 1)
-    }
-  }
+  const {
+    currentIndex,
+    currentItems: currentArticles,
+    totalPages,
+    goToPrevious,
+    goToNext,
+  } = usePaginatedItems(articles, pageSize)
 
   useKeyboardNavigation({
     isActive,
     currentIndex,
-    totalItems: totalItems,
+    totalItems: totalPages,
     onPrevious: goToPrevious,
     onNext: goToNext,
   })
