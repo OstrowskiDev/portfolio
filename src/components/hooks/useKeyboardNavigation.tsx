@@ -45,5 +45,5 @@ export default function useKeyboardNavigation({
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [currentIndex, totalItems, onPrevious, onNext])
+  }, [isActive, currentIndex, totalItems, onPrevious, onNext])
 }
