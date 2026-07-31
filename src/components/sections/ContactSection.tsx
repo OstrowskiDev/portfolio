@@ -4,6 +4,10 @@ import { useEffect, useRef } from 'react'
 import GridBackground from '../intro/grid/GridBackground'
 import gsap from 'gsap'
 import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
+import ContactFooter from '../contact/ContactFooter'
+import ContactHeader from '../contact/ContactHeader'
+import ContactEmail from '../contact/ContactEmail'
+import ContactInfoCards from '../contact/ContactInfoCards'
 
 export default function ContactSection({ isActive }: { isActive: boolean }) {
   const gridRef = useRef(null)
@@ -21,19 +25,35 @@ export default function ContactSection({ isActive }: { isActive: boolean }) {
     onNext: () => null,
   })
 
+  const boxBgGray = `bg-primary-900/60`
+
   return (
     <section
       id="contact"
       role="region"
       aria-label="Contact"
-      className="contact-section scroll-target snap-start relative flex justify-center items-center  w-full h-[calc(100vh-80px)]"
+      className="contact-section scroll-target snap-start relative flex flex-col items-center w-full h-[calc(100vh-80px)]"
       style={{
-        background: 'radial-gradient(circle, hsl(0,0%,35%), hsl(0,0%,45%))',
+        background: 'radial-gradient(circle, hsl(0,0%,25%), hsl(0,0%,30%))',
       }}
     >
       <h2 className="sr-only">Contact</h2>
 
-      <GridBackground gridRef={gridRef} />
+      <GridBackground
+        gridRef={gridRef}
+        mainColor="hsl(0, 0%, 35%)"
+        secondaryColor="hsl(0, 0%, 30%)"
+      />
+
+      <div className="contact-content relative flex flex-col justify-center items-center flex-1 w-[760px] px-4 py-10 z-10 text-primary-50  ">
+        <ContactHeader />
+
+        <ContactEmail boxBgGray={boxBgGray} />
+
+        <ContactInfoCards boxBgGray={boxBgGray} />
+      </div>
+
+      <ContactFooter />
     </section>
   )
 }
