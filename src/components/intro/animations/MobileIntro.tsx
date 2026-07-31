@@ -24,7 +24,11 @@ export default function MobileIntro() {
           background: 'radial-gradient(circle, hsl(0,0%,35%), hsl(0,0%,45%))',
         }}
       >
-        <GridBackground gridRef={gridRef} />
+        <GridBackground
+          gridRef={gridRef}
+          mainColor="hsl(0, 0%, 55%)"
+          secondaryColor="hsl(0, 0%, 45%)"
+        />
         <div className="intro-animation-container mx-auto min-w-[415px] max-w-[480px]">
           {animPhase === 'architecture' && (
             <ArchBpAnimMobile setAnimPhase={setAnimPhase} />

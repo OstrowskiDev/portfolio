@@ -28,7 +28,11 @@ export default function DesktopIntro() {
         background: 'radial-gradient(circle, hsl(0,0%,35%), hsl(0,0%,45%))',
       }}
     >
-      <GridBackground gridRef={gridRef} />
+      <GridBackground
+        gridRef={gridRef}
+        mainColor="hsl(0, 0%, 55%)"
+        secondaryColor="hsl(0, 0%, 45%)"
+      />
 
       <ScreenReaderIntro />
 

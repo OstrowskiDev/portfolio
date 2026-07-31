@@ -1,12 +1,18 @@
-import type { SVGProps } from 'react'
+import { useId, type SVGProps } from 'react'
 
 interface GridProps extends SVGProps<SVGSVGElement> {
   gridRef?: React.Ref<SVGGElement>
+  mainColor?: string
+  secondaryColor?: string
 }
 
-export default function GridBackground({ gridRef, ...props }: GridProps) {
-  const mainColor = 'hsl(0, 0%, 55%)'
-  const secondaryColor = 'hsl(0, 0%, 45%)'
+export default function GridBackground({
+  gridRef,
+  mainColor = 'hsl(0, 0%, 55%)',
+  secondaryColor = 'hsl(0, 0%, 45%)',
+  ...props
+}: GridProps) {
+  const patternId = `gridPattern-${useId().replace(/:/g, '')}`
 
   return (
     <svg
@@ -18,7 +24,7 @@ export default function GridBackground({ gridRef, ...props }: GridProps) {
     >
       <defs>
         <pattern
-          id="gridPattern"
+          id={patternId}
           x="0"
           y="0"
           width="26.458"
@@ -70,7 +76,7 @@ export default function GridBackground({ gridRef, ...props }: GridProps) {
         </pattern>
       </defs>
 
-      <rect width="100%" height="100%" fill="url(#gridPattern)" />
+      <rect width="100%" height="100%" fill={`url(#${patternId})`} />
     </svg>
   )
 }
