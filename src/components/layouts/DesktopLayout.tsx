@@ -7,6 +7,7 @@ import ArticlesSection from '../sections/ArticlesSection'
 import ExtrasSection from '../sections/ExtrasSection'
 import useScrollSpy from '../hooks/useScrollSpy'
 import useNormalizeSectionScroll from '../hooks/useNormalizeSectionScroll'
+import ContactSection from '../sections/ContactSection'
 
 export default function DesktopLayout() {
   const { introActive } = useIntroAnimation()
@@ -24,15 +25,7 @@ export default function DesktopLayout() {
         <PortfolioCarousel isActive={activeId === 'portfolio'} />
         <ExtrasSection isActive={activeId === 'extras'} />
         <ArticlesSection isActive={activeId === 'articles'} />
-
-        <section
-          id="contact"
-          role="region"
-          aria-label="Contact"
-          className="contact-section scroll-target w-full h-[calc(100vh-80px)] snap-start"
-        >
-          <h2 className="sr-only">Contact</h2>
-        </section>
+        <ContactSection isActive={activeId === 'contact'} />
       </div>
 
       {introActive && (
