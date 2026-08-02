@@ -8,6 +8,7 @@ import ContactFooter from '../contact/ContactFooter'
 import ContactHeader from '../contact/ContactHeader'
 import ContactEmail from '../contact/ContactEmail'
 import ContactInfoCards from '../contact/ContactInfoCards'
+import ContentLocalization from '../contact/ContentLocalization'
 
 export default function ContactSection({ isActive }: { isActive: boolean }) {
   const gridRef = useRef(null)
@@ -49,6 +50,8 @@ export default function ContactSection({ isActive }: { isActive: boolean }) {
         <ContactHeader />
 
         <ContactEmail boxBgGray={boxBgGray} />
+
+        <ContentLocalization />
 
         <ContactInfoCards boxBgGray={boxBgGray} />
       </div>

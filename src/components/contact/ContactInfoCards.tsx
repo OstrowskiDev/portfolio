@@ -2,7 +2,7 @@ import ContactInfoCard from './ContactInfoCard'
 
 export default function ContactInfoCards({ boxBgGray }: { boxBgGray: string }) {
   return (
-    <div className="contact-section-cards grid grid-cols-3 gap-4 w-full mt-10">
+    <div className="contact-section-cards grid grid-cols-3 gap-4 w-full">
       <ContactInfoCard title="stack" boxBgGray={boxBgGray}>
         <p>Node · Next · React</p>
         <p>Tailwind · MongoDB</p>
@@ -18,9 +18,7 @@ export default function ContactInfoCards({ boxBgGray }: { boxBgGray: string }) {
       </ContactInfoCard>
 
       <ContactInfoCard title="status" boxBgGray={boxBgGray}>
-        <p>Currently looking for my first Software Engineer role.</p>
-        <p>Based in Poland (CET)</p>
-        <p>open to remote</p>
+        <p>Looking for my first Software Engineer role.</p>
       </ContactInfoCard>
     </div>
   )
