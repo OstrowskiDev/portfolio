@@ -6,7 +6,7 @@ export default function ContactFooter() {
   function handleDownloadCv() {}
 
   return (
-    <div className="contact-section-footer flex items-center justify-center gap-4 border-t w-full h-12 border-primary-400">
+    <div className="contact-section-footer flex items-center justify-center gap-6 border-t w-full h-12 border-primary-400">
       <a
         href={GITHUB_PLACEHOLDER_URL}
         target="_blank"
@@ -16,6 +16,8 @@ export default function ContactFooter() {
         <GithubIco width={15} height={15} />
         <span>GitHub</span>
       </a>
+
+      <span className="separator text-primary-50">|</span>
 
       <button
         type="button"

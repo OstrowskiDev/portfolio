@@ -25,7 +25,7 @@ export default function ContactEmail({ boxBgGray }: { boxBgGray: string }) {
   }
   return (
     <div
-      className={`contact-email flex justify-center items-center gap-5 w-[720px] h-16 px-6 py-6 mt-10 ${boxBgGray} `}
+      className={`contact-email flex justify-center items-center gap-5 w-[720px] h-16 px-6 py-6 mb-8 ${boxBgGray} rounded-2xl`}
     >
       <a
         href={`mailto:${CONTACT_EMAIL}`}
