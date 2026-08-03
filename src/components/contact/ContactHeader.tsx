@@ -10,9 +10,9 @@ export default function ContactHeader() {
       </h3>
 
       <p className="contact-header-description w-[580px] text-center text-xl leading-[26px] font-normal text-primary-300">
-        <span>Looking for a Fullstack Engineer with an architectural eye</span>
+        <span>Fullstack Engineer with a background in architecture,</span>
         <br />
-        <span>for structure. Open to new roles and collaborations.</span>
+        <span>bringing a system-oriented approach to software.</span>
       </p>
     </div>
   )

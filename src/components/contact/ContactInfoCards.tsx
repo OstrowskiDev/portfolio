@@ -5,20 +5,18 @@ export default function ContactInfoCards({ boxBgGray }: { boxBgGray: string }) {
     <div className="contact-section-cards grid grid-cols-3 gap-4 w-full">
       <ContactInfoCard title="stack" boxBgGray={boxBgGray}>
         <p>Node · Next · React</p>
-        <p>Tailwind · MongoDB</p>
-        <p>Docker · DigitalOcean</p>
-        <p>Cloudflare</p>
+        <p>Tailwind · TypeScript </p>
+        <p>MongoDB · Docker</p>
+        <p>DigitalOcean · Cloudflare</p>
       </ContactInfoCard>
 
-      <ContactInfoCard title="strengths" boxBgGray={boxBgGray}>
-        <p className="text-primary-100">
-          Placeholder - 2 to 3 sentences describing where you add the most value
-          on a team.
-        </p>
+      <ContactInfoCard title="core strengths" boxBgGray={boxBgGray}>
+        <p>Full product perspective</p>
+        <p className="mt-2">10+ years delivering real-world projects</p>
       </ContactInfoCard>
 
       <ContactInfoCard title="status" boxBgGray={boxBgGray}>
-        <p>Looking for my first Software Engineer role.</p>
+        <p>Open to Software Engineer roles.</p>
       </ContactInfoCard>
     </div>
   )
