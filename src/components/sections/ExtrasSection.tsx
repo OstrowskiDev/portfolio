@@ -1,13 +1,16 @@
 'use client'
 
 import { extrasData } from '@/lib/content/extrasData'
+import { appScreens } from '@/lib/tailwind/screens'
 import ExtraCard from '../extras/ExtraCard'
+import useMediaQuery from '../hooks/useMediaQuery'
 import Pagination from '../pagination/Pagination'
 import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 import usePaginatedItems from '../hooks/usePaginatedItems'
 
 export default function ExtrasSection({ isActive }: { isActive: boolean }) {
-  const pageSize = 6
+  const isLargeScreen = useMediaQuery(`(min-width: ${appScreens.lg})`)
+  const pageSize = isLargeScreen ? 8 : 6
 
   const {
     currentIndex,
@@ -34,7 +37,7 @@ export default function ExtrasSection({ isActive }: { isActive: boolean }) {
     >
       <h2 className="sr-only">Extras</h2>
 
-      <div className="extras-section-content flex flex-col justify-around items-center h-[640px] max-w-[720px] mb-4">
+      <div className="extras-section-content flex flex-col justify-around items-center h-[640px] max-w-[760px] lg:max-w-[1280px] mb-4">
         <h3 className="extras-section-label text-primary-950 text-2xl font-semibold">
           Smaller tools, experiments
           <span className="block text-primary-800 text-base text-center -mt-1">
@@ -42,7 +45,7 @@ export default function ExtrasSection({ isActive }: { isActive: boolean }) {
           </span>
         </h3>
 
-        <div className="extras-cards grid grid-cols-3 grid-rows-2 gap-4 w-[750px] h-[500px] shrink-0 mt-6 mb-2">
+        <div className="extras-cards grid grid-cols-3 lg:grid-cols-4 grid-rows-2 gap-4 w-full h-[500px] shrink-0 mt-6 mb-2">
           {currentExtras.map((extra, i) => (
             <ExtraCard extra={extra} key={i} />
           ))}
