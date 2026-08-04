@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { appScreens } from './src/lib/tailwind/screens'
 
 const { appColors } = require('./src/lib/tailwind/appColors')
 
@@ -10,9 +11,7 @@ const config: Config = {
         ...appColors,
         'app-white-bg': '#fcfcfc',
       },
-      screens: {
-        xs: '420px',
-      },
+      screens: appScreens,
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],
         roboto: ['var(--font-roboto)', 'sans-serif'],
