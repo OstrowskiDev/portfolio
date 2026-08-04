@@ -12,10 +12,18 @@ export default function useNormalizeSectionScroll(
   introActive: boolean,
 ) {
   const scrollCooldown = useRef(false)
+  const activeIdRef = useRef(activeId)
+  const introActiveRef = useRef(introActive)
+  const cooldownTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    function navigate(direction: 'up' | 'down') {
-      const currentIndex = SECTION_IDS.indexOf(activeId)
+    activeIdRef.current = activeId
+    introActiveRef.current = introActive
+  }, [activeId, introActive])
+
+  useEffect(() => {
+    function navigateToAdjacentSection(direction: 'up' | 'down') {
+      const currentIndex = SECTION_IDS.indexOf(activeIdRef.current)
       if (currentIndex === -1) return
 
       const nextIndex =
@@ -32,20 +40,30 @@ export default function useNormalizeSectionScroll(
 
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return
-      if (introActive) return
+      if (introActiveRef.current) return
+      if (scrollCooldown.current) return
+      scrollCooldown.current = true
+
       e.preventDefault()
-      navigate(e.key === 'ArrowDown' ? 'down' : 'up')
+      navigateToAdjacentSection(e.key === 'ArrowDown' ? 'down' : 'up')
+
+      cooldownTimeoutRef.current = setTimeout(() => {
+        scrollCooldown.current = false
+      }, 150)
     }
 
     function handleWheel(e: WheelEvent) {
-      if (introActive) return
+      if (introActiveRef.current) return
+
       e.preventDefault()
       if (scrollCooldown.current) return
+
       scrollCooldown.current = true
-      navigate(e.deltaY > 0 ? 'down' : 'up')
-      setTimeout(() => {
+      navigateToAdjacentSection(e.deltaY > 0 ? 'down' : 'up')
+
+      cooldownTimeoutRef.current = setTimeout(() => {
         scrollCooldown.current = false
-      }, 350)
+      }, 150)
     }
 
     window.addEventListener('keydown', handleKeyDown)
@@ -53,6 +71,10 @@ export default function useNormalizeSectionScroll(
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('wheel', handleWheel)
+
+      if (cooldownTimeoutRef.current) {
+        clearTimeout(cooldownTimeoutRef.current)
+      }
     }
-  }, [activeId, introActive])
+  }, [])
 }
