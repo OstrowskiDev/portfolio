@@ -22,7 +22,7 @@ export default function ArticleCard({ article }: { article: Article }) {
           {description}
         </div>
       </div>
-      <div className="article-metadata flex flex-col justify-center items-end w-[180px] ml-2">
+      <div className="article-metadata flex flex-col justify-center items-end w-[120px] ml-2">
         <div className="article-creation-data text-sm text-primary-400 font-semibold">
           {created}
         </div>

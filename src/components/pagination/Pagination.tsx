@@ -17,7 +17,7 @@ export default function Pagination({
 }: PaginationProps) {
   return (
     <div
-      className={`${sectionLabel}-pagination-container flex flex-row justify-center items-center mb-16`}
+      className={`${sectionLabel}-pagination-container flex flex-row justify-center items-center`}
     >
       <PaginationArrow
         size={32}
