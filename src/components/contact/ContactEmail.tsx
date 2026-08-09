@@ -1,7 +1,7 @@
 import { MailIcon } from '@/components/icons/MailIcon'
 import CopyToClipboardBtn from './CopyToClipboardBtn'
 
-const CONTACT_EMAIL = 'marcin.ostrowski.coding@gmail.com'
+const CONTACT_EMAIL = 'contact@ostrowskidev.com'
 
 export default function ContactEmail({ boxBgGray }: { boxBgGray: string }) {
   return (
