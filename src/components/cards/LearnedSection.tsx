@@ -1,7 +1,7 @@
 export default function LearnedSection({ learned }: { learned: string[] }) {
   return (
     <div className="project-card-learned mt-4">
-      <h3 className="learned-label mb-2 text-sm font-semibold uppercase text-accent-700 tracking-[0.5px]">
+      <h3 className="learned-label mb-2 text-sm font-semibold uppercase text-accent-600 tracking-[0.5px]">
         What I learned:
       </h3>
       <ul className="learned-list list-disc pl-5">
