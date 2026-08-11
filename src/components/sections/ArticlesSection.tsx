@@ -6,7 +6,7 @@ import Pagination from '../pagination/Pagination'
 import useKeyboardNavigation from '../hooks/useKeyboardNavigation'
 import usePaginatedItems from '../hooks/usePaginatedItems'
 import useMediaQuery from '../hooks/useMediaQuery'
-import { appScreens } from '@/lib/tailwind/screens'
+import { appScreens } from '@/lib/responsive'
 
 export default function ArticlesSection({ isActive }: { isActive: boolean }) {
   const isLargeScreen = useMediaQuery(`(min-width: ${appScreens.lg})`)

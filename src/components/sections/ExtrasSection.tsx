@@ -1,7 +1,7 @@
 'use client'
 
 import { extrasData } from '@/lib/content/extrasData'
-import { appScreens } from '@/lib/tailwind/screens'
+import { appScreens } from '@/lib/responsive'
 import ExtraCard from '../extras/ExtraCard'
 import useMediaQuery from '../hooks/useMediaQuery'
 import Pagination from '../pagination/Pagination'

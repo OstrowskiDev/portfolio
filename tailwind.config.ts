@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { appScreens } from './src/lib/tailwind/screens'
+import { appScreens } from './src/lib/responsive'
 
 const { appColors } = require('./src/lib/tailwind/appColors')
 
