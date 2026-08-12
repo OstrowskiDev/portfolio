@@ -5,4 +5,5 @@ export const appScreens = {
 
 export const appHeight = {
   short: '(max-height: 800px)',
+  tall: '(min-height: 801px)',
 } as const

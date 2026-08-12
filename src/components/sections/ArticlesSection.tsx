@@ -33,7 +33,7 @@ export default function ArticlesSection({ isActive }: { isActive: boolean }) {
       id="articles"
       role="region"
       aria-label="Articles"
-      className="articles-section flex justify-center items-center scroll-target h-[calc(100vh-80px)] px-12 snap-start bg-app-white-bg"
+      className="articles-section flex justify-center items-center scroll-target h-[800px] tall:h-[calc(100vh-80px)] px-12 snap-start bg-app-white-bg"
     >
       <h2 className="sr-only">Articles</h2>
 

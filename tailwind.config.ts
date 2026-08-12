@@ -14,6 +14,7 @@ const config: Config = {
       screens: {
         ...appScreens,
         short: { raw: appHeight.short },
+        tall: { raw: appHeight.tall },
       },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],
