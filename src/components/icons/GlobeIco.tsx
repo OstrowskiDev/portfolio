@@ -1,8 +1,11 @@
 import type { SVGProps } from 'react'
-export default function GlobeIco(props: SVGProps<SVGSVGElement>) {
+export default function GlobeIco({
+  className,
+  ...props
+}: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className="globe-ico"
+      className={['globe-ico', className].filter(Boolean).join(' ')}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       stroke="currentColor"

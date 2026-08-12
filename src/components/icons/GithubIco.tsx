@@ -1,8 +1,11 @@
 import type { SVGProps } from 'react'
-export default function GithubIco(props: SVGProps<SVGSVGElement>) {
+export default function GithubIco({
+  className,
+  ...props
+}: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className="github-ico"
+      className={['github-ico', className].filter(Boolean).join(' ')}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 98 96"
       {...props}

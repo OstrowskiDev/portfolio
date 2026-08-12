@@ -1,8 +1,11 @@
 import type { SVGProps } from 'react'
-export default function TextIco(props: SVGProps<SVGSVGElement>) {
+export default function TextIco({
+  className,
+  ...props
+}: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className="case-study-ico"
+      className={['case-study-ico', className].filter(Boolean).join(' ')}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       stroke="currentColor"
