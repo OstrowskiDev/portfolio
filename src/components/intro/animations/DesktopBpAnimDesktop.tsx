@@ -73,8 +73,11 @@ export default function DesktopBpAnimDesktop() {
 
     tl.addLabel('animation-end')
 
+    const navOffset = window.matchMedia('(max-height: 800px)').matches
+      ? '60px'
+      : '80px'
     // prettier-ignore
-    const animationEnd = { height: 'calc(100vh - 80px)', duration: 0.8, ease: 'power3.out' }
+    const animationEnd = { height: `calc(100vh - ${navOffset})`, duration: 0.8, ease: 'power3.out' }
     tl.to(home, animationEnd, '>')
 
     tl.call(() => {
