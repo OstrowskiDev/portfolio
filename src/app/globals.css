@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* dynamic scroll-margin-top offset. */
+:root {
+  --nav-height: 60px;
+}
+
+@media (min-height: 801px) {
+  :root {
+    --nav-height: 80px;
+  }
+}
+
 .scroll-target {
-  scroll-margin-top: 80px;
+  scroll-margin-top: var(--nav-height);
 }
