@@ -40,7 +40,8 @@ export default function ProjectCardAnimated({
         project-card-${index} 
         absolute top-1/2 left-1/2
         flex flex-col 
-        w-[540px] h-[680px] px-6 pt-4 
+        w-[540px] h-[540px] tall:h-[680px] 
+        px-5 tall:px-6 pt-4 
         bg-primary-50 
         border border-primary-600
         shadow-[0_0_45px_rgba(0,0,0,.9)]
@@ -67,7 +68,7 @@ export default function ProjectCardAnimated({
       <div
         role="group"
         aria-label="project tech stack"
-        className="project-tech-stack-container flex flex-wrap justify-around items-end gap-y-1 mt-auto w-full mb-4 pt-1 border-t border-primary-300"
+        className="project-tech-stack-container flex flex-wrap justify-around items-end gap-x-4 tall:gap-x-0 gap-y-1 mt-auto w-full mb-3 tall:mb-4 pt-1 border-t border-primary-300"
       >
         {projectData.techStack.map((tech, i) => {
           return (

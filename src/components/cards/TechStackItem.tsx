@@ -12,10 +12,10 @@ export default function TechStackItem({
   const icoName = ico ?? text.toLowerCase()
 
   return (
-    <div className="tech-stack-item flex items-center h-[17px] gap-x-2">
+    <div className="tech-stack-item flex items-center h-[15px] tall:h-[17px] tall:gap-x-2">
       {!noIcon && (
         <div
-          className="item-ico mr-1 h-[16px] w-[16px] bg-primary-400"
+          className="item-ico mr-1 h-[14px] tall:h-[16px] w-[14px] tall:w-[16px] bg-primary-400"
           style={{
             maskImage: `url(./icons/${icoName}.svg)`,
             WebkitMaskImage: `url(./icons/${icoName}.svg)`,
@@ -28,7 +28,9 @@ export default function TechStackItem({
           }}
         />
       )}
-      <span className="item-text text-primary-600 text-sm">{text}</span>
+      <span className="item-text text-primary-600 text-[13px] leading-[1.4] tall:text-sm">
+        {text}
+      </span>
     </div>
   )
 }
