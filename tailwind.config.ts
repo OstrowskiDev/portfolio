@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { appScreens } from './src/lib/responsive'
+import { appHeight, appScreens } from './src/lib/responsive'
 
 const { appColors } = require('./src/lib/tailwind/appColors')
 
@@ -11,7 +11,10 @@ const config: Config = {
         ...appColors,
         'app-white-bg': '#fcfcfc',
       },
-      screens: appScreens,
+      screens: {
+        ...appScreens,
+        short: { raw: appHeight.short },
+      },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],
         roboto: ['var(--font-roboto)', 'sans-serif'],
