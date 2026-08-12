@@ -19,6 +19,7 @@ export const projectsData = [
       'Safely overwriting local config files without triggering OS permission issues.',
       'Building a live demo version for non-dev users without requiring local setup.',
       'Stronger planning led to smoother dev process and less code chaos overall.',
+      'Value safety - from rate limiting and validation to firewall and hosting.',
     ],
     techStack: [
       { text: 'Node.js', ico: 'nodejs' },
@@ -51,7 +52,6 @@ export const projectsData = [
       'Designing a scalable nested MongoDB structure with optimized aggregation pipelines.',
       'Implementing a full authentication flow with email verification, recovery, and GDPR compliance.',
       'Building a dual-mode Markdown/Rich Text editor with custom formatting extensions.',
-      'Value safety - from rate limiting and validation to firewall and hosting.',
     ],
     techStack: [
       { text: 'Next.js', ico: 'nextjs' },
