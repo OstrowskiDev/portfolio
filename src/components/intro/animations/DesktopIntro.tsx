@@ -23,7 +23,7 @@ export default function DesktopIntro() {
       id="home"
       role="region"
       aria-label="home"
-      className="intro-section relative h-[100vh] w-full overflow-hidden snap-start"
+      className="intro-section relative h-[100vh] w-full overflow-hidden tall:snap-start"
       style={{
         background: 'radial-gradient(circle, hsl(0,0%,35%), hsl(0,0%,45%))',
       }}

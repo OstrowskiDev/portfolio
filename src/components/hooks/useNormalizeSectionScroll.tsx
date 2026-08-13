@@ -10,6 +10,7 @@ const SECTION_IDS = ['home', 'portfolio', 'extras', 'articles', 'contact']
 export default function useNormalizeSectionScroll(
   activeId: string,
   introActive: boolean,
+  disabled: boolean,
 ) {
   const scrollCooldown = useRef(false)
   const activeIdRef = useRef(activeId)
@@ -22,6 +23,8 @@ export default function useNormalizeSectionScroll(
   }, [activeId, introActive])
 
   useEffect(() => {
+    if (disabled) return
+
     function navigateToAdjacentSection(direction: 'up' | 'down') {
       const currentIndex = SECTION_IDS.indexOf(activeIdRef.current)
       if (currentIndex === -1) return
@@ -76,5 +79,5 @@ export default function useNormalizeSectionScroll(
         clearTimeout(cooldownTimeoutRef.current)
       }
     }
-  }, [])
+  }, [disabled])
 }

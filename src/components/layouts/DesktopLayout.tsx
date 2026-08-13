@@ -8,12 +8,15 @@ import ExtrasSection from '../sections/ExtrasSection'
 import useScrollSpy from '../hooks/useScrollSpy'
 import useNormalizeSectionScroll from '../hooks/useNormalizeSectionScroll'
 import ContactSection from '../sections/ContactSection'
+import useMediaQuery from '../hooks/useMediaQuery'
+import { appHeight } from '@/lib/responsive'
 
 export default function DesktopLayout() {
   const { introActive } = useIntroAnimation()
   const activeId = useScrollSpy()
+  const isShortViewport = useMediaQuery(appHeight.short)
 
-  useNormalizeSectionScroll(activeId, introActive)
+  useNormalizeSectionScroll(activeId, introActive, isShortViewport)
 
   return (
     <main>
