@@ -33,7 +33,7 @@ export default function ContactSection({ isActive }: { isActive: boolean }) {
       id="contact"
       role="region"
       aria-label="Contact"
-      className="contact-section scroll-target tall:snap-start relative flex flex-col items-center w-full h-[800px] tall:h-[calc(100vh-80px)]"
+      className="contact-section scroll-target tall:snap-start relative flex flex-col items-center w-full h-[max(720px,calc(100vh-60px))] tall:h-[calc(100vh-80px)]"
       style={{
         background: 'radial-gradient(circle, hsl(0,0%,30%), hsl(0,0%,35%))',
       }}

@@ -33,7 +33,7 @@ export default function ExtrasSection({ isActive }: { isActive: boolean }) {
       id="extras"
       role="region"
       aria-label="Extras"
-      className="extras-section flex justify-center items-center scroll-target w-full h-[800px] tall:h-[calc(100vh-80px)] px-12 tall:snap-start bg-app-white-bg"
+      className="extras-section flex justify-center items-center scroll-target w-full h-[max(740px,calc(100vh-60px))] tall:h-[calc(100vh-80px)] px-12 tall:snap-start bg-app-white-bg border border-b-primary-400"
     >
       <h2 className="sr-only">Extras</h2>
 

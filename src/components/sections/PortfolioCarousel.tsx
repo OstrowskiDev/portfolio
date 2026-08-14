@@ -41,7 +41,7 @@ export default function PortfolioCarousel({ isActive }: { isActive: boolean }) {
       id="portfolio"
       aria-label="Portfolio projects carousel"
       aria-roledescription="carousel"
-      className="portfolio-section relative scroll-target w-full h-[680px] tall:h-[calc(100vh-80px)] flex justify-center tall:snap-start bg-primary-800"
+      className="portfolio-section relative scroll-target w-full h-[max(720px,calc(100vh-60px))] tall:h-[calc(100vh-80px)] flex justify-center tall:snap-start bg-primary-800"
     >
       <h2 className="sr-only">Portfolio projects</h2>
 
