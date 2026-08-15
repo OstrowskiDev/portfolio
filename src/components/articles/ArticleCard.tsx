@@ -18,7 +18,7 @@ export default function ArticleCard({ article }: { article: Article }) {
         <div className="article-title truncate font-bold mt-1 text-primary-950 text-lg group-hover:translate-x-1 transition-transform duration-200 ease-out">
           {title}
         </div>
-        <div className="article-description text-sm mt-1 text-primary-500 font-semibold leading-[1.55] group-hover:text-primary-700 group-hover:translate-x-1 transition-transform duration-200 ease-out">
+        <div className="article-description text-sm mt-1 text-primary-500 font-semibold leading-[1.55] group-hover:text-primary-700 group-hover:translate-x-1 transition-transform duration-200 ease-out overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
           {description}
         </div>
       </div>
