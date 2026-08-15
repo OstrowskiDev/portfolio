@@ -5,7 +5,11 @@ import { useEffect, useRef } from 'react'
 import ArchitectureBlueprint from '@/components/intro/svgr/ArchitectureBlueprint'
 import { useIntroAnimation } from '@/components/hooks/introAnimationContext'
 
-export default function ArchBpAnimDesktop() {
+export default function ArchBpAnimDesktop({
+  isShortViewport = false,
+}: {
+  isShortViewport?: boolean
+}) {
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
   const axesRef = useRef<SVGGElement | null>(null)
@@ -22,7 +26,13 @@ export default function ArchBpAnimDesktop() {
     const svgGroups = svgRef.current.querySelectorAll('g')
     const structFillGroup = svgRef.current.querySelectorAll('.struct-fill')
     const descriptFillGroup = svgRef.current.querySelectorAll('.descript-fill')
+    const shortScale = isShortViewport ? 0.8 : 1
 
+    gsap.set(svgRef.current, {
+      scale: shortScale,
+      transformOrigin: '0% 0%',
+      opacity: 1,
+    })
     gsap.set([svgGroups], { opacity: 1 })
     gsap.set([structFillGroup], { opacity: 0 })
     gsap.set([descriptFillGroup], { opacity: 0 })
@@ -71,14 +81,21 @@ export default function ArchBpAnimDesktop() {
     return () => {
       tl.kill()
     }
-  }, [])
+  }, [isShortViewport])
 
   return (
     <>
       <div className="intro-section relative h-[100vh] w-full overflow-hidden">
         <h2
           ref={textRef}
-          className="intro-line-one absolute top-28 left-12 w-[875px] font-bold italic text-[40px] text-primary-100 select-none opacity-0 z-40"
+          className={`intro-line-one 
+            absolute top-28 left-20 tall:left-12 
+            w-[400px] tall:w-[875px] 
+            font-bold italic 
+            text-[32px] tall:text-[40px] 
+            text-primary-100 
+            select-none 
+            opacity-0 z-40`}
         >
           I spent over a decade shaping physical spaces - as an architect.
         </h2>

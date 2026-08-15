@@ -6,7 +6,11 @@ import { getNodes } from '@/lib/helpers'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
-export default function DesktopBpAnimDesktop() {
+export default function DesktopBpAnimDesktop({
+  isShortViewport = false,
+}: {
+  isShortViewport?: boolean
+}) {
   const { setAnimPhase, setIntroActive, introActive, desktopTimelineRef } =
     useIntroAnimation()
   const svgRef = useRef<SVGGElement | null>(null)
@@ -14,6 +18,13 @@ export default function DesktopBpAnimDesktop() {
 
   useEffect(() => {
     if (!svgRef.current || !textRef.current) return
+
+    const shortScale = isShortViewport ? 0.8 : 1
+    gsap.set(svgRef.current, {
+      scale: shortScale,
+      transformOrigin: '0% 20%',
+      opacity: 1,
+    })
 
     const framePaths = getNodes(svgRef, '.frame path')
     const layout = getNodes(svgRef, '.layout')
@@ -96,7 +107,7 @@ export default function DesktopBpAnimDesktop() {
       tl.kill()
       desktopTimelineRef.current = null
     }
-  }, [])
+  }, [isShortViewport])
 
   useEffect(() => {
     // functionality for skip animation button
@@ -110,7 +121,14 @@ export default function DesktopBpAnimDesktop() {
       <div className="intro-section hero-section relative h-[100vh] w-full overflow-hidden">
         <h1
           ref={textRef}
-          className="intro-line-one absolute top-28 left-20 w-[875px] font-bold italic text-[40px] text-primary-100 select-none opacity-0 z-50"
+          className={`intro-line-one 
+            absolute top-28 left-20 tall:left-12 
+            w-[400px] tall:w-[875px] 
+            font-bold italic 
+            text-[32px] tall:text-[40px] 
+            text-primary-100 
+            select-none 
+            opacity-0 z-40`}
         >
           I’m Marcin Ostrowski,
           <br /> and I bring ideas to life

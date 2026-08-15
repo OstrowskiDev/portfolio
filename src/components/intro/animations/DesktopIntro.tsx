@@ -9,7 +9,11 @@ import gsap from 'gsap'
 import { useIntroAnimation } from '@/components/hooks/introAnimationContext'
 import ScreenReaderIntro from './ScreenReaderIntro'
 
-export default function DesktopIntro() {
+export default function DesktopIntro({
+  isShortViewport = false,
+}: {
+  isShortViewport?: boolean
+}) {
   const { animPhase } = useIntroAnimation()
   const gridRef = useRef(null)
 
@@ -40,9 +44,13 @@ export default function DesktopIntro() {
         className="intro-animation-container mx-auto max-w-[1520px]"
         aria-hidden="true"
       >
-        {animPhase === 'architecture' && <ArchBpAnimDesktop />}
+        {animPhase === 'architecture' && (
+          <ArchBpAnimDesktop isShortViewport={isShortViewport} />
+        )}
         {animPhase === 'mobile' && <MobileBpAnimDesktop />}
-        {animPhase === 'desktop' && <DesktopBpAnimDesktop />}
+        {animPhase === 'desktop' && (
+          <DesktopBpAnimDesktop isShortViewport={isShortViewport} />
+        )}
       </div>
     </section>
   )

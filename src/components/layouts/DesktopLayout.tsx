@@ -23,7 +23,7 @@ export default function DesktopLayout() {
       <div
         className={`main-container w-full bg-white snap-y snap-mandatory scroll-smooth ${introActive ? 'fixed overflow-hidden' : 'h-screen overflow-y-scroll'} `}
       >
-        <DesktopIntro />
+        <DesktopIntro isShortViewport={isShortViewport} />
         <NavBar activeId={activeId} />
         <PortfolioCarousel isActive={activeId === 'portfolio'} />
         <ExtrasSection isActive={activeId === 'extras'} />
