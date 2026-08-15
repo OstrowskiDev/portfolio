@@ -11,7 +11,7 @@ export default function ProjectBgImage({
     <div
       className="project-background-image 
                 absolute top-0 left-0
-                w-full h-[max(740px,calc(100vh-60px))] tall:h-[calc(100vh-80px)]
+                w-full h-[max(720px,calc(100vh-60px))] tall:h-[calc(100vh-80px)]
                 border-[12px] overflow-hidden
                 font-inter
                 transition-opacity duration-500 ease-in"
