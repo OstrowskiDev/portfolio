@@ -20,42 +20,45 @@ export default function DesktopBpAnimDesktop({
   useEffect(() => {
     if (!svgRef.current || !textRef.current || !containerRef.current) return
 
-    const syncSvgToParent = () => {
+    // below func positions svg in such a way that h1 will be always in its empty zone (top center-left)
+    function syncSvgToHeader() {
       const parent = containerRef.current
       const svg = svgRef.current
       const text = textRef.current
 
       if (!parent || !svg || !text) return
 
+      const svgAspectRatio = 317.5 / 158.75
+      const svgScale = 0.95
+      const svgAnchor = 0.38
+
       const parentRect = parent.getBoundingClientRect()
       const textRect = text.getBoundingClientRect()
       const parentHeight = parent.clientHeight
-      const svgWidth = svg.clientWidth
-      const viewBoxWidth = 317.5
-      const viewBoxHeight = 158.75
-      const svgScale = 0.95
-      const height = parentHeight * svgScale
-      const width = (viewBoxWidth / viewBoxHeight) * height
-      const textRight = textRect.right - parentRect.left
-      const verticalLift = parentHeight * 0.02
 
-      const thresholdX = svgWidth * 0.38
-      const left = textRight - thresholdX - (isShortViewport ? 0 : 350)
+      const height = parentHeight * svgScale
+      const width = svgAspectRatio * height
+
+      const textRight = textRect.right - parentRect.left
+      const anchorX = width * svgAnchor
+      const left = textRight - anchorX - (isShortViewport ? 0 : 350)
+
+      const top = parentHeight / 2 - parentHeight * 0.02
 
       svg.style.position = 'absolute'
       svg.style.display = 'block'
       svg.style.width = `${width}px`
       svg.style.height = `${height}px`
       svg.style.left = `${left}px`
-      svg.style.top = `${parentHeight / 2 - verticalLift}px`
+      svg.style.top = `${top}px`
       svg.style.transform = 'translateY(-50%)'
       svg.style.transformOrigin = 'left center'
       svg.style.opacity = '1'
     }
 
-    syncSvgToParent()
+    syncSvgToHeader()
 
-    const resizeObserver = new ResizeObserver(() => syncSvgToParent())
+    const resizeObserver = new ResizeObserver(() => syncSvgToHeader())
     resizeObserver.observe(containerRef.current)
     resizeObserver.observe(textRef.current)
 
