@@ -15,14 +15,59 @@ export default function DesktopBpAnimDesktop({
     useIntroAnimation()
   const svgRef = useRef<SVGGElement | null>(null)
   const textRef = useRef<HTMLHeadingElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    if (!svgRef.current || !textRef.current || !containerRef.current) return
+
+    const syncSvgToParent = () => {
+      const parent = containerRef.current
+      const svg = svgRef.current
+      const text = textRef.current
+
+      if (!parent || !svg || !text) return
+
+      const parentRect = parent.getBoundingClientRect()
+      const textRect = text.getBoundingClientRect()
+      const parentHeight = parent.clientHeight
+      const svgWidth = svg.clientWidth
+      const viewBoxWidth = 317.5
+      const viewBoxHeight = 158.75
+      const svgScale = 0.95
+      const height = parentHeight * svgScale
+      const width = (viewBoxWidth / viewBoxHeight) * height
+      const textRight = textRect.right - parentRect.left
+      const verticalLift = parentHeight * 0.02
+
+      const thresholdX = svgWidth * 0.38
+      const left = textRight - thresholdX - (isShortViewport ? 0 : 350)
+
+      svg.style.position = 'absolute'
+      svg.style.display = 'block'
+      svg.style.width = `${width}px`
+      svg.style.height = `${height}px`
+      svg.style.left = `${left}px`
+      svg.style.top = `${parentHeight / 2 - verticalLift}px`
+      svg.style.transform = 'translateY(-50%)'
+      svg.style.transformOrigin = 'left center'
+      svg.style.opacity = '1'
+    }
+
+    syncSvgToParent()
+
+    const resizeObserver = new ResizeObserver(() => syncSvgToParent())
+    resizeObserver.observe(containerRef.current)
+    resizeObserver.observe(textRef.current)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [isShortViewport])
 
   useEffect(() => {
     if (!svgRef.current || !textRef.current) return
 
-    const shortScale = isShortViewport ? 0.8 : 1
     gsap.set(svgRef.current, {
-      scale: shortScale,
-      transformOrigin: '0% 20%',
       opacity: 1,
     })
 
@@ -118,7 +163,10 @@ export default function DesktopBpAnimDesktop({
 
   return (
     <>
-      <div className="intro-section hero-section relative h-[100vh] w-full overflow-hidden">
+      <div
+        ref={containerRef}
+        className="intro-section hero-section relative h-[100vh] w-full overflow-visible"
+      >
         <h1
           ref={textRef}
           className={`intro-line-one 
